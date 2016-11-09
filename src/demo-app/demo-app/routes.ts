@@ -28,6 +28,7 @@ import {DialogDemo} from '../dialog/dialog-demo';
 import {TooltipDemo} from '../tooltip/tooltip-demo';
 import {SnackBarDemo} from '../snack-bar/snack-bar-demo';
 import {TABS_DEMO_ROUTES} from '../tabs/routes';
+import {UiKitDemo} from '../ui-kit/ui-kit-demo';
 
 export const DEMO_APP_ROUTES: Routes = [
   {path: '', component: Home},
@@ -58,4 +59,5 @@ export const DEMO_APP_ROUTES: Routes = [
   {path: 'dialog', component: DialogDemo},
   {path: 'tooltip', component: TooltipDemo},
   {path: 'snack-bar', component: SnackBarDemo},
+  {path: 'ui-kit', component: UiKitDemo},
 ];
