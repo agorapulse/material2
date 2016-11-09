@@ -35,6 +35,10 @@ import {MenuDemo} from './menu/menu-demo';
 import {TabsDemo, SunnyTabContent, RainyTabContent, FoggyTabContent} from './tabs/tabs-demo';
 import {ProjectionDemo, ProjectionTestComponent} from './projection/projection-demo';
 
+
+/* Agorapulse UI KIT */
+import {UiKitDemo} from './ui-kit/ui-kit-demo';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import {ProjectionDemo, ProjectionTestComponent} from './projection/projection-d
     MdCheckboxDemoNestedChecklist,
     MenuDemo,
     SnackBarDemo,
+    UiKitDemo,
     OverlayDemo,
     PortalDemo,
     ProgressBarDemo,
