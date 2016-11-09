@@ -1,6 +1,14 @@
 <md-sidenav-layout class="demo-root" fullscreen>
   <md-sidenav #start>
     <md-nav-list>
+      <a md-list-item
+         (click)="start.close()"
+         [routerLink]="['ui-kit']">
+        UI KIT
+      </a>
+
+      <hr>
+
       <a *ngFor="let navItem of navItems"
          md-list-item
          (click)="start.close()"

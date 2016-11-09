@@ -4,6 +4,7 @@
 @import 'variables';
 // Plus imports for other components in your app.
 @import 'components/navbar';
+@import 'components/input';
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700);
@@ -30,6 +31,7 @@
   // component that you are using.
   @include angular-material-theme($agorapulse-theme);
   @include ap-navbar-theme($agorapulse-theme);
+  @include ap-input-theme($agorapulse-theme);
 }
 
 
@@ -70,6 +72,13 @@
     color: $color-label-p;
   }
 
+  label {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 11px;
+    color: $color-label-p;
+    text-transform: uppercase;
+  }
   span, p {
     &.label, &.error, &.success {
       font-family: 'Open Sans';
@@ -99,12 +108,13 @@
 
   [rounded] { border-radius: 100%; }
 
-  [md-image] {
+  [square] { border-radius: 3px; }
+
+  [ap-avatar] {
     img {
       max-width: 80px;
       min-width: 80px;
       max-height: 80px;
-      border-radius: 3px;
     }
     &.large img {
       max-width: 140px;
