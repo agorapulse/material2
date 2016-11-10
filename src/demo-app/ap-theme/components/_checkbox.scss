@@ -1,0 +1,28 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../../lib/core/theming/all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-checkbox-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .ap-components {
+    md-checkbox {
+      .md-checkbox-inner-container {
+        .md-checkbox-background {
+          transform: scale(0.5);
+          .md-checkbox-checkmark {
+            display: none;
+          }
+        }
+        .md-checkbox-frame {
+          border-color: md-color($accent, 500);
+          border-width: 1px;
+        }
+      }
+    }
+  }
+
+}

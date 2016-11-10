@@ -68,7 +68,60 @@
 
   <md-card>
     <h1>Form Elements</h1>
-    <label for="">label</label>
-    <input ap-input placeholder="placeholder">
+    <div class="">
+      <div ap-input>
+        <label>label</label>
+        <input placeholder="placeholder">
+      </div>
+      <div ap-input class="active">
+        <label>active</label>
+        <input placeholder="placeholder">
+      </div>
+      <div ap-input class="error">
+        <label>error</label>
+        <input placeholder="placeholder">
+        <md-icon>error_outline</md-icon>
+        <span class="error">Invalid name</span>
+      </div>
+      <div ap-input class="valid">
+        <label>valid</label>
+        <input placeholder="placeholder">
+        <md-icon>done</md-icon>
+      </div>
+      <br>
+      <md-select placeholder="Food" [formControl]="control">
+        <md-option *ngFor="let food of foods" [value]="food.value"> {{ food.viewValue }} </md-option>
+      </md-select>
+      <div ap-input class="fixed-icon">
+        <label>click paid</label>
+        <input placeholder="placeholder">
+        <md-icon>euro_symbol</md-icon>
+      </div>
+      <div ap-input class="fixed-icon">
+        <label>card number</label>
+        <input placeholder="placeholder">
+        <md-icon>credit_card</md-icon>
+      </div>
+    </div>
+  </md-card>
+
+  <md-card>
+    <h1>More Elements</h1>
+    <div>
+      <label>Switch</label>
+      <md-slide-toggle color="primary" checked="true"></md-slide-toggle>
+      <md-slide-toggle color="accent"></md-slide-toggle>
+    </div>
+    <div>
+      <label>Radio box</label>
+      <md-radio-button name="group1">Default</md-radio-button>
+      <md-radio-button name="group1" checked="true">Active</md-radio-button>
+    </div>
+    <div>
+      <label>Check box</label>
+      <md-checkbox>Default</md-checkbox>
+      <md-checkbox checked="true">Active</md-checkbox>
+    </div>
+
   </md-card>
 </div>
