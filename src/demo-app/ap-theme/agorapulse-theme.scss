@@ -4,6 +4,7 @@
 @import 'variables';
 // Plus imports for other components in your app.
 @import 'components/avatar';
+@import 'components/button';
 @import 'components/checkbox';
 @import 'components/input';
 @import 'components/navbar';
@@ -36,6 +37,7 @@
   // component that you are using.
   @include angular-material-theme($agorapulse-theme);
   @include ap-avatar-theme($agorapulse-theme);
+  @include ap-button-theme($agorapulse-theme);
   @include ap-checkbox-theme($agorapulse-theme);
   @include ap-input-theme($agorapulse-theme);
   @include ap-navbar-theme($agorapulse-theme);
