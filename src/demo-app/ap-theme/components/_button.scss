@@ -1,0 +1,27 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../../lib/core/theming/all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-button-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .ap-components {
+    [md-raised-button] {
+      border-radius: 5rem;
+      min-width: 115px;
+      line-height: 40px;
+      border-radius: 5rem;
+
+      &[big] {
+        line-height: 50px;
+      }
+      &[flat] {
+        border-radius: 0;
+      }
+    }
+  }
+
+}
