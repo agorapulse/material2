@@ -3,8 +3,11 @@
 @import 'pallete';
 @import 'variables';
 // Plus imports for other components in your app.
-@import 'components/navbar';
+@import 'components/avatar';
+@import 'components/checkbox';
 @import 'components/input';
+@import 'components/navbar';
+@import 'components/radio';
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700);
@@ -18,9 +21,11 @@
   // available in palette.scss (imported above). For each palette, you can
   // optionally specify a default, lighter, and darker hue.
   $agorapulse-primary: md-palette($md-ap-orange);
-  $agorapulse-accent:  md-palette($md-pink, A200, A100, A400);
+  $agorapulse-accent:  md-palette($md-ap-blue);
 
   // The warn palette is optional (defaults to red).
+  $agorapulse-save:    md-palette($md-ap-blue);
+  $agorapulse-success: md-palette($md-ap-green);
   $agorapulse-warn:    md-palette($md-red);
 
   // Create the theme object (a Sass map containing all of the palettes).
@@ -30,10 +35,23 @@
   // Alternatively, you can import and @include the theme mixins for each
   // component that you are using.
   @include angular-material-theme($agorapulse-theme);
-  @include ap-navbar-theme($agorapulse-theme);
+  @include ap-avatar-theme($agorapulse-theme);
+  @include ap-checkbox-theme($agorapulse-theme);
   @include ap-input-theme($agorapulse-theme);
+  @include ap-navbar-theme($agorapulse-theme);
+  @include ap-radio-theme($agorapulse-theme);
 }
 
+.ap-default-theme {
+  body {
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+  }
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+}
 
 .ap-default-theme .ap-components {
 
@@ -45,13 +63,11 @@
     }
   }
 
-  body {
-    font-family: Roboto, 'Helvetica Neue', sans-serif;
-    * {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  .background-block {
+    background: md-color($md-ap-light-grey, 500);
+    color: md-contrast($md-ap-light-grey, 500);
   }
+
   h1, h2, h3, h4, h5 {
     font-family: Hind, sans-serif;
     font-weight: 400;
@@ -102,7 +118,9 @@
     &.success {
       font-size: 13px;
       font-weight: 500;
-      color: $color-success;
+      &, md-icon {
+        color: $color-success;
+      }
     }
   }
 
@@ -110,22 +128,8 @@
 
   [square] { border-radius: 3px; }
 
-  [ap-avatar] {
-    img {
-      max-width: 80px;
-      min-width: 80px;
-      max-height: 80px;
-    }
-    &.large img {
-      max-width: 140px;
-      min-width: 140px;
-      max-height: 140px;
-    }
-    &.mini img {
-      max-width: 40px;
-      min-width: 40px;
-      max-height: 40px;
-    }
-  }
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////// CUSTOM COMPONENTS ///////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
 }

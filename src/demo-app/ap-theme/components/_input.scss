@@ -9,8 +9,75 @@
   $accent: map-get($theme, accent);
 
   [ap-input] {
-    border: 1px solid md-color($md-ap-grey, 500);
-    height: 20px;
-    padding: 10px;
+    margin: 8px 0;
+    max-width: 220px;
+    position: relative;
+    width: 220px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &.fixed-icon {
+      input { padding-right: 43px; }
+      md-icon {
+        background: md-color($md-ap-light-grey, 500);
+        border-left: 1px solid md-color($md-ap-grey, 500);
+      }
+    }
+
+    label { display: block; }
+
+    input {
+      border: 1px solid md-color($md-ap-grey, 500);
+      height: 38px;
+      padding: 10px;
+      margin: 8px 0;
+      width: 100%;
+    }
+    &.active input,
+    input:focus {
+      outline: none;
+      border: 1px solid md-color($md-ap-orange, 500);
+    }
+
+    &.error, &.valid {
+      input { outline: none; padding-right: 32px; }
+    }
+    &.error {
+      input {
+        border: 1px solid $color-error;
+      }
+      md-icon {
+        color: $color-error;
+      }
+    }
+    &.valid {
+      md-icon {
+        color: $color-success;
+      }
+      input {
+        border: 1px solid $color-success;
+      }
+    }
+
+    md-icon {
+      position: relative;
+      float: right;
+      margin-right: 1px;
+      margin-top: -45px;
+      pointer-events: none;
+      color: md-color($md-ap-dark-grey, 500);
+      height: 36px;
+      width: 32px;
+      line-height: 36px;
+      text-align: center;
+    }
+
+    span {
+      text-align: right;
+      display: block;
+      margin-top: -5px;
+    }
   }
+
 }
