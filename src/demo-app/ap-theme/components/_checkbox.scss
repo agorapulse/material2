@@ -9,7 +9,7 @@
   $accent: map-get($theme, accent);
 
   .ap-components {
-    md-checkbox {
+    md-checkbox[ap-checkbox] {
       .md-checkbox-inner-container {
         .md-checkbox-background {
           transform: scale(0.5);

@@ -38,4 +38,20 @@ body {
   h1 {
     font-size: 20px;
   }
+
+  [ap-avatar] {
+    margin-right: 20px;
+    margin-left: 5px;
+  }
+
+  .headers,
+  .form-inputs {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    [ap-select],
+    [ap-input] { margin: 0 auto !important; }
+    [ap-select] { width: 220px; }
+  }
 }
