@@ -9,11 +9,12 @@
   $accent: map-get($theme, accent);
 
   .ap-components {
-    [md-raised-button] {
+    [md-raised-button][ap-button] {
       border-radius: 5rem;
       min-width: 115px;
       line-height: 40px;
       border-radius: 5rem;
+      overflow: hidden;
 
       &[big] {
         line-height: 50px;

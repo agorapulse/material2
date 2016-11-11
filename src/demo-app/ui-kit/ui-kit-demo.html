@@ -1,6 +1,6 @@
 <div class="ap-components">
   <h1>UiKit demo</h1>
-  <md-card>
+  <md-card class="headers">
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
@@ -20,7 +20,7 @@
     <p class="success">this is a success message</p>
   </md-card>
 
-  <md-card class="background-dark">
+  <md-card class="background-dark headers">
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
@@ -40,35 +40,39 @@
 
   <md-card>
     <h1>Profile & user picture</h1>
-    <h4>Large</h4>
-    <div ap-avatar class="large">
-      <img rounded src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
+    <div style="display: flex; align-items: baseline;">
+      <h4>Large</h4>
+      <div ap-avatar class="large">
+        <img rounded src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
+      </div>
+      <h4>Regular</h4>
+      <div ap-avatar>
+        <img rounded src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
+      </div>
+      <h4>Mini</h4>
+      <div ap-avatar class="mini">
+        <img rounded src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
+      </div>
     </div>
-    <h4>Regular</h4>
-    <div ap-avatar>
-      <img rounded src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
-    </div>
-    <h4>Mini</h4>
-    <div ap-avatar class="mini">
-      <img rounded src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
-    </div>
-    <h4>Large</h4>
-    <div ap-avatar class="large">
-      <img square src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
-    </div>
-    <h4>Regular</h4>
-    <div ap-avatar>
-      <img square src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
-    </div>
-    <h4>Mini</h4>
-    <div ap-avatar class="mini">
-      <img square src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
+    <div style="display: flex; align-items: baseline;">
+      <h4>Large</h4>
+      <div ap-avatar class="large">
+        <img square src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
+      </div>
+      <h4>Regular</h4>
+      <div ap-avatar>
+        <img square src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
+      </div>
+      <h4>Mini</h4>
+      <div ap-avatar class="mini">
+        <img square src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/13697031_731916956911195_2107886986825962297_n.jpg?oh=969041ab8df3e69e7388c8d16f50e85b&oe=58C5BC4A&__gda__=1490222485_6d93e25f09e19762a93bdb6b6e8d2b45"/>
+      </div>
     </div>
   </md-card>
 
   <md-card>
     <h1>Form Elements</h1>
-    <div class="">
+    <div class="form-inputs">
       <div ap-input>
         <label>label</label>
         <input placeholder="placeholder">
@@ -89,7 +93,7 @@
         <md-icon>done</md-icon>
       </div>
       <br>
-      <md-select placeholder="Food" [formControl]="control">
+      <md-select ap-select placeholder="Food" [formControl]="control">
         <md-option *ngFor="let food of foods" [value]="food.value"> {{ food.viewValue }} </md-option>
       </md-select>
       <div ap-input class="fixed-icon">
@@ -114,33 +118,51 @@
     </div>
     <div>
       <label>Radio box</label>
-      <md-radio-button name="group1">Default</md-radio-button>
-      <md-radio-button name="group1" checked="true">Active</md-radio-button>
+      <md-radio-button ap-radio name="group1">Default</md-radio-button>
+      <md-radio-button ap-radio name="group1" checked="true">Active</md-radio-button>
     </div>
     <div>
       <label>Check box</label>
-      <md-checkbox>Default</md-checkbox>
-      <md-checkbox checked="true">Active</md-checkbox>
+      <md-checkbox ap-checkbox>Default</md-checkbox>
+      <md-checkbox ap-checkbox checked="true">Active</md-checkbox>
     </div>
-
   </md-card>
 
   <md-card>
     <h1>Buttons</h1>
-    <div>
-      <button md-raised-button big color="accent">Save</button>
-      <button md-raised-button color="accent">Save</button>
+    <div style="margin-bottom: 10px;">
+      <button ap-button md-raised-button big color="accent">Save</button>
+      <button ap-button md-raised-button big color="accent" disabled>Save</button>
+      <button ap-button md-raised-button color="accent">Save</button>
+      <button ap-button md-raised-button color="accent" disabled>Save</button>
     </div>
-    <div>
-      <button md-raised-button big flat color="accent">Save</button>
-      <button md-raised-button flat color="accent">Save</button>
-    </div>
-    <div>
-      <button md-fab color="primary">
-        <md-icon class="md-24">favorite</md-icon>
+    <div style="margin-bottom: 10px;">
+      <button ap-button md-raised-button big flat color="accent">
+        <md-icon>person_add</md-icon> Invite
       </button>
-      <button md-raised-button flat color="primary">Create an alert</button>
+      <button ap-button md-raised-button big flat color="accent" disabled>
+        <md-icon>person_add</md-icon> Invite
+      </button>
+      <button ap-button md-raised-button flat color="accent">
+        <md-icon>person_add</md-icon> Invite
+      </button>
+      <button ap-button md-raised-button flat color="accent" disabled>
+        <md-icon>person_add</md-icon> Invite
+      </button>
     </div>
-
+    <div style="margin-bottom: 10px;">
+      <button ap-button md-fab color="primary">
+        <md-icon class="md-24">message</md-icon>
+      </button>
+      <button ap-button md-raised-button big flat color="primary">Create an alert</button>
+    </div>
+    <div>
+      <button ap-button md-raised-button big class="md-elevation-z10" color="white">
+        <md-icon>photo_camera</md-icon> Change picture profile
+      </button>
+      <button ap-button md-raised-button big color="white">
+        More About
+      </button>
+    </div>
   </md-card>
 </div>

@@ -25,7 +25,7 @@
   $agorapulse-accent:  md-palette($md-ap-blue);
 
   // The warn palette is optional (defaults to red).
-  $agorapulse-save:    md-palette($md-ap-blue);
+  $agorapulse-save:    md-palette($md-ap-blue, 500);
   $agorapulse-success: md-palette($md-ap-green);
   $agorapulse-warn:    md-palette($md-red);
 
