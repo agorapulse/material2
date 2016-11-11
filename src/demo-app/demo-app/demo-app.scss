@@ -45,7 +45,8 @@ body {
   }
 
   .headers,
-  .form-inputs {
+  .form-inputs,
+  .buttons {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -53,5 +54,8 @@ body {
     [ap-select],
     [ap-input] { margin: 0 auto !important; }
     [ap-select] { width: 220px; }
+    > div {
+      > * { display: block; }
+    }
   }
 }
