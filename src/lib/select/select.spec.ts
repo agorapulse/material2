@@ -1,12 +1,13 @@
 import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {Component, DebugElement, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {MdSelectModule} from './index';
 import {OverlayContainer} from '../core/overlay/overlay-container';
 import {MdSelect} from './select';
 import {MdOption} from './option';
 import {Dir} from '../core/rtl/dir';
-import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ViewportRuler} from '../core/overlay/position/viewport-ruler';
 
 describe('MdSelect', () => {
   let overlayContainerElement: HTMLElement;
@@ -14,21 +15,37 @@ describe('MdSelect', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MdSelectModule.forRoot(), ReactiveFormsModule],
-      declarations: [BasicSelect],
+      imports: [MdSelectModule.forRoot(), ReactiveFormsModule, FormsModule],
+      declarations: [BasicSelect, NgModelSelect, ManySelects],
       providers: [
         {provide: OverlayContainer, useFactory: () => {
           overlayContainerElement = document.createElement('div');
+
+          // add fixed positioning to match real overlay container styles
+          overlayContainerElement.style.position = 'fixed';
+          overlayContainerElement.style.top = '0';
+          overlayContainerElement.style.left = '0';
+          document.body.appendChild(overlayContainerElement);
+
+          // remove body padding to keep consistent cross-browser
+          document.body.style.padding = '0';
+          document.body.style.margin = '0';
+
           return {getContainerElement: () => overlayContainerElement};
         }},
         {provide: Dir, useFactory: () => {
           return dir = { value: 'ltr' };
-        }}
+        }},
+        {provide: ViewportRuler, useClass: FakeViewportRuler}
       ]
     });
 
     TestBed.compileComponents();
   }));
+
+  afterEach(() => {
+    document.body.removeChild(overlayContainerElement);
+  });
 
   describe('overlay panel', () => {
     let fixture: ComponentFixture<BasicSelect>;
@@ -205,6 +222,20 @@ describe('MdSelect', () => {
         .toBe(fixture.componentInstance.options.last);
     });
 
+    it('should not select disabled options', () => {
+      trigger.click();
+      fixture.detectChanges();
+
+      const options =
+        overlayContainerElement.querySelectorAll('md-option') as NodeListOf<HTMLElement>;
+      options[2].click();
+      fixture.detectChanges();
+
+      expect(fixture.componentInstance.select.panelOpen).toBe(true);
+      expect(options[2].classList).not.toContain('md-selected');
+      expect(fixture.componentInstance.select.selected).not.toBeDefined();
+    });
+
   });
 
   describe('forms integration', () => {
@@ -315,6 +346,84 @@ describe('MdSelect', () => {
 
   });
 
+  describe('disabled behavior', () => {
+
+    it('should disable itself when control is disabled programmatically', () => {
+      const fixture = TestBed.createComponent(BasicSelect);
+      fixture.detectChanges();
+
+      fixture.componentInstance.control.disable();
+      fixture.detectChanges();
+      let trigger =
+        fixture.debugElement.query(By.css('.md-select-trigger')).nativeElement;
+      expect(getComputedStyle(trigger).getPropertyValue('cursor'))
+        .toEqual('default', `Expected cursor to be default arrow on disabled control.`);
+
+      trigger.click();
+      fixture.detectChanges();
+
+      expect(overlayContainerElement.textContent)
+        .toEqual('', `Expected select panel to stay closed.`);
+      expect(fixture.componentInstance.select.panelOpen)
+        .toBe(false, `Expected select panelOpen property to stay false.`);
+
+      fixture.componentInstance.control.enable();
+      fixture.detectChanges();
+      expect(getComputedStyle(trigger).getPropertyValue('cursor'))
+        .toEqual('pointer', `Expected cursor to be a pointer on enabled control.`);
+
+      trigger.click();
+      fixture.detectChanges();
+
+      expect(overlayContainerElement.textContent)
+        .toContain('Steak', `Expected select panel to open normally on re-enabled control`);
+      expect(fixture.componentInstance.select.panelOpen)
+        .toBe(true, `Expected select panelOpen property to become true.`);
+    });
+
+    it('should disable itself when control is disabled using the property', async(() => {
+      const fixture = TestBed.createComponent(NgModelSelect);
+      fixture.detectChanges();
+
+      fixture.componentInstance.isDisabled = true;
+      fixture.detectChanges();
+
+      fixture.whenStable().then(() => {
+        fixture.detectChanges();
+        let trigger =
+          fixture.debugElement.query(By.css('.md-select-trigger')).nativeElement;
+        expect(getComputedStyle(trigger).getPropertyValue('cursor'))
+          .toEqual('default', `Expected cursor to be default arrow on disabled control.`);
+
+        trigger.click();
+        fixture.detectChanges();
+
+        expect(overlayContainerElement.textContent)
+          .toEqual('', `Expected select panel to stay closed.`);
+        expect(fixture.componentInstance.select.panelOpen)
+          .toBe(false, `Expected select panelOpen property to stay false.`);
+
+        fixture.componentInstance.isDisabled = false;
+        fixture.detectChanges();
+
+        fixture.whenStable().then(() => {
+          fixture.detectChanges();
+          expect(getComputedStyle(trigger).getPropertyValue('cursor'))
+            .toEqual('pointer', `Expected cursor to be a pointer on enabled control.`);
+
+          trigger.click();
+          fixture.detectChanges();
+
+          expect(overlayContainerElement.textContent)
+            .toContain('Steak', `Expected select panel to open normally on re-enabled control`);
+          expect(fixture.componentInstance.select.panelOpen)
+            .toBe(true, `Expected select panelOpen property to become true.`);
+        });
+      });
+    }));
+
+  });
+
   describe('animations', () => {
     let fixture: ComponentFixture<BasicSelect>;
     let trigger: HTMLElement;
@@ -365,7 +474,7 @@ describe('MdSelect', () => {
 
         trigger.click();
         fixture.detectChanges();
-        expect(fixture.componentInstance.select._getPanelState()).toEqual('showing-ltr');
+        expect(fixture.componentInstance.select._getPanelState()).toEqual('top-ltr');
       });
 
       it('should use the rtl panel state when the dir is rtl', () => {
@@ -373,23 +482,79 @@ describe('MdSelect', () => {
 
         trigger.click();
         fixture.detectChanges();
-        expect(fixture.componentInstance.select._getPanelState()).toEqual('showing-rtl');
+        expect(fixture.componentInstance.select._getPanelState()).toEqual('top-rtl');
       });
 
   });
 
-  describe('accessibility', () => {
+  describe('positioning', () => {
     let fixture: ComponentFixture<BasicSelect>;
+    let trigger: HTMLElement;
 
     beforeEach(() => {
       fixture = TestBed.createComponent(BasicSelect);
       fixture.detectChanges();
+      trigger = fixture.debugElement.query(By.css('.md-select-trigger')).nativeElement;
     });
 
+    it('should open below the trigger if the panel will fit', () => {
+      trigger.click();
+      fixture.detectChanges();
+
+      const overlayPane = overlayContainerElement.children[0] as HTMLElement;
+      const overlayRect = overlayPane.getBoundingClientRect();
+      const triggerRect = trigger.getBoundingClientRect();
+
+      // when the select panel opens below the trigger, the tops of the trigger and the overlay
+      // should be aligned.
+      expect(overlayRect.top.toFixed(2))
+          .toEqual(triggerRect.top.toFixed(2), `Expected panel to open below by default.`);
+
+      // animation should match the position
+      expect(fixture.componentInstance.select._getPanelState())
+          .toEqual('top-ltr', `Expected panel animation values to match the position.`);
+      expect(fixture.componentInstance.select._transformOrigin)
+          .toBe('top', `Expected panel animation to originate at the top.`);
+    });
+
+    it('should open above the trigger if there is not space below for the panel', () => {
+      // Push trigger to the bottom part of viewport, so it doesn't have space to open
+      // in its default position below the trigger.
+      trigger.style.position = 'relative';
+      trigger.style.top = '650px';
+
+      trigger.click();
+      fixture.detectChanges();
+
+      const overlayPane = overlayContainerElement.children[0] as HTMLElement;
+      const overlayRect = overlayPane.getBoundingClientRect();
+      const triggerRect = trigger.getBoundingClientRect();
+
+      // In "above" position, the bottom edges of the overlay and the origin are aligned.
+      // To find the overlay top, subtract the panel height from the origin's bottom edge.
+      const expectedTop = triggerRect.bottom - overlayRect.height;
+      expect(overlayRect.top.toFixed(2))
+          .toEqual(expectedTop.toFixed(2),
+              `Expected panel to open above the trigger if below wouldn't fit.`);
+
+      // animation should match the position
+      expect(fixture.componentInstance.select._getPanelState())
+          .toEqual('bottom-ltr', `Expected panel animation values to match the position.`);
+      expect(fixture.componentInstance.select._transformOrigin)
+          .toBe('bottom', `Expected panel animation to originate at the bottom.`);
+    });
+
+  });
+
+  describe('accessibility', () => {
+
     describe('for select', () => {
+      let fixture: ComponentFixture<BasicSelect>;
       let select: HTMLElement;
 
       beforeEach(() => {
+        fixture = TestBed.createComponent(BasicSelect);
+        fixture.detectChanges();
         select = fixture.debugElement.query(By.css('md-select')).nativeElement;
       });
 
@@ -427,25 +592,50 @@ describe('MdSelect', () => {
           .toEqual('true', `Expected aria-invalid attr to be true for invalid selects.`);
       });
 
+      it('should set aria-disabled for disabled selects', () => {
+        expect(select.getAttribute('aria-disabled')).toEqual('false');
+
+        fixture.componentInstance.control.disable();
+        fixture.detectChanges();
+
+        expect(select.getAttribute('aria-disabled')).toEqual('true');
+      });
+
+      it('should set the tabindex of the select to -1 if disabled', () => {
+        fixture.componentInstance.control.disable();
+        fixture.detectChanges();
+        expect(select.getAttribute('tabindex')).toEqual('-1');
+
+        fixture.componentInstance.control.enable();
+        fixture.detectChanges();
+        expect(select.getAttribute('tabindex')).toEqual('0');
+      });
+
     });
 
     describe('for options', () => {
+      let fixture: ComponentFixture<BasicSelect>;
       let trigger: HTMLElement;
+      let options: NodeListOf<HTMLElement>;
 
       beforeEach(() => {
+        fixture = TestBed.createComponent(BasicSelect);
+        fixture.detectChanges();
         trigger = fixture.debugElement.query(By.css('.md-select-trigger')).nativeElement;
         trigger.click();
         fixture.detectChanges();
+
+        options =
+          overlayContainerElement.querySelectorAll('md-option') as NodeListOf<HTMLElement>;
       });
 
       it('should set the role of md-option to option', () => {
-        const option = overlayContainerElement.querySelector('md-option') as HTMLElement;
-        expect(option.getAttribute('role')).toEqual('option');
+        expect(options[0].getAttribute('role')).toEqual('option');
+        expect(options[1].getAttribute('role')).toEqual('option');
+        expect(options[2].getAttribute('role')).toEqual('option');
       });
 
       it('should set aria-selected on each option', () => {
-        const options =
-          overlayContainerElement.querySelectorAll('md-option') as NodeListOf<HTMLElement>;
         expect(options[0].getAttribute('aria-selected')).toEqual('false');
         expect(options[1].getAttribute('aria-selected')).toEqual('false');
         expect(options[2].getAttribute('aria-selected')).toEqual('false');
@@ -461,13 +651,96 @@ describe('MdSelect', () => {
         expect(options[2].getAttribute('aria-selected')).toEqual('false');
       });
 
-      it('should set the tabindex of each option to 0', () => {
-        const options =
-          overlayContainerElement.querySelectorAll('md-option') as NodeListOf<HTMLElement>;
+      it('should set the tabindex of each option according to disabled state', () => {
         expect(options[0].getAttribute('tabindex')).toEqual('0');
         expect(options[1].getAttribute('tabindex')).toEqual('0');
-        expect(options[2].getAttribute('tabindex')).toEqual('0');
+        expect(options[2].getAttribute('tabindex')).toEqual('-1');
       });
+
+      it('should set aria-disabled for disabled options', () => {
+        expect(options[0].getAttribute('aria-disabled')).toEqual('false');
+        expect(options[1].getAttribute('aria-disabled')).toEqual('false');
+        expect(options[2].getAttribute('aria-disabled')).toEqual('true');
+
+        fixture.componentInstance.foods[2]['disabled'] = false;
+        fixture.detectChanges();
+
+        expect(options[0].getAttribute('aria-disabled')).toEqual('false');
+        expect(options[1].getAttribute('aria-disabled')).toEqual('false');
+        expect(options[2].getAttribute('aria-disabled')).toEqual('false');
+      });
+
+    });
+
+    describe('aria-owns', () => {
+      let fixture: ComponentFixture<ManySelects>;
+      let triggers: DebugElement[];
+      let options: NodeListOf<HTMLElement>;
+
+      beforeEach(() => {
+        fixture = TestBed.createComponent(ManySelects);
+        fixture.detectChanges();
+        triggers = fixture.debugElement.queryAll(By.css('.md-select-trigger'));
+
+        triggers[0].nativeElement.click();
+        fixture.detectChanges();
+
+        options =
+            overlayContainerElement.querySelectorAll('md-option') as NodeListOf<HTMLElement>;
+      });
+
+      it('should set aria-owns properly', async(() => {
+        const selects = fixture.debugElement.queryAll(By.css('md-select'));
+
+        expect(selects[0].nativeElement.getAttribute('aria-owns'))
+            .toContain(options[0].id, `Expected aria-owns to contain IDs of its child options.`);
+        expect(selects[0].nativeElement.getAttribute('aria-owns'))
+            .toContain(options[1].id, `Expected aria-owns to contain IDs of its child options.`);
+
+        const backdrop =
+            overlayContainerElement.querySelector('.md-overlay-backdrop') as HTMLElement;
+        backdrop.click();
+        fixture.detectChanges();
+
+        fixture.whenStable().then(() => {
+          triggers[1].nativeElement.click();
+
+          fixture.detectChanges();
+          options =
+              overlayContainerElement.querySelectorAll('md-option') as NodeListOf<HTMLElement>;
+          expect(selects[1].nativeElement.getAttribute('aria-owns'))
+              .toContain(options[0].id, `Expected aria-owns to contain IDs of its child options.`);
+          expect(selects[1].nativeElement.getAttribute('aria-owns'))
+              .toContain(options[1].id, `Expected aria-owns to contain IDs of its child options.`);
+        });
+
+      }));
+
+      it('should set the option id properly', async(() => {
+        let firstOptionID = options[0].id;
+
+        expect(options[0].id)
+            .toContain('md-select-option', `Expected option ID to have the correct prefix.`);
+        expect(options[0].id).not.toEqual(options[1].id, `Expected option IDs to be unique.`);
+
+        const backdrop =
+            overlayContainerElement.querySelector('.md-overlay-backdrop') as HTMLElement;
+        backdrop.click();
+        fixture.detectChanges();
+
+        fixture.whenStable().then(() => {
+          triggers[1].nativeElement.click();
+
+          fixture.detectChanges();
+          options =
+              overlayContainerElement.querySelectorAll('md-option') as NodeListOf<HTMLElement>;
+          expect(options[0].id)
+              .toContain('md-select-option', `Expected option ID to have the correct prefix.`);
+          expect(options[0].id).not.toEqual(firstOptionID, `Expected option IDs to be unique.`);
+          expect(options[0].id).not.toEqual(options[1].id, `Expected option IDs to be unique.`);
+        });
+
+      }));
 
     });
 
@@ -479,15 +752,17 @@ describe('MdSelect', () => {
   selector: 'basic-select',
   template: `
     <md-select placeholder="Food" [formControl]="control" [required]="isRequired">
-      <md-option *ngFor="let food of foods" [value]="food.value">{{ food.viewValue }}</md-option>
+      <md-option *ngFor="let food of foods" [value]="food.value" [disabled]="food.disabled">
+        {{ food.viewValue }}
+      </md-option>
     </md-select>
   `
 })
 class BasicSelect {
-  foods = [
+  foods: any[] = [
     { value: 'steak-0', viewValue: 'Steak' },
     { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
+    { value: 'tacos-2', viewValue: 'Tacos', disabled: true },
   ];
   control = new FormControl();
   isRequired: boolean;
@@ -495,6 +770,42 @@ class BasicSelect {
   @ViewChild(MdSelect) select: MdSelect;
   @ViewChildren(MdOption) options: QueryList<MdOption>;
 }
+
+@Component({
+  selector: 'ng-model-select',
+  template: `
+    <md-select placeholder="Food" ngModel [disabled]="isDisabled">
+      <md-option *ngFor="let food of foods" [value]="food.value">{{ food.viewValue }}</md-option>
+    </md-select>
+  `
+})
+class NgModelSelect {
+  foods: any[] = [
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos' },
+  ];
+  isDisabled: boolean;
+
+  @ViewChild(MdSelect) select: MdSelect;
+  @ViewChildren(MdOption) options: QueryList<MdOption>;
+}
+
+@Component({
+  selector: 'many-selects',
+  template: `
+    <md-select placeholder="First">
+      <md-option value="one">one</md-option>
+      <md-option value="two">two</md-option>
+    </md-select>
+    <md-select placeholder="Second">
+      <md-option value="three">three</md-option>
+      <md-option value="four">four</md-option>
+    </md-select>
+  `
+})
+class ManySelects {}
+
 
 /**
  * TODO: Move this to core testing utility until Angular has event faking
@@ -508,4 +819,16 @@ function dispatchEvent(eventName: string, element: HTMLElement): void {
   let event  = document.createEvent('Event');
   event.initEvent(eventName, true, true);
   element.dispatchEvent(event);
+}
+
+class FakeViewportRuler {
+  getViewportRect() {
+    return {
+      left: 0, top: 0, width: 1014, height: 686, bottom: 686, right: 1014
+    };
+  }
+
+  getViewportScrollPosition() {
+    return {top: 0, left: 0};
+  }
 }

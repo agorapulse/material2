@@ -33,6 +33,10 @@ import {SnackBarDemo} from './snack-bar/snack-bar-demo';
 import {PortalDemo, ScienceJoke} from './portal/portal-demo';
 import {MenuDemo} from './menu/menu-demo';
 import {TabsDemo, SunnyTabContent, RainyTabContent, FoggyTabContent} from './tabs/tabs-demo';
+import {ProjectionDemo, ProjectionTestComponent} from './projection/projection-demo';
+
+
+/* Agorapulse UI KIT */
 import {UiKitDemo} from './ui-kit/ui-kit-demo';
 
 @NgModule({
@@ -68,6 +72,8 @@ import {UiKitDemo} from './ui-kit/ui-kit-demo';
     PortalDemo,
     ProgressBarDemo,
     ProgressCircleDemo,
+    ProjectionDemo,
+    ProjectionTestComponent,
     RadioDemo,
     RippleDemo,
     RotiniPanel,

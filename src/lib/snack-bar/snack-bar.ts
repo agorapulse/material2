@@ -20,8 +20,7 @@ import {MdSnackBarConfig} from './snack-bar-config';
 import {MdSnackBarRef} from './snack-bar-ref';
 import {MdSnackBarContainer} from './snack-bar-container';
 import {SimpleSnackBar} from './simple-snack-bar';
-
-// TODO(josephperrott): Automate dismiss after timeout.
+import {extendObject} from '../core/util/object-extend';
 
 
 /**
@@ -32,8 +31,7 @@ export class MdSnackBar {
   /** A reference to the current snack bar in the view. */
   private _snackBarRef: MdSnackBarRef<any>;
 
-  constructor(private _overlay: Overlay,
-              private _live: MdLiveAnnouncer) {}
+  constructor(private _overlay: Overlay, private _live: MdLiveAnnouncer) {}
 
   /**
    * Creates and dispatches a snack bar with a custom component for the content, removing any
@@ -47,7 +45,10 @@ export class MdSnackBar {
 
     // When the snackbar is dismissed, clear the reference to it.
     snackBarRef.afterDismissed().subscribe(() => {
-      this._snackBarRef = null;
+      // Clear the snackbar ref if it hasn't already been replaced by a newer snackbar.
+      if (this._snackBarRef == snackBarRef) {
+        this._snackBarRef = null;
+      }
     });
 
     // If a snack bar is already in view, dismiss it and enter the new snack bar after exit
@@ -61,6 +62,14 @@ export class MdSnackBar {
     } else {
       snackBarRef.containerInstance.enter();
     }
+
+    // If a dismiss timeout is provided, set up dismiss based on after the snackbar is opened.
+    if (config.duration > 0) {
+      snackBarRef.afterOpened().subscribe(() => {
+        setTimeout(() => snackBarRef.dismiss(), config.duration);
+      });
+    }
+
     this._live.announce(config.announcementMessage, config.politeness);
     this._snackBarRef = snackBarRef;
     return this._snackBarRef;
@@ -124,7 +133,7 @@ export class MdSnackBar {
  * @returns The new configuration object with defaults applied.
  */
 function _applyConfigDefaults(config: MdSnackBarConfig): MdSnackBarConfig {
-  return Object.assign(new MdSnackBarConfig(), config);
+  return extendObject(new MdSnackBarConfig(), config);
 }
 
 

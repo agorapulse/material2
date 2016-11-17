@@ -54,12 +54,12 @@ export class MdMenu implements AfterContentInit, MdMenuPanel, OnDestroy {
               @Attribute('y-position') posY: MenuPositionY) {
     if (posX) { this._setPositionX(posX); }
     if (posY) { this._setPositionY(posY); }
-    this._setPositionClasses();
+    this.setPositionClasses(this.positionX, this.positionY);
   }
 
   // TODO: internal
   ngAfterContentInit() {
-    this._keyManager = new ListKeyManager(this.items);
+    this._keyManager = new ListKeyManager(this.items).withFocusWrap();
     this._tabSubscription = this._keyManager.tabOut.subscribe(() => {
       this._emitCloseEvent();
     });
@@ -83,7 +83,7 @@ export class MdMenu implements AfterContentInit, MdMenuPanel, OnDestroy {
       obj[className] = true;
       return obj;
     }, {});
-    this._setPositionClasses();
+    this.setPositionClasses(this.positionX, this.positionY);
   }
 
   @Output() close = new EventEmitter<void>();
@@ -94,9 +94,7 @@ export class MdMenu implements AfterContentInit, MdMenuPanel, OnDestroy {
    * TODO: internal
    */
   focusFirstItem() {
-    // The menu always opens with the first item focused.
-    this.items.first.focus();
-    this._keyManager.focusedItemIndex = 0;
+    this._keyManager.focusFirstItem();
   }
 
   /**
@@ -125,11 +123,11 @@ export class MdMenu implements AfterContentInit, MdMenuPanel, OnDestroy {
    * It's necessary to set position-based classes to ensure the menu panel animation
    * folds out from the correct direction.
    */
-  private _setPositionClasses() {
-    this._classList['md-menu-before'] = this.positionX == 'before';
-    this._classList['md-menu-after'] = this.positionX == 'after';
-    this._classList['md-menu-above'] = this.positionY == 'above';
-    this._classList['md-menu-below'] = this.positionY == 'below';
+  setPositionClasses(posX: MenuPositionX, posY: MenuPositionY): void {
+    this._classList['md-menu-before'] = posX == 'before';
+    this._classList['md-menu-after'] = posX == 'after';
+    this._classList['md-menu-above'] = posY == 'above';
+    this._classList['md-menu-below'] = posY == 'below';
   }
 
 }

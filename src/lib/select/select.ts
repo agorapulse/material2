@@ -21,6 +21,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {transformPlaceholder, transformPanel, fadeInContent} from './select-animations';
 import {ControlValueAccessor, NgControl} from '@angular/forms';
 import {coerceBooleanProperty} from '../core/coersion/boolean-property';
+import {ConnectedOverlayPositionChange} from '../core/overlay/position/connected-position';
 
 @Component({
   moduleId: module.id,
@@ -30,10 +31,13 @@ import {coerceBooleanProperty} from '../core/coersion/boolean-property';
   encapsulation: ViewEncapsulation.None,
   host: {
     'role': 'listbox',
-    'tabindex': '0',
+    '[attr.tabindex]': '_getTabIndex()',
     '[attr.aria-label]': 'placeholder',
     '[attr.aria-required]': 'required.toString()',
+    '[attr.aria-disabled]': 'disabled.toString()',
     '[attr.aria-invalid]': '_control?.invalid || "false"',
+    '[attr.aria-owns]': '_optionIds',
+    '[class.md-select-disabled]': 'disabled',
     '(keydown)': '_handleKeydown($event)',
     '(blur)': '_onBlur()'
   },
@@ -63,6 +67,9 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
   /** Whether filling out the select is required in the form.  */
   private _required: boolean = false;
 
+  /** Whether the select is disabled.  */
+  private _disabled: boolean = false;
+
   /** Manages keyboard events for options in the panel. */
   _keyManager: ListKeyManager;
 
@@ -70,23 +77,48 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
   _onChange: (value: any) => void;
 
   /** View -> model callback called when select has been touched */
-  _onTouched: Function;
+  _onTouched = () => {};
 
-  /** This position config ensures that the top left corner of the overlay
-   * is aligned with with the top left of the origin (overlapping the trigger
-   * completely). In RTL mode, the top right corners are aligned instead.
+  /** The IDs of child options to be passed to the aria-owns attribute. */
+  _optionIds: string = '';
+
+  /** The value of the select panel's transform-origin property. */
+  _transformOrigin: string = 'top';
+
+  /**
+   * This position config ensures that the top "start" corner of the overlay
+   * is aligned with with the top "start" of the origin by default (overlapping
+   * the trigger completely). If the panel cannot fit below the trigger, it
+   * will fall back to a position above the trigger.
    */
-  _positions = [{
-    originX: 'start',
-    originY: 'top',
-    overlayX: 'start',
-    overlayY: 'top'
-  }];
+  _positions = [
+    {
+      originX: 'start',
+      originY: 'top',
+      overlayX: 'start',
+      overlayY: 'top',
+    },
+    {
+      originX: 'start',
+      originY: 'bottom',
+      overlayX: 'start',
+      overlayY: 'bottom',
+    },
+  ];
 
   @ViewChild('trigger') trigger: ElementRef;
   @ContentChildren(MdOption) options: QueryList<MdOption>;
 
   @Input() placeholder: string;
+
+  @Input()
+  get disabled() {
+    return this._disabled;
+  }
+
+  set disabled(value: any) {
+    this._disabled = coerceBooleanProperty(value);
+  }
 
   @Input()
   get required() {
@@ -102,17 +134,15 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
 
   constructor(private _element: ElementRef, private _renderer: Renderer,
               @Optional() private _dir: Dir, @Optional() public _control: NgControl) {
-    this._control.valueAccessor = this;
+    if (this._control) {
+      this._control.valueAccessor = this;
+    }
   }
 
   ngAfterContentInit() {
     this._initKeyManager();
-    this._listenToOptions();
-
-    this._changeSubscription = this.options.changes.subscribe(() => {
-      this._dropSubscriptions();
-      this._listenToOptions();
-    });
+    this._resetOptions();
+    this._changeSubscription = this.options.changes.subscribe(() => this._resetOptions());
   }
 
   ngOnDestroy() {
@@ -128,6 +158,9 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
 
   /** Opens the overlay panel. */
   open(): void {
+    if (this.disabled) {
+      return;
+    }
     this._panelOpen = true;
   }
 
@@ -165,8 +198,16 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
    * by the user. Part of the ControlValueAccessor interface required
    * to integrate with Angular's core forms API.
    */
-  registerOnTouched(fn: Function): void {
+  registerOnTouched(fn: () => {}): void {
     this._onTouched = fn;
+  }
+
+  /**
+   * Disables the select. Part of the ControlValueAccessor interface required
+   * to integrate with Angular's core forms API.
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   /** Whether or not the overlay panel is open. */
@@ -201,7 +242,7 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
 
   /** The animation state of the overlay panel. */
   _getPanelState(): string {
-    return this._isRtl() ? 'showing-rtl' : 'showing-ltr';
+    return this._isRtl() ? `${this._transformOrigin}-rtl` : `${this._transformOrigin}-ltr`;
   }
 
   /** Ensures the panel opens if activated by the keyboard. */
@@ -234,12 +275,32 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
     }
   }
 
+  /** Returns the correct tabindex for the select depending on disabled state. */
+  _getTabIndex() {
+    return this.disabled ? '-1' : '0';
+  }
+
+  /**
+   * Sets the transform-origin property of the panel to ensure that it
+   * animates in the correct direction based on its positioning.
+   */
+  _updateTransformOrigin(pos: ConnectedOverlayPositionChange): void {
+    this._transformOrigin = pos.connectionPair.originY;
+  }
+
   /** Sets up a key manager to listen to keyboard events on the overlay panel. */
   private _initKeyManager() {
     this._keyManager = new ListKeyManager(this.options);
     this._tabSubscription = this._keyManager.tabOut.subscribe(() => {
       this.close();
     });
+  }
+
+  /** Drops current option subscriptions and IDs and resets from scratch. */
+  private _resetOptions(): void {
+    this._dropSubscriptions();
+    this._listenToOptions();
+    this._setOptionIds();
   }
 
   /** Listens to selection events on each option. */
@@ -259,6 +320,11 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
   private _dropSubscriptions(): void {
     this._subscriptions.forEach((sub: Subscription) => sub.unsubscribe());
     this._subscriptions = [];
+  }
+
+  /** Records option IDs to pass to the aria-owns property. */
+  private _setOptionIds() {
+    this._optionIds = this.options.map(option => option.id).join(' ');
   }
 
   /** When a new option is selected, deselects the others and closes the panel. */
@@ -282,11 +348,9 @@ export class MdSelect implements AfterContentInit, ControlValueAccessor, OnDestr
    */
   private _focusCorrectOption(): void {
     if (this.selected) {
-      this._keyManager.focusedItemIndex = this._getOptionIndex(this.selected);
-      this.selected.focus();
+      this._keyManager.setFocus(this._getOptionIndex(this.selected));
     } else {
-      this._keyManager.focusedItemIndex = 0;
-      this.options.first.focus();
+      this._keyManager.focusFirstItem();
     }
   }
 

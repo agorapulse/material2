@@ -1,6 +1,15 @@
-import {inject, async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {
+  inject,
+  async,
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  flushMicrotasks,
+  tick,
+} from '@angular/core/testing';
 import {NgModule, Component, Directive, ViewChild, ViewContainerRef} from '@angular/core';
 import {MdSnackBar, MdSnackBarModule} from './snack-bar';
+import {MdSnackBarConfig} from './snack-bar-config';
 import {OverlayContainer, MdLiveAnnouncer} from '../core';
 import {SimpleSnackBar} from './simple-snack-bar';
 
@@ -219,6 +228,83 @@ describe('MdSnackBar', () => {
       });
     });
   }));
+
+  it('should remove past snackbars when opening new snackbars', async(() => {
+    snackBar.open('First snackbar');
+    viewContainerFixture.detectChanges();
+
+    snackBar.open('Second snackbar');
+    viewContainerFixture.detectChanges();
+
+    viewContainerFixture.whenStable().then(() => {
+      snackBar.open('Third snackbar');
+      viewContainerFixture.detectChanges();
+
+      viewContainerFixture.whenStable().then(() => {
+        expect(overlayContainerElement.textContent.trim()).toBe('Third snackbar');
+      });
+    });
+  }));
+
+  it('should remove snackbar if another is shown while its still animating open', fakeAsync(() => {
+    snackBar.open('First snackbar');
+    viewContainerFixture.detectChanges();
+
+    snackBar.open('Second snackbar');
+    viewContainerFixture.detectChanges();
+
+    // Flush microtasks to make observables run, but don't tick such that any animations would run.
+    flushMicrotasks();
+    expect(overlayContainerElement.textContent.trim()).toBe('Second snackbar');
+
+    // Let remaining animations run.
+    tick(500);
+  }));
+
+  it('should dismiss the snackbar when the action is called, notifying of both action and dismiss',
+     fakeAsync(() => {
+       let dismissObservableCompleted = false;
+       let actionObservableCompleted = false;
+       let snackBarRef = snackBar.open('Some content', 'dismiss');
+       viewContainerFixture.detectChanges();
+
+       snackBarRef.afterDismissed().subscribe(null, null, () => {
+         dismissObservableCompleted = true;
+       });
+       snackBarRef.onAction().subscribe(null, null, () => {
+         actionObservableCompleted = true;
+      });
+
+      let actionButton =
+        overlayContainerElement.querySelector('.md-simple-snackbar-action') as HTMLButtonElement;
+      actionButton.click();
+      viewContainerFixture.detectChanges();
+      flushMicrotasks();
+
+      expect(dismissObservableCompleted).toBeTruthy('Expected the snack bar to be dismissed');
+      expect(actionObservableCompleted).toBeTruthy('Expected the snack bar to notify of action');
+
+      tick(500);
+    }));
+
+    it('should dismiss automatically after a specified timeout', fakeAsync(() => {
+      let dismissObservableCompleted = false;
+      let config = new MdSnackBarConfig();
+      config.duration = 250;
+      let snackBarRef = snackBar.open('content', 'test', config);
+      snackBarRef.afterDismissed().subscribe(null, null, () => {
+        dismissObservableCompleted = true;
+      });
+
+      viewContainerFixture.detectChanges();
+      flushMicrotasks();
+      expect(dismissObservableCompleted).toBeFalsy('Expected the snack bar not to be dismissed');
+
+      tick(1000);
+      viewContainerFixture.detectChanges();
+      flushMicrotasks();
+      expect(dismissObservableCompleted).toBeTruthy('Expected the snack bar to be dismissed');
+    }));
 });
 
 @Directive({selector: 'dir-with-view-container'})

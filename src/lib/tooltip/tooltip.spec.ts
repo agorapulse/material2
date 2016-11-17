@@ -1,10 +1,14 @@
 import {
-    async, ComponentFixture, TestBed, tick, fakeAsync,
+    async,
+    ComponentFixture,
+    TestBed,
+    tick,
+    fakeAsync,
     flushMicrotasks
 } from '@angular/core/testing';
-import {Component, DebugElement} from '@angular/core';
+import {Component, DebugElement, AnimationTransitionEvent} from '@angular/core';
 import {By} from '@angular/platform-browser';
-import {TooltipPosition, MdTooltip, TOOLTIP_HIDE_DELAY, MdTooltipModule} from './tooltip';
+import {TooltipPosition, MdTooltip, MdTooltipModule} from './tooltip';
 import {OverlayContainer} from '../core';
 
 const initialTooltipMessage = 'initial tooltip message';
@@ -52,11 +56,12 @@ describe('MdTooltip', () => {
       expect(overlayContainerElement.textContent).toContain(initialTooltipMessage);
 
       // After hide called, a timeout delay is created that will to hide the tooltip.
-      tooltipDirective.hide();
+      const tooltipDelay = 1000;
+      tooltipDirective.hide(tooltipDelay);
       expect(tooltipDirective._isTooltipVisible()).toBe(true);
 
       // After the tooltip delay elapses, expect that the tooltip is not visible.
-      tick(TOOLTIP_HIDE_DELAY);
+      tick(tooltipDelay);
       fixture.detectChanges();
       expect(tooltipDirective._isTooltipVisible()).toBe(false);
 
@@ -70,12 +75,13 @@ describe('MdTooltip', () => {
       expect(tooltipDirective._isTooltipVisible()).toBe(true);
 
       // After hide called, a timeout delay is created that will to hide the tooltip.
-      tooltipDirective.hide();
+      const tooltipDelay = 1000;
+      tooltipDirective.hide(tooltipDelay);
       expect(tooltipDirective._isTooltipVisible()).toBe(true);
 
       // Before delay time has passed, call show which should cancel intent to hide tooltip.
       tooltipDirective.show();
-      tick(TOOLTIP_HIDE_DELAY);
+      tick(tooltipDelay);
       expect(tooltipDirective._isTooltipVisible()).toBe(true);
     }));
 
@@ -123,14 +129,46 @@ describe('MdTooltip', () => {
       expect(overlayContainerElement.childNodes.length).toBe(0);
       expect(overlayContainerElement.textContent).toBe('');
     });
+
+    it('should not try to dispose the tooltip when destroyed and done hiding', fakeAsync(() => {
+      tooltipDirective.show();
+      fixture.detectChanges();
+      tick(150);
+
+      const tooltipDelay = 1000;
+      tooltipDirective.hide();
+      tick(tooltipDelay); // Change the tooltip state to hidden and trigger animation start
+
+      // Store the tooltip instance, which will be set to null after the button is hidden.
+      const tooltipInstance = tooltipDirective._tooltipInstance;
+      fixture.componentInstance.showButton = false;
+      fixture.detectChanges();
+
+      // At this point the animation should be able to complete itself and trigger the
+      // _afterVisibilityAnimation function, but for unknown reasons in the test infrastructure,
+      // this does not occur. Manually call this and verify that doing so does not
+      // throw an error.
+      tooltipInstance._afterVisibilityAnimation(new AnimationTransitionEvent({
+        fromState: 'visible',
+        toState: 'hidden',
+        totalTime: 150,
+        phaseName: '',
+      }));
+    }));
   });
 });
 
 @Component({
   selector: 'app',
-  template: `<button [md-tooltip]="message" [tooltip-position]="position">Button</button>`
+  template: `
+    <button *ngIf="showButton"
+            [md-tooltip]="message" 
+            [tooltip-position]="position">
+      Button
+    </button>`
 })
 class BasicTooltipDemo {
   position: TooltipPosition = 'below';
   message: string = initialTooltipMessage;
+  showButton: boolean = true;
 }
