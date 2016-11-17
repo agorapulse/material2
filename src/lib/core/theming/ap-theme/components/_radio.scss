@@ -1,19 +1,20 @@
 // Import all the tools needed to customize the theme and extract parts of it
 // @import '~@angular/material/core/theming/all-theme';
-@import '../../../lib/core/theming/all-theme';
+@import '../../all-theme';
 
 // Define a mixin that accepts a theme and outputs the color styles for the component.
-@mixin ap-navbar-theme($theme) {
+@mixin ap-radio-theme($theme) {
   // Extract whichever individual palettes you need from the theme.
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  // Use md-color to extract individual colors from a palette as necessary.
-  /*.candy-carousel {
-    background-color: md-color($primary);
-    border-color: md-color($accent, A400);
-  }*/
-  .md-toolbar {
-    background: md-color($md-ap-blue, 500);
+  .ap-components {
+    md-radio-button[ap-radio] {
+      .md-radio-container .md-radio-outer-circle {
+        border-color: md-color($accent, 500);
+        border-width: 1px;
+      }
+    }
   }
+
 }
