@@ -1,3 +1,7 @@
+@import '../../lib/core/theming/ap-theme/agorapulse-theme';
+
+@include ap-default-theme();
+
 body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 
