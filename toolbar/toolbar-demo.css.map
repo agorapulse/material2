@@ -1,0 +1,1 @@
+{"version":3,"sources":["toolbar-demo.css"],"names":[],"mappings":"AAAA;EACE,aAAa,EAAE;EACf;IACE,gBAAgB,EAAE;EACpB;IACE,eAAe,EAAE","file":"toolbar-demo.css","sourcesContent":[".demo-toolbar {\n  padding: 6px; }\n  .demo-toolbar .demo-toolbar-icon {\n    padding: 0 14px; }\n  .demo-toolbar .demo-fill-remaining {\n    flex: 1 1 auto; }\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["icon-demo.css"],"names":[],"mappings":"AAAA;EACE,aAAa,EAAE","file":"icon-demo.css","sourcesContent":[".demo-icon md-icon.green {\n  color: green; }\n"]}

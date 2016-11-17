@@ -1,0 +1,1 @@
+{"version":3,"sources":["gestures-demo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,aAAa;EACb,iBAAiB;EACjB,cAAc;EACd,aAAa,EAAE","file":"gestures-demo.css","sourcesContent":[".demo-gestures div {\n  height: 100px;\n  width: 200px;\n  background: gray;\n  padding: 15px;\n  color: white; }\n"]}

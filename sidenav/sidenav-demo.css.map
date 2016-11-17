@@ -1,0 +1,1 @@
+{"version":3,"sources":["sidenav-demo.css"],"names":[],"mappings":"AAAA;EACE,wBAAwB,EAAE;EAC1B;IACE,cAAc,EAAE;;AAEpB;EACE,cAAc,EAAE","file":"sidenav-demo.css","sourcesContent":[".demo-sidenav-layout {\n  border: 3px solid black; }\n  .demo-sidenav-layout md-sidenav {\n    padding: 10px; }\n\n.demo-sidenav-content {\n  padding: 15px; }\n"]}

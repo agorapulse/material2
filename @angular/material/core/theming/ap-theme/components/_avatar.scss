@@ -1,0 +1,29 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-avatar-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  [ap-avatar] {
+    img {
+      max-width: 80px;
+      min-width: 80px;
+      max-height: 80px;
+    }
+    &.large img {
+      max-width: 140px;
+      min-width: 140px;
+      max-height: 140px;
+    }
+    &.mini img {
+      max-width: 40px;
+      min-width: 40px;
+      max-height: 40px;
+    }
+  }
+
+}

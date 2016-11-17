@@ -1,0 +1,1 @@
+{"version":3,"sources":["portal-demo.css"],"names":[],"mappings":"AAAA;EACE,oBAAoB;EACpB,cAAc;EACd,yBAAyB;EACzB,aAAa;EACb,cAAc,EAAE","file":"portal-demo.css","sourcesContent":[".demo-portal-host {\n  margin-bottom: 10px;\n  padding: 10px;\n  border: 1px dashed black;\n  width: 500px;\n  height: 100px; }\n"]}

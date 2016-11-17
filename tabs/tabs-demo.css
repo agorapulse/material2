@@ -1,0 +1,18 @@
+.demo-nav-bar {
+  border: 1px solid #e0e0e0; }
+  .demo-nav-bar [md-tab-nav-bar] {
+    background: #f9f9f9; }
+  .demo-nav-bar sunny-routed-content,
+  .demo-nav-bar rainy-routed-content,
+  .demo-nav-bar foggy-routed-content {
+    display: block;
+    padding: 12px; }
+
+.demo-tab-group {
+  border: 1px solid #e0e0e0; }
+  .demo-tab-group .md-tab-header {
+    background: #f9f9f9; }
+  .demo-tab-group .md-tab-body-content {
+    padding: 12px; }
+
+/*# sourceMappingURL=tabs-demo.css.map */

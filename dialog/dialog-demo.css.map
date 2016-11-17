@@ -1,0 +1,1 @@
+{"version":3,"sources":["dialog-demo.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB,EAAE","file":"dialog-demo.css","sourcesContent":[".demo-dialog {\n  color: rebeccapurple; }\n"]}

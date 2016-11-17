@@ -1,0 +1,10 @@
+.demo-menu {
+  display: flex;
+  flex-flow: row wrap; }
+  .demo-menu .menu-section {
+    width: 300px;
+    margin: 20px; }
+  .demo-menu .end-icon {
+    align-items: flex-end; }
+
+/*# sourceMappingURL=menu-demo.css.map */

@@ -1,0 +1,32 @@
+{
+  "name": "@agorapulse/material",
+  "version": "2.0.0-alpha.10-ap.1",
+  "description": "Agorapulse Angular 2 Material",
+  "main": "./material.umd.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agorapulse/material2.git"
+  },
+  "keywords": [
+    "agorapulse",
+    "angular",
+    "material",
+    "material design",
+    "components"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agorapulse/material2/issues"
+  },
+  "homepage": "https://github.com/agorapulse/material2#readme",
+  "peerDependencies": {
+    "@angular/core": "^2.2.0",
+    "@angular/common": "^2.2.0",
+    "@angular/http": "^2.2.0"
+  },
+  "dependencies": {
+    "@types/hammerjs": "^2.0.30"
+  }
+}

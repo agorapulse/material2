@@ -1,0 +1,1 @@
+{"version":3,"sources":["progress-bar-demo.css"],"names":[],"mappings":"AAAA;EACE,YAAY,EAAE;;AAEhB;EACE,eAAe,EAAE;;AAEnB;EACE,sBAAsB;EACtB,YAAY,EAAE","file":"progress-bar-demo.css","sourcesContent":[".demo-progress-bar-container {\n  width: 100%; }\n\n.demo-progress-bar-margins {\n  margin: 20px 0; }\n\n.demo-progress-bar-spacer {\n  display: inline-block;\n  width: 50px; }\n"]}

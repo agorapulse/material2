@@ -1,0 +1,20 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-radio-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .ap-components {
+    md-radio-button[ap-radio] {
+      .md-radio-container .md-radio-outer-circle {
+        border-color: md-color($accent, 500);
+        border-width: 1px;
+      }
+    }
+  }
+
+}
