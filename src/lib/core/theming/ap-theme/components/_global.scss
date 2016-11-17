@@ -1,0 +1,110 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-global-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  body {
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+  }
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+
+  .ap-components {
+
+    .background-dark {
+      background: md-color($md-ap-dark, 500);
+      color: md-contrast($md-ap-dark, 500);
+      h6 {
+        color: #8D99A5;
+      }
+    }
+
+    .background-block {
+      background: md-color($md-ap-light-grey, 500);
+      color: md-contrast($md-ap-light-grey, 500);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: Hind, sans-serif;
+      font-weight: 400;
+    }
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+    h4 { font-size: 18px; }
+    h5 { font-size: 16px; font-weight: 500; }
+    h6 { font-family: 'Open Sans'; font-size: 14px; font-weight: 400; }
+
+    p {
+      font-family: 'Open Sans';
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 22px;
+      letter-spacing: 0.5;
+      color: $color-label-p;
+    }
+
+    label {
+      font-family: 'Open Sans';
+      font-weight: 400;
+      font-size: 11px;
+      color: $color-label-p;
+      text-transform: uppercase;
+    }
+    span, p {
+      &.label, &.error, &.success {
+        font-family: 'Open Sans';
+        text-transform: capitalize;
+      }
+      &.placeholder {
+        font-size: 14px;
+        color: $color-placeholder;
+      }
+      &.label {
+        font-size: 11px;
+        font-weight: 400;
+        color: $color-label-p;
+        text-transform: uppercase;
+      }
+      &.error {
+        font-size: 13px;
+        font-weight: 500;
+        color: $color-error;
+      }
+      &.success {
+        font-size: 13px;
+        font-weight: 500;
+        &, md-icon {
+          color: $color-success;
+        }
+      }
+    }
+
+    [rounded] { border-radius: 100%; }
+
+    [square] { border-radius: 3px; }
+
+    [t-color-primary] { color: md-color($primary); }
+    [t-color-accent] { color: md-color($accent); }
+
+    [z-depth-1] { box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
+    [z-depth-2] { box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2); }
+    [z-depth-3] { box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.3), 0 11px 7px 0 rgba(0, 0, 0, 0.19); }
+    [z-depth-4] { box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3), 0 14px 12px 0 rgba(0, 0, 0, 0.17); }
+    [z-depth-5] { box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15); }
+
+  ////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////// CUSTOM COMPONENTS ///////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+
+  }
+
+}

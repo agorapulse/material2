@@ -98,7 +98,7 @@ task('publish', function(done: () => void) {
     ':publish:whoami',
     'build:release',
     ':publish',
-    ':publish:logout',
+    // ':publish:logout',
     done
   );
 });
