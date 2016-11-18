@@ -45,7 +45,7 @@ import {UiKitDemo} from './ui-kit/ui-kit-demo';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(DEMO_APP_ROUTES),
+    RouterModule.forRoot(DEMO_APP_ROUTES, { useHash: true }),
     MaterialModule.forRoot(),
   ],
   declarations: [
