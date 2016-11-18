@@ -1,5 +1,6 @@
 // Apply the CLI SystemJS configuration.
 System.config({
+    baseURL: 'material2',
     map: {
         'rxjs': 'vendor/rxjs',
         'main': 'main.js',
