@@ -9,6 +9,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--link href="@angular/material/core/theming/prebuilt/indigo-pink.css" rel="stylesheet"-->
+  <!-- add prefix: material2/ for gh-pages -->
   <link href="@angular/material/core/theming/ap-theme/agorapulse-theme.css" rel="stylesheet">
 
   <!-- FontAwesome for md-icon demo. -->
@@ -17,12 +18,14 @@
 <body class="ap-default-theme">
   <demo-app>Loading...</demo-app>
 
+  <!-- add prefix: material2/ for gh-pages -->
   <script src="vendor/core-js/client/core.js"></script>
   <script src="vendor/systemjs/dist/system.src.js"></script>
   <script src="vendor/zone.js/dist/zone.js"></script>
   <script src="vendor/hammerjs/hammer.min.js"></script>
 
   <script>
+   // add prefix: material2/ for gh-pages (only on system-config.js)
     System.import('system-config.js').then(function () {
       System.import('main');
     }).catch(console.error.bind(console));
