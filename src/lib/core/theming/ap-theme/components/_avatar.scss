@@ -19,10 +19,15 @@
       min-width: 140px;
       max-height: 140px;
     }
-    &.mini img {
+    &.small img {
       max-width: 40px;
       min-width: 40px;
       max-height: 40px;
+    }
+    &.mini img {
+      max-width: 20px;
+      min-width: 20px;
+      max-height: 20px;
     }
   }
 
