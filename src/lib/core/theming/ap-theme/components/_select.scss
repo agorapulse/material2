@@ -24,12 +24,18 @@
       margin: 8px 0;
       width: 100%;
 
-      .md-select-placeholder:before {
-        transform: translate3d(0px, 0px, 0px) scale(1);
+      .md-select-placeholder {
+        position: absolute;
+        transform: translate3d(0px, 0px, 0px) scale(1) !important;
       }
-    }
-    span {
-      display: none;
+
+      .md-select-value {
+        width: 100%;
+        background: white;
+        width: 100%;
+        position: relative;
+      }
+      .md-select-arrow { margin-left: auto; }
     }
   }
 
