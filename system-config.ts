@@ -3,8 +3,6 @@ declare var System: any;
 
 // Apply the CLI SystemJS configuration.
 System.config({
-  // TODO Change on gh-pages
-  // baseURL: 'material2',
   map: {
     'rxjs': 'vendor/rxjs',
     'main': 'main.js',

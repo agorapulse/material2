@@ -1,0 +1,42 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-select-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  [ap-select] {
+    margin: 8px 0;
+    max-width: 220px;
+    position: relative;
+    width: 220px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .md-select-trigger {
+      border: 1px solid md-color($md-ap-grey, 500);
+      height: 38px;
+      padding: 10px;
+      margin: 8px 0;
+      width: 100%;
+
+      .md-select-placeholder {
+        position: absolute;
+        transform: translate3d(0px, 0px, 0px) scale(1) !important;
+      }
+
+      .md-select-value {
+        width: 100%;
+        background: white;
+        width: 100%;
+        position: relative;
+      }
+      .md-select-arrow { margin-left: auto; }
+    }
+  }
+
+}

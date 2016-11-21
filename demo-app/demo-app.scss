@@ -43,12 +43,40 @@ body {
     font-size: 20px;
   }
 
+  .color {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 14px;
+    &.extra { width: 20px; height: 20px; margin: 30px;}
+
+    &.orange { background-color: md-color($md-ap-orange, 500); }
+    &.light-orange { background-color: md-color($md-ap-light-orange, 500); }
+    &.dark { background-color: md-color($md-ap-dark, 500); }
+    &.light-dark { background-color: md-color($md-ap-light-dark, 500); }
+
+    &.blue { background-color: md-color($md-ap-blue, 500); }
+    &.green { background-color: md-color($md-ap-green, 500); }
+    &.red { background-color: md-color($md-ap-red, 500); }
+    &.dark-grey { background-color: md-color($md-ap-dark-grey, 500); }
+    &.grey { background-color: md-color($md-ap-grey, 500); }
+    &.light-grey { background-color: md-color($md-ap-light-grey, 500); }
+
+    &.placeholder { background-color: $color-placeholder; }
+    span {
+      font-size: 11px;
+      position: absolute;
+      top: -15px;
+    }
+  }
+
   [ap-avatar] {
     margin-right: 20px;
     margin-left: 5px;
   }
 
   .headers,
+  .colors,
   .form-inputs,
   .buttons {
     display: flex;

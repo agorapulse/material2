@@ -1,7 +1,7 @@
 import { FormControl } from '@angular/forms';
 export declare class UiKitDemo {
     control: FormControl;
-    foods: {
+    subscriptions: {
         value: string;
         viewValue: string;
     }[];

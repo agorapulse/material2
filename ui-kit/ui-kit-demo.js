@@ -13,10 +13,10 @@ var forms_1 = require('@angular/forms');
 var UiKitDemo = (function () {
     function UiKitDemo() {
         this.control = new forms_1.FormControl('');
-        this.foods = [
-            { value: 'steak-0', viewValue: 'Steak' },
-            { value: 'pizza-1', viewValue: 'Pizza' },
-            { value: 'tacos-2', viewValue: 'Tacos' }
+        this.subscriptions = [
+            { value: 'small-0', viewValue: 'Small' },
+            { value: 'medium-1', viewValue: 'Medium' },
+            { value: 'large-2', viewValue: 'Large' }
         ];
     }
     UiKitDemo = __decorate([

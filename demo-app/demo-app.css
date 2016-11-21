@@ -435,10 +435,14 @@
     max-width: 140px;
     min-width: 140px;
     max-height: 140px; }
-  .ap-default-theme [ap-avatar].mini img {
+  .ap-default-theme [ap-avatar].small img {
     max-width: 40px;
     min-width: 40px;
     max-height: 40px; }
+  .ap-default-theme [ap-avatar].mini img {
+    max-width: 20px;
+    min-width: 20px;
+    max-height: 20px; }
   .ap-default-theme .ap-components [md-raised-button][ap-button] {
     border-radius: 5rem;
     min-width: 115px;
@@ -595,6 +599,29 @@
   .ap-default-theme .ap-components md-radio-button[ap-radio] .md-radio-container .md-radio-outer-circle {
     border-color: #00a2ff;
     border-width: 1px; }
+  .ap-default-theme [ap-select] {
+    margin: 8px 0;
+    max-width: 220px;
+    position: relative;
+    width: 220px; }
+    .ap-default-theme [ap-select]:last-child {
+      margin-bottom: 0; }
+    .ap-default-theme [ap-select] .md-select-trigger {
+      border: 1px solid #afafaf;
+      height: 38px;
+      padding: 10px;
+      margin: 8px 0;
+      width: 100%; }
+      .ap-default-theme [ap-select] .md-select-trigger .md-select-placeholder {
+        position: absolute;
+        transform: translate3d(0px, 0px, 0px) scale(1) !important; }
+      .ap-default-theme [ap-select] .md-select-trigger .md-select-value {
+        width: 100%;
+        background: white;
+        width: 100%;
+        position: relative; }
+      .ap-default-theme [ap-select] .md-select-trigger .md-select-arrow {
+        margin-left: auto; }
   .ap-default-theme .ap-components md-slide-toggle[ap-slide-toggle] {
     margin: 0; }
 
@@ -620,10 +647,46 @@ body {
     width: 100%; }
   body h1 {
     font-size: 20px; }
+  body .color {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 14px; }
+    body .color.extra {
+      width: 20px;
+      height: 20px;
+      margin: 30px; }
+    body .color.orange {
+      background-color: #ff4d00; }
+    body .color.light-orange {
+      background-color: #ff7b49; }
+    body .color.dark {
+      background-color: #2a2f34; }
+    body .color.light-dark {
+      background-color: #76818b; }
+    body .color.blue {
+      background-color: #00a2ff; }
+    body .color.green {
+      background-color: #9edd23; }
+    body .color.red {
+      background-color: #d91e1e; }
+    body .color.dark-grey {
+      background-color: #9b9b9b; }
+    body .color.grey {
+      background-color: #afafaf; }
+    body .color.light-grey {
+      background-color: #f7f7f7; }
+    body .color.placeholder {
+      background-color: #cbcbcb; }
+    body .color span {
+      font-size: 11px;
+      position: absolute;
+      top: -15px; }
   body [ap-avatar] {
     margin-right: 20px;
     margin-left: 5px; }
   body .headers,
+  body .colors,
   body .form-inputs,
   body .buttons {
     display: flex;
@@ -632,16 +695,20 @@ body {
     align-items: baseline; }
     body .headers [ap-select],
     body .headers [ap-input],
+    body .colors [ap-select],
+    body .colors [ap-input],
     body .form-inputs [ap-select],
     body .form-inputs [ap-input],
     body .buttons [ap-select],
     body .buttons [ap-input] {
       margin: 0 auto !important; }
     body .headers [ap-select],
+    body .colors [ap-select],
     body .form-inputs [ap-select],
     body .buttons [ap-select] {
       width: 220px; }
     body .headers > div > *,
+    body .colors > div > *,
     body .form-inputs > div > *,
     body .buttons > div > * {
       display: block; }
