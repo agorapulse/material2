@@ -13,7 +13,19 @@
     background-color: md-color($primary);
     border-color: md-color($accent, A400);
   }*/
-  .md-toolbar {
-    background: md-color($md-ap-blue, 500);
+
+  md-toolbar[ap-main-toolbar] {
+    background: white;
+    color: md-color($md-ap-light-dark, 500);
+
+    [md-tab-nav-bar] {
+      border-bottom: none;
+      height: 100%;
+      [md-tab-link] { height: 100%; }
+    }
+  }
+
+  nav[ap-main-toolbar] {
+
   }
 }

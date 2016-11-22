@@ -1,0 +1,22 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-sidenav-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  [ap-sidenav] {
+    width: 220px;
+    background: md-color($md-ap-dark, 500);
+    color: md-contrast($md-ap-dark, 500);
+    box-shadow: none;
+
+    md-nav-list {
+      .md-list-item { color: md-contrast($md-ap-dark, 500); }
+    }
+  }
+
+}

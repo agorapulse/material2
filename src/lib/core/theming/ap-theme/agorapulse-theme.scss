@@ -11,6 +11,7 @@
 @import 'components/navbar';
 @import 'components/radio';
 @import 'components/select';
+@import 'components/sidenav';
 @import 'components/slide-toggle';
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -48,6 +49,7 @@
     @include ap-navbar-theme($agorapulse-theme);
     @include ap-radio-theme($agorapulse-theme);
     @include ap-select-theme($agorapulse-theme);
+    @include ap-sidenav-theme($agorapulse-theme);
     @include ap-slide-toggle-theme($agorapulse-theme);
   }
 }

@@ -198,4 +198,43 @@
       </button>
     </div>
   </md-card>
+
+  <md-card>
+    <h1>Sidenav</h1>
+    <md-sidenav-layout class="demo-sidenav-layout">
+      <md-sidenav ap-sidenav #sidemenu opened mode="side">
+        <md-nav-list>
+          <a md-list-item>
+            Test menu item
+          </a>
+        </md-nav-list>
+        <button md-button (click)="sidemenu.close()">CLOSE</button>
+      </md-sidenav>
+
+      <div class="demo-sidenav-content">
+        <button md-button (click)="sidemenu.toggle()">Toggle Start Side Drawer</button>
+      </div>
+    </md-sidenav-layout>
+  </md-card>
+
+  <md-card>
+    <h1>Navbar</h1>
+    <nav ap-main-navbar md-tab-nav-bar aria-label="weather navigation links">
+      <a md-tab-link [active]="true">Inbox</a>
+      <a md-tab-link [active]="false">Monitoring</a>
+      <a md-tab-link [active]="false">Publishing</a>
+      <span class="example-fill-remaining-space"></span>
+      <md-icon>code</md-icon>
+    </nav>
+    <h1>Toolbar</h1>
+    <md-toolbar ap-main-toolbar z-depth-2>
+      <nav md-tab-nav-bar aria-label="weather navigation links">
+        <a md-tab-link [active]="true">Inbox</a>
+        <a md-tab-link [active]="false">Monitoring</a>
+        <a md-tab-link [active]="false">Publishing</a>
+      </nav>
+      <span class="example-fill-remaining-space"></span>
+      <md-icon>code</md-icon>
+    </md-toolbar>
+  </md-card>
 </div>
