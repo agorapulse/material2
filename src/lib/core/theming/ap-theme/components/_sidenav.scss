@@ -17,6 +17,8 @@
     md-nav-list {
       .md-list-item { color: md-contrast($md-ap-dark, 500); }
     }
+
+    ul { list-style-type: none; padding: 0; }
   }
 
 }
