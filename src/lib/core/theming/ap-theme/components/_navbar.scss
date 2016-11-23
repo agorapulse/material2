@@ -16,12 +16,18 @@
 
   md-toolbar[ap-main-toolbar] {
     background: white;
-    color: md-color($md-ap-light-dark, 500);
+    // color: md-color($md-ap-light-dark, 500);
 
     [md-tab-nav-bar] {
       border-bottom: none;
       height: 100%;
-      [md-tab-link] { height: 100%; }
+      [md-tab-link] {
+        align-self: center;
+      }
+      md-ink-bar {
+        width: 60px !important;
+        margin-left: 50px;
+      }
     }
   }
 

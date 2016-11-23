@@ -1,5 +1,5 @@
 {
-  "name": "ap-material2",
+  "name": "@agorapulse/material",
   "description": "Agorapulse Material Design components for Angular 2",
   "homepage": "https://github.com/agorapulse/material2",
   "bugs": "https://github.com/agorapulse/material2/issues",
@@ -15,7 +15,8 @@
     "stylelint": "gulp lint",
     "e2e": "gulp e2e",
     "deploy": "firebase deploy",
-    "webdriver-manager": "webdriver-manager"
+    "webdriver-manager": "webdriver-manager",
+    "link": "fsmonitor -s -q -d dist node watch_link.js"
   },
   "version": "2.0.0-alpha.10",
   "license": "MIT",
