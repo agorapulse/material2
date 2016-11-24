@@ -3,14 +3,14 @@
 @import '../../all-theme';
 
 // Define a mixin that accepts a theme and outputs the color styles for the component.
-@mixin ap-button-theme($theme) {
+@mixin ap-list-theme($theme) {
   // Extract whichever individual palettes you need from the theme.
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
   .ap-components {
     md-nav-list [ap-list] {
-      
+
     }
   }
 
