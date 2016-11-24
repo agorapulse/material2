@@ -31,8 +31,20 @@
     }
   }
 
-  nav[ap-main-navbar] {
+  nav[ap-main-navbar],
+  nav[ap-main-filter-tabs] {
     display: flex;
     align-items: center;
+    a {
+      line-height: 1;
+      cursor: pointer;
+    }
+  }
+
+  nav[ap-main-filter-tabs] {
+    height: 64px;
+    padding: 0 30px;
+    background: white;
+    border-right: 1px solid md-color($md-ap-grey, 500);
   }
 }

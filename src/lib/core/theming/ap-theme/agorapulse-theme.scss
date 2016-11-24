@@ -13,6 +13,7 @@
 @import 'components/select';
 @import 'components/sidenav';
 @import 'components/slide-toggle';
+@import 'components/list';
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700);
@@ -51,5 +52,6 @@
     @include ap-select-theme($agorapulse-theme);
     @include ap-sidenav-theme($agorapulse-theme);
     @include ap-slide-toggle-theme($agorapulse-theme);
+    @include ap-list-theme($agorapulse-theme);
   }
 }
