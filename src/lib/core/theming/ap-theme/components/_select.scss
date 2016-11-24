@@ -18,11 +18,13 @@
       margin-bottom: 0;
     }
     .md-select-trigger {
-      border: 1px solid md-color($md-ap-grey, 500);
+      width: 100%;
       height: 38px;
+      border: 1px solid md-color($md-ap-grey, 500);
       padding: 10px;
       margin: 8px 0;
-      width: 100%;
+      background: white;
+      overflow: hidden;
 
       .md-select-placeholder {
         position: absolute;

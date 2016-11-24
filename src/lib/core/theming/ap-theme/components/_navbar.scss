@@ -31,7 +31,8 @@
     }
   }
 
-  nav[ap-main-toolbar] {
-
+  nav[ap-main-navbar] {
+    display: flex;
+    align-items: center;
   }
 }
