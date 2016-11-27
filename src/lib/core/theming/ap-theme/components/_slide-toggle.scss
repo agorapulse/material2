@@ -8,10 +8,8 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  .ap-components {
-    md-slide-toggle[ap-slide-toggle] {
-      margin: 0;
-    }
+  md-slide-toggle[ap-slide-toggle] {
+    margin: 0;
   }
 
 }

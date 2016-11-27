@@ -8,6 +8,8 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $border-color: rgba( md-color($md-ap-grey, 500), .39 );
+
   // Use md-color to extract individual colors from a palette as necessary.
   /*.candy-carousel {
     background-color: md-color($primary);
@@ -32,19 +34,28 @@
   }
 
   nav[ap-main-navbar],
-  nav[ap-main-filter-tabs] {
+  nav[ap-main-header] {
     display: flex;
     align-items: center;
+    border-bottom: 1px solid $border-color;
     a {
       line-height: 1;
       cursor: pointer;
+      > * { vertical-align: middle; }
     }
   }
 
-  nav[ap-main-filter-tabs] {
+  nav[ap-main-header] {
     height: 64px;
     padding: 0 30px;
     background: white;
-    border-right: 1px solid md-color($md-ap-grey, 500);
+  }
+
+  nav[ap-main-header] {
+    &.left {
+      border-right: 1px solid $border-color;
+      -webkit-box-shadow: 5px 0 10px -2px rgba(0, 0, 0, 0.14);
+      box-shadow: 5px 0 10px -2px rgba(0, 0, 0, 0.14);
+    }
   }
 }

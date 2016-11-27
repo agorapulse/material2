@@ -8,21 +8,19 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  .ap-components {
-    [md-raised-button][ap-button] {
-      border-radius: 5rem;
-      min-width: 115px;
-      line-height: 40px;
-      border-radius: 5rem;
-      overflow: hidden;
-      padding: 0 30px;
+  [md-raised-button][ap-button] {
+    border-radius: 5rem;
+    min-width: 115px;
+    line-height: 40px;
+    border-radius: 5rem;
+    overflow: hidden;
+    padding: 0 30px;
 
-      &[big] {
-        line-height: 50px;
-      }
-      &[flat] {
-        border-radius: 0;
-      }
+    &[big] {
+      line-height: 50px;
+    }
+    &[flat] {
+      border-radius: 0;
     }
   }
 
