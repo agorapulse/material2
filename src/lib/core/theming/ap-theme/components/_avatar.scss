@@ -8,25 +8,28 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  [ap-avatar] {
-    img {
-      max-width: 80px;
-      min-width: 80px;
-      max-height: 80px;
-    }
-    &.large img {
-      max-width: 140px;
+  img[ap-avatar] {
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 80px;
+    max-height: 80px;
+
+    &.large {
       min-width: 140px;
+      max-width: 140px;
+      min-height: 140px;
       max-height: 140px;
     }
-    &.small img {
-      max-width: 40px;
+    &.small {
       min-width: 40px;
+      max-width: 40px;
+      min-height: 40px;
       max-height: 40px;
     }
-    &.mini img {
-      max-width: 20px;
+    &.mini {
       min-width: 20px;
+      max-width: 20px;
+      min-height: 20px;
       max-height: 20px;
     }
   }

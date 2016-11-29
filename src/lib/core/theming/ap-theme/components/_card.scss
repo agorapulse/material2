@@ -9,7 +9,12 @@
   $accent: map-get($theme, accent);
 
   md-card[ap-card] {
-
+    md-card-header {
+      height: auto;
+    }
+    &.children-card {
+      margin: 20px 0;
+    }
   }
 
 }
