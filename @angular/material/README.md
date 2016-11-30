@@ -1,19 +1,38 @@
 # How to test Agorapulse theme
 First clone.
-Then go to production branch and do npm install
+Do npm install
 ```
-git checkout production
 npm i
 ```
 
-Now run it in http://localhost:4200/button with
+Now run it in http://localhost:4200/ui-kit with
 `npm run demo-app`
 
-Navigate to UI-KIT at the bottom of the side-menu to check the custom Agorapulse
+Navigate to UI-KIT at the top of the side-menu to check the custom Agorapulse
 components.
 
+# Development
 
+Set link path to auto update files in another custom project
+`npm config set @agorapulse/material:dir ../project-dir/`
 
+Then do:
+`npm run link`
+
+You need to build the components (not the demo-app). See "How to build".
+
+# How to Build
+
+Requeriments
+`npm i -g gulp`
+
+To build the components in dev mode: `gulp build:components`
+
+To build the components in release mode: `gulp build:release`
+
+To bring up a local server: `gulp serve:devapp`
+
+This will automatically watch for changes and rebuild. The browser should refresh automatically when changes are made.
 
 
 # Material Design for Angular 2

@@ -8,12 +8,10 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  .ap-components {
-    md-radio-button[ap-radio] {
-      .md-radio-container .md-radio-outer-circle {
-        border-color: md-color($accent, 500);
-        border-width: 1px;
-      }
+  md-radio-button[ap-radio] {
+    .md-radio-container .md-radio-outer-circle {
+      border-color: md-color($accent, 500);
+      border-width: 1px;
     }
   }
 

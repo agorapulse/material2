@@ -8,12 +8,54 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $border-color: rgba( md-color($md-ap-grey, 500), .39 );
+
   // Use md-color to extract individual colors from a palette as necessary.
   /*.candy-carousel {
     background-color: md-color($primary);
     border-color: md-color($accent, A400);
   }*/
-  .md-toolbar {
-    background: md-color($md-ap-blue, 500);
+
+  md-toolbar[ap-main-toolbar] {
+    background: white;
+    color: md-color($md-ap-dark, 500);
+
+    [md-tab-nav-bar] {
+      border-bottom: none;
+      height: 100%;
+      [md-tab-link] {
+        align-self: center;
+      }
+      md-ink-bar {
+        width: 60px !important;
+        margin-left: 50px;
+      }
+    }
+  }
+
+  nav[ap-main-navbar],
+  nav[ap-main-header] {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $border-color;
+    a {
+      line-height: 1;
+      cursor: pointer;
+      > * { vertical-align: middle; }
+    }
+  }
+
+  nav[ap-main-header] {
+    height: 64px;
+    padding: 0 30px;
+    background: white;
+  }
+
+  nav[ap-main-header] {
+    &.left {
+      border-right: 1px solid $border-color;
+      -webkit-box-shadow: 3px 0 12px -2px rgba(0, 0, 0, 0.1);
+      box-shadow: 3px 0 12px -2px rgba(0, 0, 0, 0.1)
+    }
   }
 }

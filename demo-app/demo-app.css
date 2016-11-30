@@ -427,38 +427,46 @@
       color: white; }
   .ap-default-theme .md-tooltip {
     background: rgba(97, 97, 97, 0.9); }
-  .ap-default-theme [ap-avatar] img {
-    max-width: 80px;
+  .ap-default-theme img[ap-avatar] {
     min-width: 80px;
+    max-width: 80px;
+    min-height: 80px;
     max-height: 80px; }
-  .ap-default-theme [ap-avatar].large img {
-    max-width: 140px;
-    min-width: 140px;
-    max-height: 140px; }
-  .ap-default-theme [ap-avatar].small img {
-    max-width: 40px;
-    min-width: 40px;
-    max-height: 40px; }
-  .ap-default-theme [ap-avatar].mini img {
-    max-width: 20px;
-    min-width: 20px;
-    max-height: 20px; }
-  .ap-default-theme .ap-components [md-raised-button][ap-button] {
+    .ap-default-theme img[ap-avatar].large {
+      min-width: 140px;
+      max-width: 140px;
+      min-height: 140px;
+      max-height: 140px; }
+    .ap-default-theme img[ap-avatar].small {
+      min-width: 40px;
+      max-width: 40px;
+      min-height: 40px;
+      max-height: 40px; }
+    .ap-default-theme img[ap-avatar].mini {
+      min-width: 20px;
+      max-width: 20px;
+      min-height: 20px;
+      max-height: 20px; }
+  .ap-default-theme [md-raised-button][ap-button] {
     border-radius: 5rem;
     min-width: 115px;
     line-height: 40px;
     border-radius: 5rem;
     overflow: hidden;
     padding: 0 30px; }
-    .ap-default-theme .ap-components [md-raised-button][ap-button][big] {
+    .ap-default-theme [md-raised-button][ap-button][big] {
       line-height: 50px; }
-    .ap-default-theme .ap-components [md-raised-button][ap-button][flat] {
+    .ap-default-theme [md-raised-button][ap-button][flat] {
       border-radius: 0; }
-  .ap-default-theme .ap-components md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-background {
+  .ap-default-theme md-card[ap-card] md-card-header {
+    height: auto; }
+  .ap-default-theme md-card[ap-card].children-card {
+    margin: 20px 0; }
+  .ap-default-theme md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-background {
     transform: scale(0.5); }
-    .ap-default-theme .ap-components md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-background .md-checkbox-checkmark {
+    .ap-default-theme md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-background .md-checkbox-checkmark {
       display: none; }
-  .ap-default-theme .ap-components md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-frame {
+  .ap-default-theme md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-frame {
     border-color: #00a2ff;
     border-width: 1px; }
   .ap-default-theme body {
@@ -534,16 +542,39 @@
     color: #ff4d00; }
   .ap-default-theme .ap-components [t-color-accent] {
     color: #00a2ff; }
-  .ap-default-theme .ap-components [z-depth-1] {
+  .ap-default-theme .ap-components [z-depth-1-strong] {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
-  .ap-default-theme .ap-components [z-depth-2] {
+  .ap-default-theme .ap-components [z-depth-2-strong] {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2); }
-  .ap-default-theme .ap-components [z-depth-3] {
+  .ap-default-theme .ap-components [z-depth-3-strong] {
     box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.3), 0 11px 7px 0 rgba(0, 0, 0, 0.19); }
-  .ap-default-theme .ap-components [z-depth-4] {
+  .ap-default-theme .ap-components [z-depth-4-strong] {
     box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3), 0 14px 12px 0 rgba(0, 0, 0, 0.17); }
-  .ap-default-theme .ap-components [z-depth-5] {
+  .ap-default-theme .ap-components [z-depth-5-strong] {
     box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15); }
+  .ap-default-theme .ap-components [z-depth-1] {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12); }
+  .ap-default-theme .ap-components [z-depth-2] {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.066); }
+  .ap-default-theme .ap-components [z-depth-3] {
+    box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.1), 0 11px 7px 0 rgba(0, 0, 0, 0.063); }
+  .ap-default-theme .ap-components [z-depth-4] {
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1), 0 14px 12px 0 rgba(0, 0, 0, 0.056); }
+  .ap-default-theme .ap-components [z-depth-5] {
+    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.1), 0 17px 17px 0 rgba(0, 0, 0, 0.05); }
+  .ap-default-theme .ap-components [z-depth-1-light] {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.06); }
+  .ap-default-theme .ap-components [z-depth-2-light] {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.033); }
+  .ap-default-theme .ap-components [z-depth-3-light] {
+    box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.05), 0 11px 7px 0 rgba(0, 0, 0, 0.032); }
+  .ap-default-theme .ap-components [z-depth-4-light] {
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.05), 0 14px 12px 0 rgba(0, 0, 0, 0.028); }
+  .ap-default-theme .ap-components [z-depth-5-light] {
+    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.05), 0 17px 17px 0 rgba(0, 0, 0, 0.025); }
+  .ap-default-theme .ap-components .fill-remaining-space,
+  .ap-default-theme .ap-components [fill] {
+    flex: 1 1 auto; }
   .ap-default-theme [ap-input] {
     margin: 8px 0;
     max-width: 220px;
@@ -594,24 +625,54 @@
       text-align: right;
       display: block;
       margin-top: -5px; }
-  .ap-default-theme .md-toolbar {
-    background: #00a2ff; }
-  .ap-default-theme .ap-components md-radio-button[ap-radio] .md-radio-container .md-radio-outer-circle {
+  .ap-default-theme md-toolbar[ap-main-toolbar] {
+    background: white;
+    color: #2a2f34; }
+    .ap-default-theme md-toolbar[ap-main-toolbar] [md-tab-nav-bar] {
+      border-bottom: none;
+      height: 100%; }
+      .ap-default-theme md-toolbar[ap-main-toolbar] [md-tab-nav-bar] [md-tab-link] {
+        -ms-grid-row-align: center;
+        align-self: center; }
+      .ap-default-theme md-toolbar[ap-main-toolbar] [md-tab-nav-bar] md-ink-bar {
+        width: 60px !important;
+        margin-left: 50px; }
+  .ap-default-theme nav[ap-main-navbar],
+  .ap-default-theme nav[ap-main-header] {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(175, 175, 175, 0.39); }
+    .ap-default-theme nav[ap-main-navbar] a,
+    .ap-default-theme nav[ap-main-header] a {
+      line-height: 1;
+      cursor: pointer; }
+      .ap-default-theme nav[ap-main-navbar] a > *,
+      .ap-default-theme nav[ap-main-header] a > * {
+        vertical-align: middle; }
+  .ap-default-theme nav[ap-main-header] {
+    height: 64px;
+    padding: 0 30px;
+    background: white; }
+  .ap-default-theme nav[ap-main-header].left {
+    border-right: 1px solid rgba(175, 175, 175, 0.39);
+    box-shadow: 3px 0 12px -2px rgba(0, 0, 0, 0.1); }
+  .ap-default-theme md-radio-button[ap-radio] .md-radio-container .md-radio-outer-circle {
     border-color: #00a2ff;
     border-width: 1px; }
   .ap-default-theme [ap-select] {
     margin: 8px 0;
     max-width: 220px;
-    position: relative;
-    width: 220px; }
+    position: relative; }
     .ap-default-theme [ap-select]:last-child {
       margin-bottom: 0; }
     .ap-default-theme [ap-select] .md-select-trigger {
-      border: 1px solid #afafaf;
+      width: 100%;
       height: 38px;
+      border: 1px solid #afafaf;
       padding: 10px;
       margin: 8px 0;
-      width: 100%; }
+      background: white;
+      overflow: hidden; }
       .ap-default-theme [ap-select] .md-select-trigger .md-select-placeholder {
         position: absolute;
         transform: translate3d(0px, 0px, 0px) scale(1) !important; }
@@ -622,8 +683,24 @@
         position: relative; }
       .ap-default-theme [ap-select] .md-select-trigger .md-select-arrow {
         margin-left: auto; }
-  .ap-default-theme .ap-components md-slide-toggle[ap-slide-toggle] {
+  .ap-default-theme [ap-sidenav] {
+    width: 220px;
+    background: #2a2f34;
+    color: rgba(255, 255, 255, 0.87);
+    box-shadow: none; }
+    .ap-default-theme [ap-sidenav] md-nav-list .md-list-item {
+      color: rgba(255, 255, 255, 0.87); }
+    .ap-default-theme [ap-sidenav] ul {
+      list-style-type: none;
+      padding: 0; }
+  .ap-default-theme md-slide-toggle[ap-slide-toggle] {
     margin: 0; }
+  .ap-default-theme md-nav-list[ap-list] {
+    padding-top: 0;
+    border-right: 1px solid #afafaf; }
+    .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item {
+      height: 85px;
+      border-bottom: 1px solid #afafaf; }
 
 body {
   font-family: Roboto, 'Helvetica Neue', sans-serif; }
@@ -685,6 +762,8 @@ body {
   body [ap-avatar] {
     margin-right: 20px;
     margin-left: 5px; }
+  body [ap-select] {
+    width: 220px; }
   body .headers,
   body .colors,
   body .form-inputs,
@@ -712,5 +791,7 @@ body {
     body .form-inputs > div > *,
     body .buttons > div > * {
       display: block; }
+  body .demo-sidenav-layout {
+    height: 300px; }
 
 /*# sourceMappingURL=demo-app.css.map */

@@ -74,7 +74,9 @@ body {
     margin-right: 20px;
     margin-left: 5px;
   }
-
+  [ap-select] {
+    width: 220px;
+  }
   .headers,
   .colors,
   .form-inputs,
@@ -89,5 +91,9 @@ body {
     > div {
       > * { display: block; }
     }
+  }
+
+  .demo-sidenav-layout {
+    height: 300px;
   }
 }

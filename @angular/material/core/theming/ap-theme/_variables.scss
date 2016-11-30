@@ -5,8 +5,20 @@ $color-error: #DB1E1E;
 $color-success: #8DDE57;
 
 
-$z-depth-1: 0 1px 4px 0 rgba(0, 0, 0, 0.37); 
-$z-depth-2: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2); 
-$z-depth-3: 0 13px 25px 0 rgba(0, 0, 0, 0.3), 0 11px 7px 0 rgba(0, 0, 0, 0.19); 
-$z-depth-4: 0 20px 40px 0 rgba(0, 0, 0, 0.3), 0 14px 12px 0 rgba(0, 0, 0, 0.17); 
-$z-depth-5: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15); 
+$z-depth-1-strong: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+$z-depth-2-strong: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+$z-depth-3-strong: 0 13px 25px 0 rgba(0, 0, 0, 0.3), 0 11px 7px 0 rgba(0, 0, 0, 0.19);
+$z-depth-4-strong: 0 20px 40px 0 rgba(0, 0, 0, 0.3), 0 14px 12px 0 rgba(0, 0, 0, 0.17);
+$z-depth-5-strong: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+
+$z-depth-1: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+$z-depth-2: 0 6px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.066);
+$z-depth-3: 0 13px 25px 0 rgba(0, 0, 0, 0.1), 0 11px 7px 0 rgba(0, 0, 0, 0.063);
+$z-depth-4: 0 20px 40px 0 rgba(0, 0, 0, 0.1), 0 14px 12px 0 rgba(0, 0, 0, 0.056);
+$z-depth-5: 0 27px 55px 0 rgba(0, 0, 0, 0.1), 0 17px 17px 0 rgba(0, 0, 0, 0.05);
+
+$z-depth-1-light: 0 1px 4px 0 rgba(0, 0, 0, 0.06);
+$z-depth-2-light: 0 6px 10px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.033);
+$z-depth-3-light: 0 13px 25px 0 rgba(0, 0, 0, 0.05), 0 11px 7px 0 rgba(0, 0, 0, 0.032);
+$z-depth-4-light: 0 20px 40px 0 rgba(0, 0, 0, 0.05), 0 14px 12px 0 rgba(0, 0, 0, 0.028);
+$z-depth-5-light: 0 27px 55px 0 rgba(0, 0, 0, 0.05), 0 17px 17px 0 rgba(0, 0, 0, 0.025);
