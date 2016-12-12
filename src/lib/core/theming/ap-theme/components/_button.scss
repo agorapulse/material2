@@ -11,10 +11,12 @@
   [md-raised-button][ap-button] {
     border-radius: 5rem;
     min-width: 115px;
+    max-width: 100%;
     line-height: 40px;
     border-radius: 5rem;
     overflow: hidden;
     padding: 0 30px;
+    text-overflow: ellipsis;
 
     &[big] {
       line-height: 50px;

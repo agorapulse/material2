@@ -92,8 +92,11 @@
 
     [square] { border-radius: 3px; }
 
-    [t-color-primary] { color: md-color($primary); }
-    [t-color-accent] { color: md-color($accent); }
+    [color-primary] { color: md-color($primary); }
+    [color-accent] { color: md-color($accent); }
+
+    [background-primary] { background: md-color($primary); }
+    [background-accent] { background: md-color($accent); }
 
     [z-depth-1-strong] { box-shadow: $z-depth-1-strong }
     [z-depth-2-strong] { box-shadow: $z-depth-2-strong }
