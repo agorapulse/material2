@@ -43,6 +43,11 @@
     h5 { font-size: 16px; font-weight: 500; }
     h6 { font-family: 'Open Sans'; font-size: 14px; font-weight: 400; }
 
+    a {
+      text-decoration: none;
+      color: $color-label-p;
+      &:hover { text-decoration: underline; }
+    }
     p {
       font-family: 'Open Sans';
       font-weight: 400;
@@ -50,6 +55,7 @@
       line-height: 22px;
       letter-spacing: 0.5;
       color: $color-label-p;
+      margin: 10px 0;
     }
 
     label {
@@ -116,6 +122,21 @@
     [z-depth-4-light] { box-shadow: $z-depth-4-light }
     [z-depth-5-light] { box-shadow: $z-depth-5-light }
 
+    [h-separator] {
+      display: flex;
+      align-items: center;
+      font-family: "Open Sans";
+      font-size: 15px;
+      margin: 15px 0;
+      color: $color-placeholder;
+      hr {
+        flex: 1;
+        border: none;
+        background: $color-label-p;
+        height: 1px;
+      }
+      span { padding: 0 25px; text-align: center; }
+    }
     .fill-remaining-space,
     [fill] {
       -webkit-box-flex: 1;
