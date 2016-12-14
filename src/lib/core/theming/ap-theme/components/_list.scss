@@ -10,11 +10,11 @@
 
   md-nav-list[ap-list] {
     padding-top: 0;
-    border-right: 1px solid md-color($md-ap-grey, 500);
+    border-right: 1px solid md-color($md-ap-light-grey, 500);
 
     [md-list-item] .md-list-item {
-      height: 85px;
-      border-bottom: 1px solid md-color($md-ap-grey, 500);
+      height: $item-height;
+      border-bottom: 1px solid md-color($md-ap-light-grey, 500);
     }
   }
 
