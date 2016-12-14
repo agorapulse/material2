@@ -46,6 +46,7 @@
     a {
       text-decoration: none;
       color: $color-label-p;
+      cursor: pointer;
       &:hover { text-decoration: underline; }
     }
     p {
@@ -68,7 +69,7 @@
     span, p {
       &.label, &.error, &.success {
         font-family: 'Open Sans';
-        text-transform: capitalize;
+        text-transform: initial;
       }
       &.placeholder {
         font-size: 14px;

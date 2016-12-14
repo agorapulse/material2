@@ -20,6 +20,7 @@
     &.fixed-icon {
       input { padding-right: 43px; }
       md-icon {
+        display: block;
         background: md-color($md-ap-light-grey, 500);
         border-left: 1px solid md-color($md-ap-grey, 500);
       }
@@ -48,8 +49,10 @@
         border: 1px solid $color-error;
       }
       md-icon {
+        display: block;
         color: $color-error;
       }
+      span { display: block; }
     }
     &.valid {
       md-icon {
@@ -61,6 +64,7 @@
     }
 
     md-icon {
+      display: none;
       position: relative;
       float: right;
       margin-right: 1px;
@@ -75,7 +79,7 @@
 
     span {
       text-align: right;
-      display: block;
+      display: none;
       margin-top: -5px;
     }
   }
