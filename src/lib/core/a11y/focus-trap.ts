@@ -1,5 +1,6 @@
-import {Component, ViewEncapsulation, ViewChild, ElementRef} from '@angular/core';
+import {Component, ViewEncapsulation, ViewChild, ElementRef, Input, NgZone} from '@angular/core';
 import {InteractivityChecker} from './interactivity-checker';
+import {coerceBooleanProperty} from '../coercion/boolean-property';
 
 
 /**
@@ -13,17 +14,39 @@ import {InteractivityChecker} from './interactivity-checker';
 @Component({
   moduleId: module.id,
   selector: 'focus-trap',
-  // TODO(jelbourn): move this to a separate file.
-  template: `
-  <div tabindex="0" (focus)="focusLastTabbableElement()"></div>
-  <div #trappedContent><ng-content></ng-content></div>
-  <div tabindex="0" (focus)="focusFirstTabbableElement()"></div>`,
+  templateUrl: 'focus-trap.html',
   encapsulation: ViewEncapsulation.None,
 })
 export class FocusTrap {
   @ViewChild('trappedContent') trappedContent: ElementRef;
 
-  constructor(private _checker: InteractivityChecker) { }
+  /** Whether the focus trap is active. */
+  @Input()
+  get disabled(): boolean { return this._disabled; }
+  set disabled(val: boolean) { this._disabled = coerceBooleanProperty(val); }
+  private _disabled: boolean = false;
+
+  constructor(private _checker: InteractivityChecker, private _ngZone: NgZone) { }
+
+  /**
+   * Waits for microtask queue to empty, then focuses the first tabbable element within the focus
+   * trap region.
+   */
+  focusFirstTabbableElementWhenReady() {
+    this._ngZone.onMicrotaskEmpty.first().subscribe(() => {
+      this.focusFirstTabbableElement();
+    });
+  }
+
+  /**
+   * Waits for microtask queue to empty, then focuses the last tabbable element within the focus
+   * trap region.
+   */
+  focusLastTabbableElementWhenReady() {
+    this._ngZone.onMicrotaskEmpty.first().subscribe(() => {
+      this.focusLastTabbableElement();
+    });
+  }
 
   /** Focuses the first tabbable element within the focus trap region. */
   focusFirstTabbableElement() {
