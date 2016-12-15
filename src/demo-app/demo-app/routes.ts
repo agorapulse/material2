@@ -22,6 +22,7 @@ import {SlideToggleDemo} from '../slide-toggle/slide-toggle-demo';
 import {SliderDemo} from '../slider/slider-demo';
 import {RadioDemo} from '../radio/radio-demo';
 import {CardDemo} from '../card/card-demo';
+import {ChipsDemo} from '../chips/chips-demo';
 import {MenuDemo} from '../menu/menu-demo';
 import {RippleDemo} from '../ripple/ripple-demo';
 import {DialogDemo} from '../dialog/dialog-demo';
@@ -30,11 +31,16 @@ import {SnackBarDemo} from '../snack-bar/snack-bar-demo';
 import {ProjectionDemo} from '../projection/projection-demo';
 import {TABS_DEMO_ROUTES} from '../tabs/routes';
 import {UiKitDemo} from '../ui-kit/ui-kit-demo';
+import {PlatformDemo} from '../platform/platform-demo';
+import {AutocompleteDemo} from '../autocomplete/autocomplete-demo';
+import {InputContainerDemo} from '../input/input-container-demo';
 
 export const DEMO_APP_ROUTES: Routes = [
   {path: '', component: Home},
+  {path: 'autocomplete', component: AutocompleteDemo},
   {path: 'button', component: ButtonDemo},
   {path: 'card', component: CardDemo},
+  {path: 'chips', component: ChipsDemo},
   {path: 'radio', component: RadioDemo},
   {path: 'select', component: SelectDemo},
   {path: 'sidenav', component: SidenavDemo},
@@ -47,6 +53,7 @@ export const DEMO_APP_ROUTES: Routes = [
   {path: 'overlay', component: OverlayDemo},
   {path: 'checkbox', component: CheckboxDemo},
   {path: 'input', component: InputDemo},
+  {path: 'input-container', component: InputContainerDemo},
   {path: 'toolbar', component: ToolbarDemo},
   {path: 'icon', component: IconDemo},
   {path: 'list', component: ListDemo},
@@ -62,4 +69,5 @@ export const DEMO_APP_ROUTES: Routes = [
   {path: 'tooltip', component: TooltipDemo},
   {path: 'snack-bar', component: SnackBarDemo},
   {path: 'ui-kit', component: UiKitDemo},
+  {path: 'platform', component: PlatformDemo}
 ];

@@ -65,15 +65,17 @@ and which pieces are blocked) and make a comment.
 Also see our [`Good for community contribution`](https://github.com/angular/material2/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+for+community+contribution%22)
 label.
 
-High level items planned for November 2016:
-* Initial version of md-select
+High level items planned for December 2016:
+* Continued work on initial versions of md-autocomplete and md-chips
 * Continued bug bashing
-* Initial versions of autocomplete and chips
+* Continued work on https://material.angular.io site
+* Finish major refactoring for md-input (hit a few issues last month)
+* Continued expanding e2e test coverage
+* Paginated tabs.
+* Scroll / resize handling for overlays
+* Production build 
 * AoT compile e2e app
-* Continue work on https://material.angular.io site
-* Major refactoring for md-input
-* Tabs animations
-* Expanding e2e test coverage
+* Release beta.0
 
 
 #### Feature status:
@@ -96,20 +98,19 @@ High level items planned for November 2016:
 | slide-toggle     |                           Available | [README][14] |              - |
 | button-toggle    |                           Available | [README][15] |              - |
 | slider           |                           Available | [README][16] |              - |
-| menu             | Initial version, needs enhancements | [README][17] |   [#119][0119] |
+| menu             |                           Available | [README][17] |   [#119][0119] |
 | tooltip          | Initial version, needs enhancements | [README][18] |              - |
-| ripples          |  Available, but needs to be applied | [README][19] |   [#108][0108] |
-| dialog           |  Started, not yet ready for release | [README][22] |   [#114][0114] |
-| snackbar / toast | Initial version, needs enhancements | [README][21] |   [#115][0115] |
-| select           |                      Design started |           -  |   [#118][0118] |
-| textarea         |                             Started |           -  |   [#546][0546] |
+| ripples          |                           Available | [README][19] |   [#108][0108] |
+| dialog           |                           Available | [README][22] |   [#114][0114] |
+| snackbar / toast |                           Available | [README][21] |   [#115][0115] |
+| select           |        Will be released in alpha.11 |           -  |   [#118][0118] |
+| textarea         | Initial version, needs enhancements |           -  |              - |
 | autocomplete     |                      Design started |           -  |   [#117][0117] |
-| chips            |                      Design started |           -  |   [#120][0120] |
-| theming          | Initial version, needs enhancements | [Guide][20]  |              - |
+| chips            |                             Started |           -  |   [#120][0120] |
+| theming          |   Available, need guidance overlays | [Guide][20]  |              - |
 | prod build       |                         Not started |           -  |              - |
 | docs site        |   UX design and tooling in progress |           -  |              - |
 | typography       |                         Not started |           -  |   [#205][0205] |
-| layout           |      Design in-progress, prototyped |           -  |              - |
 | fab speed-dial   |                         Not started |           -  |   [#860][0860] |
 | fab toolbar      |                         Not started |           -  |              - |
 | bottom-sheet     |                         Not started |           -  |              - |
@@ -118,7 +119,9 @@ High level items planned for November 2016:
 | datepicker       |                         Not started |           -  |   [#675][0675] |
 | data-table       |                         Not started |           -  |   [#581][0581] |
 | stepper          |                         Not started |           -  |   [#508][0508] |
+| layout           |   see [angular/flex-layout][lay_rp] |           -  |              - |
 
+ [lay_rp]:  https://github.com/angular/flex-layout
  [1]: https://github.com/angular/material2/blob/master/src/lib/button/README.md
  [2]: https://github.com/angular/material2/blob/master/src/lib/card/README.md
  [3]: https://github.com/angular/material2/blob/master/src/lib/checkbox/README.md

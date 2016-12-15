@@ -51,15 +51,15 @@ export class MenuPage {
     });
   }
 
-  expectMenuLocation(el: ElementFinder, {x,y}: {x: number, y: number}) {
-    el.getLocation().then((loc) => {
-      expect(loc.x).toEqual(x);
-      expect(loc.y).toEqual(y);
+  expectMenuLocation(el: ElementFinder, {x, y}: {x: number, y: number}) {
+    el.getLocation().then(loc => {
+      expect(loc.x).toEqual(x, 'Expect the x-position to be equal');
+      expect(loc.y).toEqual(y, 'Expect the y-position to be equal');
     });
   }
 
   expectMenuAlignedWith(el: ElementFinder, id: string) {
-    element(by.id(id)).getLocation().then((loc) => {
+    element(by.id(id)).getLocation().then(loc => {
       this.expectMenuLocation(el, {x: loc.x, y: loc.y});
     });
   }
