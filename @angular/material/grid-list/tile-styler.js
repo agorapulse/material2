@@ -7,7 +7,7 @@ import { MdGridListBadRatioError } from './grid-list-errors';
 /**
  * Sets the style properties for an individual tile, given the position calculated by the
  * Tile Coordinator.
- * TODO: internal
+ * @docs-private
  */
 export var TileStyler = (function () {
     function TileStyler() {
@@ -103,7 +103,7 @@ export var TileStyler = (function () {
 /**
  * This type of styler is instantiated when the user passes in a fixed row height.
  * Example <md-grid-list cols="3" rowHeight="100px">
- * TODO: internal
+ * @docs-private
  */
 export var FixedTileStyler = (function (_super) {
     __extends(FixedTileStyler, _super);
@@ -129,7 +129,7 @@ export var FixedTileStyler = (function (_super) {
 /**
  * This type of styler is instantiated when the user passes in a width:height ratio
  * for the row height.  Example <md-grid-list cols="3" rowHeight="3:1">
- * TODO: internal
+ * @docs-private
  */
 export var RatioTileStyler = (function (_super) {
     __extends(RatioTileStyler, _super);
@@ -160,9 +160,13 @@ export var RatioTileStyler = (function (_super) {
     };
     return RatioTileStyler;
 }(TileStyler));
-/*  This type of styler is instantiated when the user selects a "fit" row height mode.
- *  In other words, the row height will reflect the total height of the container divided
- *  by the number of rows.  Example <md-grid-list cols="3" rowHeight="fit"> */
+/**
+ * This type of styler is instantiated when the user selects a "fit" row height mode.
+ * In other words, the row height will reflect the total height of the container divided
+ * by the number of rows.  Example <md-grid-list cols="3" rowHeight="fit">
+ *
+ * @docs-private
+ */
 export var FitTileStyler = (function (_super) {
     __extends(FitTileStyler, _super);
     function FitTileStyler() {

@@ -11,10 +11,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdSelect } from './select';
 import { MdOption } from './option';
-import { OverlayModule } from '../core/overlay/overlay-directives';
-import { MdRippleModule } from '../core/ripple/ripple';
-import { OVERLAY_PROVIDERS } from '../core/overlay/overlay';
+import { DefaultStyleCompatibilityModeModule, OVERLAY_PROVIDERS, MdRippleModule, OverlayModule } from '../core';
 export * from './select';
+export { MdOption } from './option';
+export { fadeInContent, transformPanel, transformPlaceholder } from './select-animations';
 export var MdSelectModule = (function () {
     function MdSelectModule() {
     }
@@ -26,8 +26,8 @@ export var MdSelectModule = (function () {
     };
     MdSelectModule = __decorate([
         NgModule({
-            imports: [CommonModule, OverlayModule, MdRippleModule],
-            exports: [MdSelect, MdOption],
+            imports: [CommonModule, OverlayModule, MdRippleModule, DefaultStyleCompatibilityModeModule],
+            exports: [MdSelect, MdOption, DefaultStyleCompatibilityModeModule],
             declarations: [MdSelect, MdOption],
         }), 
         __metadata('design:paramtypes', [])

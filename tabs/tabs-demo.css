@@ -1,5 +1,6 @@
 .demo-nav-bar {
-  border: 1px solid #e0e0e0; }
+  border: 1px solid #e0e0e0;
+  margin-bottom: 40px; }
   .demo-nav-bar [md-tab-nav-bar] {
     background: #f9f9f9; }
   .demo-nav-bar sunny-routed-content,
@@ -9,10 +10,32 @@
     padding: 12px; }
 
 .demo-tab-group {
-  border: 1px solid #e0e0e0; }
+  border: 1px solid #e0e0e0;
+  margin-bottom: 40px; }
   .demo-tab-group .md-tab-header {
     background: #f9f9f9; }
   .demo-tab-group .md-tab-body-content {
     padding: 12px; }
+
+tabs-demo md-card {
+  width: 160px; }
+
+.demo-dynamic-tabs {
+  display: flex;
+  width: 100%; }
+  .demo-dynamic-tabs md-tab-group {
+    min-width: 200px;
+    margin-bottom: 0;
+    flex-grow: 1; }
+  .demo-dynamic-tabs md-card {
+    min-width: 160px;
+    margin-right: 16px; }
+    .demo-dynamic-tabs md-card md-checkbox {
+      display: block;
+      margin-top: 8px; }
+    .demo-dynamic-tabs md-card md-input {
+      width: 100px; }
+    .demo-dynamic-tabs md-card button {
+      width: 100%; }
 
 /*# sourceMappingURL=tabs-demo.css.map */

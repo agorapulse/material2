@@ -25,12 +25,10 @@ export declare class MdGridList implements OnInit, AfterContentChecked {
     gutterSize: any;
     /** Set internal representation of row height from the user-provided value. */
     rowHeight: string | number;
-    /** TODO: internal */
     ngOnInit(): void;
     /**
      * The layout calculation is fairly cheap if nothing changes, so there's little cost
      * to run it frequently.
-     * TODO: internal
      */
     ngAfterContentChecked(): void;
     /** Throw a friendly error if cols property is missing */

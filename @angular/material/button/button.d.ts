@@ -28,6 +28,7 @@ export declare class MdButton {
 export declare class MdAnchor extends MdButton {
     constructor(elementRef: ElementRef, renderer: Renderer);
     readonly tabIndex: number;
+    /** Gets the aria-disabled value for the component, which must be a string for Dart. */
     readonly isAriaDisabled: string;
     _haltDisabledEvents(event: Event): void;
 }

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var material_1 = require('@angular/material');
 var ButtonToggleDemo = (function () {
     function ButtonToggleDemo() {
+        this.isVertical = false;
         this.favoritePie = 'Apple';
         this.pieOptions = [
             'Apple',

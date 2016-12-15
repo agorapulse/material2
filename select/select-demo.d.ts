@@ -2,19 +2,16 @@ import { FormControl } from '@angular/forms';
 export declare class SelectDemo {
     isRequired: boolean;
     isDisabled: boolean;
+    showSelect: boolean;
     currentDrink: string;
     foodControl: FormControl;
     foods: {
         value: string;
         viewValue: string;
     }[];
-    drinks: ({
+    drinks: {
         value: string;
         viewValue: string;
-    } | {
-        value: string;
-        viewValue: string;
-        disabled: boolean;
-    })[];
+    }[];
     toggleDisabled(): void;
 }

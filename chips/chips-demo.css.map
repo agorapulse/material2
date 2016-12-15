@@ -1,0 +1,1 @@
+{"version":3,"sources":["chips-demo.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,iBAAiB,EAAE;;AAErB;EACE,kBAAkB,EAAE","file":"chips-demo.css","sourcesContent":[".chips-demo .md-chip-list-stacked {\n  display: block;\n  max-width: 200px; }\n\n.chips-demo md-basic-chip {\n  margin: auto 10px; }\n"]}

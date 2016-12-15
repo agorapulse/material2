@@ -13,6 +13,8 @@ var TooltipDemo = (function () {
     function TooltipDemo() {
         this.position = 'below';
         this.message = 'Here is the tooltip';
+        this.showDelay = 0;
+        this.hideDelay = 0;
     }
     TooltipDemo = __decorate([
         core_1.Component({

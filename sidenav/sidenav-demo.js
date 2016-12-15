@@ -19,6 +19,7 @@ var SidenavDemo = (function () {
             selector: 'sidenav-demo',
             templateUrl: 'sidenav-demo.html',
             styleUrls: ['sidenav-demo.css'],
+            encapsulation: core_1.ViewEncapsulation.None,
         }), 
         __metadata('design:paramtypes', [])
     ], SidenavDemo);

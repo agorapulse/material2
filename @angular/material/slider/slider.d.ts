@@ -1,5 +1,6 @@
 import { ModuleWithProviders, ElementRef, EventEmitter } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import { Dir } from '../core/rtl/dir';
 /**
  * Provider Expression that allows md-slider to register as a ControlValueAccessor.
  * This allows it to support [(ngModel)] and [formControl].
@@ -11,6 +12,7 @@ export declare class MdSliderChange {
     value: number;
 }
 export declare class MdSlider implements ControlValueAccessor {
+    private _dir;
     /** A renderer to handle updating the slider's thumb and fill track. */
     private _renderer;
     /** The dimensions of the slider. */
@@ -60,12 +62,41 @@ export declare class MdSlider implements ControlValueAccessor {
     /** The maximum value that the slider can have. */
     private _max;
     max: number;
-    readonly trackFillFlexBasis: string;
-    readonly ticksMarginLeft: string;
-    readonly ticksContainerMarginLeft: string;
-    readonly ticksBackgroundSize: string;
+    /** Whether the slider is inverted. */
+    invert: any;
+    private _invert;
+    /** Whether the slider is vertical. */
+    vertical: any;
+    private _vertical;
+    /**
+     * Whether the axis of the slider is inverted.
+     * (i.e. whether moving the thumb in the positive x or y direction decreases the slider's value).
+     */
+    readonly invertAxis: any;
+    /**
+     * Whether mouse events should be converted to a slider position by calculating their distance
+     * from the right or bottom edge of the slider as opposed to the top or left.
+     */
+    readonly invertMouseCoords: any;
+    /** CSS styles for the track fill element. */
+    readonly trackFillStyles: {
+        [key: string]: string;
+    };
+    /** CSS styles for the ticks container element. */
+    readonly ticksContainerStyles: {
+        [key: string]: string;
+    };
+    /** CSS styles for the ticks element. */
+    readonly ticksStyles: {
+        [key: string]: string;
+    };
+    readonly thumbContainerStyles: {
+        [key: string]: string;
+    };
+    /** The language direction for this slider element. */
+    readonly direction: string;
     change: EventEmitter<MdSliderChange>;
-    constructor(elementRef: ElementRef);
+    constructor(_dir: Dir, elementRef: ElementRef);
     _onMouseenter(): void;
     _onClick(event: MouseEvent): void;
     _onSlide(event: HammerInput): void;
@@ -75,47 +106,30 @@ export declare class MdSlider implements ControlValueAccessor {
     _onKeydown(event: KeyboardEvent): void;
     /** Increments the slider by the given number of steps (negative number decrements). */
     private _increment(numSteps);
-    /**
-     * Calculate the new value from the new physical location. The value will always be snapped.
-     */
+    /** Calculate the new value from the new physical location. The value will always be snapped. */
     private _updateValueFromPosition(pos);
     /** Emits a change event if the current value is different from the last emitted value. */
     private _emitValueIfChanged();
-    /**
-     * Updates the amount of space between ticks as a percentage of the width of the slider.
-     */
+    /** Updates the amount of space between ticks as a percentage of the width of the slider. */
     private _updateTickIntervalPercent();
-    /**
-     * Calculates the percentage of the slider that a value is.
-     */
+    /** Calculates the percentage of the slider that a value is. */
     private _calculatePercentage(value);
-    /**
-     * Calculates the value a percentage of the slider corresponds to.
-     */
+    /** Calculates the value a percentage of the slider corresponds to. */
     private _calculateValue(percentage);
-    /**
-     * Return a number between two numbers.
-     */
+    /** Return a number between two numbers. */
     private _clamp(value, min?, max?);
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
+    /** Implemented as part of ControlValueAccessor. */
     writeValue(value: any): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
+    /** Implemented as part of ControlValueAccessor. */
     registerOnChange(fn: (value: any) => void): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
+    /** Implemented as part of ControlValueAccessor. */
     registerOnTouched(fn: any): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
+    /** Implemented as part of ControlValueAccessor. */
     setDisabledState(isDisabled: boolean): void;
 }
 /**
  * Renderer class in order to keep all dom manipulation in one place and outside of the main class.
+ * @docs-private
  */
 export declare class SliderRenderer {
     private _sliderElement;

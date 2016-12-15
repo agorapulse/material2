@@ -26,7 +26,6 @@ export declare class MdMenu implements AfterContentInit, MdMenuPanel, OnDestroy 
     /**
      * Focus the first item in the menu. This method is used by the menu trigger
      * to focus the first item when the menu is opened by the ENTER key.
-     * TODO: internal
      */
     focusFirstItem(): void;
     /**

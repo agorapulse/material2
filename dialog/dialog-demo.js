@@ -13,10 +13,21 @@ var material_1 = require('@angular/material');
 var DialogDemo = (function () {
     function DialogDemo(dialog) {
         this.dialog = dialog;
+        this.config = {
+            disableClose: false,
+            width: '',
+            height: '',
+            position: {
+                top: '',
+                bottom: '',
+                left: '',
+                right: ''
+            }
+        };
     }
     DialogDemo.prototype.open = function () {
         var _this = this;
-        this.dialogRef = this.dialog.open(JazzDialog);
+        this.dialogRef = this.dialog.open(JazzDialog, this.config);
         this.dialogRef.afterClosed().subscribe(function (result) {
             _this.lastCloseResult = result;
             _this.dialogRef = null;

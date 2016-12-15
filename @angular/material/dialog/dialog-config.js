@@ -1,3 +1,4 @@
+;
 /**
  * Configuration for opening a modal dialog with the MdDialog service.
  */
@@ -7,6 +8,10 @@ export var MdDialogConfig = (function () {
         this.role = 'dialog';
         /** Whether the user can use escape or clicking outside to close a modal. */
         this.disableClose = false;
+        /** Width of the dialog. */
+        this.width = '';
+        /** Height of the dialog. */
+        this.height = '';
     }
     return MdDialogConfig;
 }());

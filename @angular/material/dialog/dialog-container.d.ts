@@ -6,6 +6,7 @@ import { FocusTrap } from '../core/a11y/focus-trap';
 import 'rxjs/add/operator/first';
 /**
  * Internal component that wraps user-provided dialog content.
+ * @docs-private
  */
 export declare class MdDialogContainer extends BasePortalHost implements OnDestroy {
     private _ngZone;

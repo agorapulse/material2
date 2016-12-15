@@ -22,6 +22,7 @@ var slide_toggle_demo_1 = require('../slide-toggle/slide-toggle-demo');
 var slider_demo_1 = require('../slider/slider-demo');
 var radio_demo_1 = require('../radio/radio-demo');
 var card_demo_1 = require('../card/card-demo');
+var chips_demo_1 = require('../chips/chips-demo');
 var menu_demo_1 = require('../menu/menu-demo');
 var ripple_demo_1 = require('../ripple/ripple-demo');
 var dialog_demo_1 = require('../dialog/dialog-demo');
@@ -30,10 +31,15 @@ var snack_bar_demo_1 = require('../snack-bar/snack-bar-demo');
 var projection_demo_1 = require('../projection/projection-demo');
 var routes_1 = require('../tabs/routes');
 var ui_kit_demo_1 = require('../ui-kit/ui-kit-demo');
+var platform_demo_1 = require('../platform/platform-demo');
+var autocomplete_demo_1 = require('../autocomplete/autocomplete-demo');
+var input_container_demo_1 = require('../input/input-container-demo');
 exports.DEMO_APP_ROUTES = [
     { path: '', component: demo_app_1.Home },
+    { path: 'autocomplete', component: autocomplete_demo_1.AutocompleteDemo },
     { path: 'button', component: button_demo_1.ButtonDemo },
     { path: 'card', component: card_demo_1.CardDemo },
+    { path: 'chips', component: chips_demo_1.ChipsDemo },
     { path: 'radio', component: radio_demo_1.RadioDemo },
     { path: 'select', component: select_demo_1.SelectDemo },
     { path: 'sidenav', component: sidenav_demo_1.SidenavDemo },
@@ -46,6 +52,7 @@ exports.DEMO_APP_ROUTES = [
     { path: 'overlay', component: overlay_demo_1.OverlayDemo },
     { path: 'checkbox', component: checkbox_demo_1.CheckboxDemo },
     { path: 'input', component: input_demo_1.InputDemo },
+    { path: 'input-container', component: input_container_demo_1.InputContainerDemo },
     { path: 'toolbar', component: toolbar_demo_1.ToolbarDemo },
     { path: 'icon', component: icon_demo_1.IconDemo },
     { path: 'list', component: list_demo_1.ListDemo },
@@ -61,6 +68,7 @@ exports.DEMO_APP_ROUTES = [
     { path: 'tooltip', component: tooltip_demo_1.TooltipDemo },
     { path: 'snack-bar', component: snack_bar_demo_1.SnackBarDemo },
     { path: 'ui-kit', component: ui_kit_demo_1.UiKitDemo },
+    { path: 'platform', component: platform_demo_1.PlatformDemo }
 ];
 
 //# sourceMappingURL=routes.js.map

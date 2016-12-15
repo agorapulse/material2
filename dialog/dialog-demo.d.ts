@@ -1,8 +1,9 @@
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 export declare class DialogDemo {
     dialog: MdDialog;
     dialogRef: MdDialogRef<JazzDialog>;
     lastCloseResult: string;
+    config: MdDialogConfig;
     constructor(dialog: MdDialog);
     open(): void;
 }

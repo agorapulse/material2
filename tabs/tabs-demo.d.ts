@@ -19,8 +19,26 @@ export declare class TabsDemo {
         extraContent: boolean;
         content: string;
     })[];
+    activeTabIndex: number;
+    addTabPosition: number;
+    gotoNewTabAfterAdding: boolean;
+    createWithLongContent: boolean;
+    dynamicTabs: ({
+        label: string;
+        content: string;
+    } | {
+        label: string;
+        disabled: boolean;
+        content: string;
+    } | {
+        label: string;
+        extraContent: boolean;
+        content: string;
+    })[];
     asyncTabs: Observable<any>;
     constructor(router: Router);
+    addTab(includeExtraContent: boolean): void;
+    deleteTab(tab: any): void;
 }
 export declare class SunnyTabContent {
 }

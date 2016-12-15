@@ -11,14 +11,15 @@ import { animate, state, style, transition, trigger } from '@angular/core';
  * depending on the text direction of the application.
  */
 export var transformPlaceholder = trigger('transformPlaceholder', [
-    state('normal', style({
-        transform: "translate3d(0, 0, 0) scale(1)"
-    })),
     state('floating-ltr', style({
-        transform: "translate3d(-2px, -22px, 0) scale(0.75)"
+        top: '-22px',
+        left: '-2px',
+        transform: "scale(0.75)"
     })),
     state('floating-rtl', style({
-        transform: "translate3d(2px, -22px, 0) scale(0.75)"
+        top: '-22px',
+        left: '2px',
+        transform: "scale(0.75)"
     })),
     transition('* => *', animate("400ms cubic-bezier(0.25, 0.8, 0.25, 1)"))
 ]);
@@ -32,30 +33,15 @@ export var transformPlaceholder = trigger('transformPlaceholder', [
  * When the panel is removed from the DOM, it simply fades out linearly.
  */
 export var transformPanel = trigger('transformPanel', [
-    state('top-ltr', style({
+    state('showing', style({
         opacity: 1,
-        width: 'calc(100% + 32px)',
-        transform: "translate3d(-16px, -9px, 0) scaleY(1)"
-    })),
-    state('top-rtl', style({
-        opacity: 1,
-        width: 'calc(100% + 32px)',
-        transform: "translate3d(16px, -9px, 0) scaleY(1)"
-    })),
-    state('bottom-ltr', style({
-        opacity: 1,
-        width: 'calc(100% + 32px)',
-        transform: "translate3d(-16px, 8px, 0) scaleY(1)"
-    })),
-    state('bottom-rtl', style({
-        opacity: 1,
-        width: 'calc(100% + 32px)',
-        transform: "translate3d(16px, 8px, 0) scaleY(1)"
+        minWidth: 'calc(100% + 32px)',
+        transform: "translate3d(0,0,0) scaleY(1)"
     })),
     transition('void => *', [
         style({
             opacity: 0,
-            width: '100%',
+            minWidth: '100%',
             transform: "translate3d(0, 0, 0) scaleY(0)"
         }),
         animate("150ms cubic-bezier(0.25, 0.8, 0.25, 1)")

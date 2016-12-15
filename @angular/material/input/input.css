@@ -65,7 +65,9 @@ md-input, md-textarea {
     transform: translateY(-100%) scale(0.75);
     width: 133.33333%; }
   [dir='rtl'] .md-input-placeholder {
-    transform-origin: bottom right; }
+    transform-origin: bottom right;
+    left: auto;
+    right: 0; }
 
 .md-input-underline {
   position: absolute;

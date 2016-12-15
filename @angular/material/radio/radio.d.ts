@@ -1,4 +1,4 @@
-import { AfterContentInit, ElementRef, EventEmitter, OnInit, QueryList, ModuleWithProviders } from '@angular/core';
+import { AfterContentInit, ElementRef, Renderer, EventEmitter, OnInit, QueryList, ModuleWithProviders } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MdUniqueSelectionDispatcher } from '../core';
 /**
@@ -44,7 +44,6 @@ export declare class MdRadioGroup implements AfterContentInit, ControlValueAcces
     /**
      * Initialize properties once content children are available.
      * This allows us to propagate relevant attributes to associated buttons.
-     * TODO: internal
      */
     ngAfterContentInit(): void;
     /**
@@ -57,24 +56,18 @@ export declare class MdRadioGroup implements AfterContentInit, ControlValueAcces
     private _updateSelectedRadioFromValue();
     /** Dispatch change event with current selection and group value. */
     _emitChangeEvent(): void;
-    /**
-      * Implemented as part of ControlValueAccessor.
-      * TODO: internal
-      */
+    /** Implemented as part of ControlValueAccessor. */
     writeValue(value: any): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     registerOnChange(fn: (value: any) => void): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     registerOnTouched(fn: any): void;
+    /** Implemented as a part of ControlValueAccessor. */
+    setDisabledState(isDisabled: boolean): void;
 }
 export declare class MdRadioButton implements OnInit {
     private _elementRef;
+    private _renderer;
     radioDispatcher: MdUniqueSelectionDispatcher;
     _isFocused: boolean;
     /** Whether this radio is checked. */
@@ -98,7 +91,9 @@ export declare class MdRadioButton implements OnInit {
     disableRipple: boolean;
     /** Event emitted when the group value changes. */
     change: EventEmitter<MdRadioChange>;
-    constructor(radioGroup: MdRadioGroup, _elementRef: ElementRef, radioDispatcher: MdUniqueSelectionDispatcher);
+    /** The native `<input type=radio> element */
+    _inputElement: ElementRef;
+    constructor(radioGroup: MdRadioGroup, _elementRef: ElementRef, _renderer: Renderer, radioDispatcher: MdUniqueSelectionDispatcher);
     readonly inputId: string;
     checked: boolean;
     /** MdRadioGroup reads this to assign its own value. */
@@ -106,7 +101,6 @@ export declare class MdRadioButton implements OnInit {
     private _align;
     align: 'start' | 'end';
     disabled: boolean;
-    /** TODO: internal */
     ngOnInit(): void;
     /** Dispatch change event with current value. */
     private _emitChangeEvent();
@@ -117,14 +111,12 @@ export declare class MdRadioButton implements OnInit {
      * state of the component.
      */
     _onInputFocus(): void;
-    /** TODO: internal */
+    focus(): void;
     _onInputBlur(): void;
-    /** TODO: internal */
     _onInputClick(event: Event): void;
     /**
      * Triggered when the radio button received a click or the input recognized any change.
      * Clicking on a label element, will trigger a change event on the associated input.
-     * TODO: internal
      */
     _onInputChange(event: Event): void;
     getHostElement(): any;

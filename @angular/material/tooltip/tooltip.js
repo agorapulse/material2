@@ -7,9 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { NgModule, Component, Directive, Input, ElementRef, ViewContainerRef, style, trigger, state, transition, animate, NgZone } from '@angular/core';
-import { Overlay, OverlayState, OverlayModule, ComponentPortal, OVERLAY_PROVIDERS } from '../core';
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+import { NgModule, Component, Directive, Input, ElementRef, ViewContainerRef, style, trigger, state, transition, animate, NgZone, Optional } from '@angular/core';
+import { Overlay, OverlayState, OverlayModule, ComponentPortal, OVERLAY_PROVIDERS, DefaultStyleCompatibilityModeModule } from '../core';
+import { MdTooltipInvalidPositionError } from './tooltip-errors';
 import { Subject } from 'rxjs/Subject';
+import { Dir } from '../core/rtl/dir';
 /** Time in ms to delay before changing the tooltip visibility to hidden */
 export var TOUCHEND_HIDE_DELAY = 1500;
 /**
@@ -19,13 +24,18 @@ export var TOUCHEND_HIDE_DELAY = 1500;
  * https://material.google.com/components/tooltips.html
  */
 export var MdTooltip = (function () {
-    function MdTooltip(_overlay, _elementRef, _viewContainerRef, _ngZone) {
+    function MdTooltip(_overlay, _elementRef, _viewContainerRef, _ngZone, _dir) {
         this._overlay = _overlay;
         this._elementRef = _elementRef;
         this._viewContainerRef = _viewContainerRef;
         this._ngZone = _ngZone;
+        this._dir = _dir;
         /** Allows the user to define the position of the tooltip relative to the parent element */
         this._position = 'below';
+        /** The default delay in ms before showing the tooltip after show is called */
+        this.showDelay = 0;
+        /** The default delay in ms before hiding the tooltip after hide is called */
+        this.hideDelay = 0;
     }
     Object.defineProperty(MdTooltip.prototype, "position", {
         get: function () {
@@ -63,17 +73,21 @@ export var MdTooltip = (function () {
             this._disposeTooltip();
         }
     };
-    /** Shows the tooltip */
-    MdTooltip.prototype.show = function () {
+    /** Shows the tooltip after the delay in ms, defaults to tooltip-delay-show or 0ms if no input */
+    MdTooltip.prototype.show = function (delay) {
+        if (delay === void 0) { delay = this.showDelay; }
+        if (!this._message || !this._message.trim()) {
+            return;
+        }
         if (!this._tooltipInstance) {
             this._createTooltip();
         }
         this._setTooltipMessage(this._message);
-        this._tooltipInstance.show(this._position);
+        this._tooltipInstance.show(this._position, delay);
     };
-    /** Hides the tooltip after the provided delay in ms, defaulting to 0ms. */
+    /** Hides the tooltip after the delay in ms, defaults to tooltip-delay-hide or 0ms if no input */
     MdTooltip.prototype.hide = function (delay) {
-        if (delay === void 0) { delay = 0; }
+        if (delay === void 0) { delay = this.hideDelay; }
         if (this._tooltipInstance) {
             this._tooltipInstance.hide(delay);
         }
@@ -117,21 +131,42 @@ export var MdTooltip = (function () {
     };
     /** Returns the origin position based on the user's position preference */
     MdTooltip.prototype._getOrigin = function () {
-        switch (this.position) {
-            case 'before': return { originX: 'start', originY: 'center' };
-            case 'after': return { originX: 'end', originY: 'center' };
-            case 'above': return { originX: 'center', originY: 'top' };
-            case 'below': return { originX: 'center', originY: 'bottom' };
+        if (this.position == 'above' || this.position == 'below') {
+            return { originX: 'center', originY: this.position == 'above' ? 'top' : 'bottom' };
         }
+        var isDirectionLtr = !this._dir || this._dir.value == 'ltr';
+        if (this.position == 'left' ||
+            this.position == 'before' && isDirectionLtr ||
+            this.position == 'after' && !isDirectionLtr) {
+            return { originX: 'start', originY: 'center' };
+        }
+        if (this.position == 'right' ||
+            this.position == 'after' && isDirectionLtr ||
+            this.position == 'before' && !isDirectionLtr) {
+            return { originX: 'end', originY: 'center' };
+        }
+        throw new MdTooltipInvalidPositionError(this.position);
     };
     /** Returns the overlay position based on the user's preference */
     MdTooltip.prototype._getOverlayPosition = function () {
-        switch (this.position) {
-            case 'before': return { overlayX: 'end', overlayY: 'center' };
-            case 'after': return { overlayX: 'start', overlayY: 'center' };
-            case 'above': return { overlayX: 'center', overlayY: 'bottom' };
-            case 'below': return { overlayX: 'center', overlayY: 'top' };
+        if (this.position == 'above') {
+            return { overlayX: 'center', overlayY: 'bottom' };
         }
+        if (this.position == 'below') {
+            return { overlayX: 'center', overlayY: 'top' };
+        }
+        var isLtr = !this._dir || this._dir.value == 'ltr';
+        if (this.position == 'left' ||
+            this.position == 'before' && isLtr ||
+            this.position == 'after' && !isLtr) {
+            return { overlayX: 'end', overlayY: 'center' };
+        }
+        if (this.position == 'right' ||
+            this.position == 'after' && isLtr ||
+            this.position == 'before' && !isLtr) {
+            return { overlayX: 'start', overlayY: 'center' };
+        }
+        throw new MdTooltipInvalidPositionError(this.position);
     };
     /** Updates the tooltip message and repositions the overlay according to the new message length */
     MdTooltip.prototype._setTooltipMessage = function (message) {
@@ -150,12 +185,20 @@ export var MdTooltip = (function () {
         __metadata('design:type', String)
     ], MdTooltip.prototype, "position", null);
     __decorate([
+        Input('tooltipShowDelay'), 
+        __metadata('design:type', Object)
+    ], MdTooltip.prototype, "showDelay", void 0);
+    __decorate([
+        Input('tooltipHideDelay'), 
+        __metadata('design:type', Object)
+    ], MdTooltip.prototype, "hideDelay", void 0);
+    __decorate([
         Input('md-tooltip'), 
         __metadata('design:type', Object)
     ], MdTooltip.prototype, "message", null);
     MdTooltip = __decorate([
         Directive({
-            selector: '[md-tooltip]',
+            selector: '[md-tooltip], [mat-tooltip]',
             host: {
                 '(longpress)': 'show()',
                 '(touchend)': 'hide(' + TOUCHEND_HIDE_DELAY + ')',
@@ -163,13 +206,17 @@ export var MdTooltip = (function () {
                 '(mouseleave)': 'hide()',
             },
             exportAs: 'mdTooltip',
-        }), 
-        __metadata('design:paramtypes', [Overlay, ElementRef, ViewContainerRef, NgZone])
+        }),
+        __param(4, Optional()), 
+        __metadata('design:paramtypes', [Overlay, ElementRef, ViewContainerRef, NgZone, Dir])
     ], MdTooltip);
     return MdTooltip;
 }());
 export var TooltipComponent = (function () {
-    function TooltipComponent() {
+    function TooltipComponent(_dir) {
+        this._dir = _dir;
+        /** Property watched by the animation framework to show or hide the tooltip */
+        this._visibility = 'initial';
         /** Whether interactions on the page should close the tooltip */
         this._closeOnInteraction = false;
         /** The transform origin used in the animation for showing and hiding the tooltip */
@@ -178,22 +225,30 @@ export var TooltipComponent = (function () {
         this._onHide = new Subject();
     }
     /** Shows the tooltip with an animation originating from the provided origin */
-    TooltipComponent.prototype.show = function (position) {
+    TooltipComponent.prototype.show = function (position, delay) {
         var _this = this;
-        this._closeOnInteraction = false;
-        this._visibility = 'visible';
-        this._setTransformOrigin(position);
         // Cancel the delayed hide if it is scheduled
         if (this._hideTimeoutId) {
             clearTimeout(this._hideTimeoutId);
         }
-        // If this was set to true immediately, then the body click would trigger interaction and
-        // close the tooltip right after it was displayed.
-        setTimeout(function () { _this._closeOnInteraction = true; }, 0);
+        // Body interactions should cancel the tooltip if there is a delay in showing.
+        this._closeOnInteraction = true;
+        this._setTransformOrigin(position);
+        this._showTimeoutId = setTimeout(function () {
+            _this._visibility = 'visible';
+            // If this was set to true immediately, then a body click that triggers show() would
+            // trigger interaction and close the tooltip right after it was displayed.
+            _this._closeOnInteraction = false;
+            setTimeout(function () { _this._closeOnInteraction = true; }, 0);
+        }, delay);
     };
     /** Begins the animation to hide the tooltip after the provided delay in ms */
     TooltipComponent.prototype.hide = function (delay) {
         var _this = this;
+        // Cancel the delayed show if it is scheduled
+        if (this._showTimeoutId) {
+            clearTimeout(this._showTimeoutId);
+        }
         this._hideTimeoutId = setTimeout(function () {
             _this._visibility = 'hidden';
             _this._closeOnInteraction = false;
@@ -209,11 +264,18 @@ export var TooltipComponent = (function () {
     };
     /** Sets the tooltip transform origin according to the tooltip position */
     TooltipComponent.prototype._setTransformOrigin = function (value) {
+        var isLtr = !this._dir || this._dir.value == 'ltr';
         switch (value) {
             case 'before':
-                this._transformOrigin = 'right';
+                this._transformOrigin = isLtr ? 'right' : 'left';
                 break;
             case 'after':
+                this._transformOrigin = isLtr ? 'left' : 'right';
+                break;
+            case 'left':
+                this._transformOrigin = 'right';
+                break;
+            case 'right':
                 this._transformOrigin = 'left';
                 break;
             case 'above':
@@ -222,6 +284,7 @@ export var TooltipComponent = (function () {
             case 'below':
                 this._transformOrigin = 'top';
                 break;
+            default: throw new MdTooltipInvalidPositionError(value);
         }
     };
     TooltipComponent.prototype._afterVisibilityAnimation = function (e) {
@@ -240,12 +303,13 @@ export var TooltipComponent = (function () {
         }
     };
     TooltipComponent = __decorate([
-        Component({selector: 'md-tooltip-component',
+        Component({selector: 'md-tooltip-component, mat-tooltip-component',
             template: "<div class=\"md-tooltip\" [style.transform-origin]=\"_transformOrigin\" [@state]=\"_visibility\" (@state.done)=\"_afterVisibilityAnimation($event)\"> {{message}} </div>",
-            styles: [":host { pointer-events: none; } .md-tooltip { color: white; padding: 0 8px; border-radius: 2px; font-family: Roboto, \"Helvetica Neue\", sans-serif; font-size: 10px; margin: 14px; height: 22px; line-height: 22px; } /*# sourceMappingURL=tooltip.css.map */ "],
+            styles: ["/** * Applies styles for users in high contrast mode. Note that this only applies * to Microsoft browsers. Chrome can be included by checking for the `html[hc]` * attribute, however Chrome handles high contrast differently. */ :host { pointer-events: none; } .md-tooltip { color: white; padding: 0 8px; border-radius: 2px; font-family: Roboto, \"Helvetica Neue\", sans-serif; font-size: 10px; margin: 14px; height: 22px; line-height: 22px; } @media screen and (-ms-high-contrast: active) { .md-tooltip { outline: solid 1px; } } /*# sourceMappingURL=tooltip.css.map */ "],
             animations: [
                 trigger('state', [
                     state('void', style({ transform: 'scale(0)' })),
+                    state('initial', style({ transform: 'scale(0)' })),
                     state('visible', style({ transform: 'scale(1)' })),
                     state('hidden', style({ transform: 'scale(0)' })),
                     transition('* => visible', animate('150ms cubic-bezier(0.0, 0.0, 0.2, 1)')),
@@ -255,8 +319,9 @@ export var TooltipComponent = (function () {
             host: {
                 '(body:click)': 'this._handleBodyInteraction()'
             }
-        }), 
-        __metadata('design:paramtypes', [])
+        }),
+        __param(0, Optional()), 
+        __metadata('design:paramtypes', [Dir])
     ], TooltipComponent);
     return TooltipComponent;
 }());
@@ -271,8 +336,8 @@ export var MdTooltipModule = (function () {
     };
     MdTooltipModule = __decorate([
         NgModule({
-            imports: [OverlayModule],
-            exports: [MdTooltip, TooltipComponent],
+            imports: [OverlayModule, DefaultStyleCompatibilityModeModule],
+            exports: [MdTooltip, TooltipComponent, DefaultStyleCompatibilityModeModule],
             declarations: [MdTooltip, TooltipComponent],
             entryComponents: [TooltipComponent],
         }), 

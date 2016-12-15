@@ -9,7 +9,7 @@
   $accent: map-get($theme, accent);
 
   [ap-sidenav] {
-    width: 220px;
+    width: $sidenav-width;
     background: md-color($md-ap-dark, 500);
     color: md-contrast($md-ap-dark, 500);
     box-shadow: none;

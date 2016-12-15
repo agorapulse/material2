@@ -24,7 +24,10 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/catch';
-/** Exception thrown when attempting to load an icon with a name that cannot be found. */
+/**
+ * Exception thrown when attempting to load an icon with a name that cannot be found.
+ * @docs-private
+ */
 export var MdIconNameNotFoundError = (function (_super) {
     __extends(MdIconNameNotFoundError, _super);
     function MdIconNameNotFoundError(iconName) {
@@ -35,6 +38,7 @@ export var MdIconNameNotFoundError = (function (_super) {
 /**
  * Exception thrown when attempting to load SVG content that does not contain the expected
  * <svg> tag.
+ * @docs-private
  */
 export var MdIconSvgTagNotFoundError = (function (_super) {
     __extends(MdIconSvgTagNotFoundError, _super);
@@ -43,7 +47,10 @@ export var MdIconSvgTagNotFoundError = (function (_super) {
     }
     return MdIconSvgTagNotFoundError;
 }(MdError));
-/** Configuration for an icon, including the URL and possibly the cached SVG element. */
+/**
+ * Configuration for an icon, including the URL and possibly the cached SVG element.
+ * @docs-private
+ */
 var SvgIconConfig = (function () {
     function SvgIconConfig(url) {
         this.url = url;

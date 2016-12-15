@@ -70,13 +70,10 @@ export declare class MdIcon implements OnChanges, OnInit, AfterViewChecked {
      *   'a:b:c' -> (throws MdIconInvalidNameError)
      */
     private _splitIconName(iconName);
-    /** TODO: internal */
     ngOnChanges(changes: {
         [propertyName: string]: SimpleChange;
     }): void;
-    /** TODO: internal */
     ngOnInit(): void;
-    /** TODO: internal */
     ngAfterViewChecked(): void;
     private _updateAriaLabel();
     private _getAriaLabel();

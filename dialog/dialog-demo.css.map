@@ -1,1 +1,1 @@
-{"version":3,"sources":["dialog-demo.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB,EAAE","file":"dialog-demo.css","sourcesContent":[".demo-dialog {\n  color: rebeccapurple; }\n"]}
+{"version":3,"sources":["dialog-demo.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB,EAAE;;AAEzB;EACE,iBAAiB;EACjB,eAAe,EAAE","file":"dialog-demo.css","sourcesContent":[".demo-dialog {\n  color: rebeccapurple; }\n\n.demo-dialog-card {\n  max-width: 350px;\n  margin: 20px 0; }\n"]}

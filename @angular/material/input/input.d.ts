@@ -1,7 +1,8 @@
-import { AfterContentInit, SimpleChange, ElementRef, QueryList, OnChanges, ModuleWithProviders } from '@angular/core';
+import { AfterContentInit, SimpleChange, ElementRef, Renderer, QueryList, OnChanges, ModuleWithProviders } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MdError } from '../core';
 import { Observable } from 'rxjs/Observable';
+import { MdPlaceholder, MdHint } from './input-container';
 export declare const MD_INPUT_CONTROL_VALUE_ACCESSOR: any;
 export declare class MdInputPlaceholderConflictError extends MdError {
     constructor();
@@ -13,20 +14,11 @@ export declare class MdInputDuplicatedHintError extends MdError {
     constructor(align: string);
 }
 /**
- * The placeholder directive. The content can declare this to implement more
- * complex placeholders.
- */
-export declare class MdPlaceholder {
-}
-/** The hint directive, used to tag content as hint labels (going under the input). */
-export declare class MdHint {
-    align: 'start' | 'end';
-}
-/**
  * Component that represents a text input. It encapsulates the <input> HTMLElement and
  * improve on its behaviour, along with styling it according to the Material Design.
  */
 export declare class MdInput implements ControlValueAccessor, AfterContentInit, OnChanges {
+    private _renderer;
     private _focused;
     private _value;
     /** Callback registered via registerOnTouched (ControlValueAccessor) */
@@ -97,31 +89,22 @@ export declare class MdInput implements ControlValueAccessor, AfterContentInit, 
     readonly _align: any;
     _inputElement: ElementRef;
     _elementType: 'input' | 'textarea';
-    constructor(elementRef: ElementRef);
+    constructor(elementRef: ElementRef, _renderer: Renderer);
     /** Set focus on input */
     focus(): void;
     _handleFocus(event: FocusEvent): void;
     _handleBlur(event: FocusEvent): void;
     _handleChange(event: Event): void;
     _hasPlaceholder(): boolean;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     writeValue(value: any): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     registerOnChange(fn: any): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     registerOnTouched(fn: any): void;
-    /** TODO: internal */
+    /** Implemented as a part of ControlValueAccessor. */
+    setDisabledState(isDisabled: boolean): void;
     ngAfterContentInit(): void;
-    /** TODO: internal */
     ngOnChanges(changes: {
         [key: string]: SimpleChange;
     }): void;

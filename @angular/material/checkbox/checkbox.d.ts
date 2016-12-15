@@ -1,4 +1,4 @@
-import { ElementRef, EventEmitter, Renderer, ModuleWithProviders } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, EventEmitter, Renderer, ModuleWithProviders } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 /**
  * Provider Expression that allows md-checkbox to register as a ControlValueAccessor. This allows it
@@ -33,6 +33,7 @@ export declare class MdCheckboxChange {
 export declare class MdCheckbox implements ControlValueAccessor {
     private _renderer;
     private _elementRef;
+    private _changeDetectorRef;
     /**
      * Attached to the aria-label attribute of the host element. In most cases, arial-labelledby will
      * take precedence so this may be omitted.
@@ -69,6 +70,8 @@ export declare class MdCheckbox implements ControlValueAccessor {
     name: string;
     /** Event emitted when the checkbox's `checked` value changes. */
     change: EventEmitter<MdCheckboxChange>;
+    /** The native `<input type=checkbox> element */
+    _inputElement: ElementRef;
     /** Called when the checkbox is blurred. Needed to properly implement ControlValueAccessor. */
     onTouched: () => any;
     private _currentAnimationClass;
@@ -78,7 +81,7 @@ export declare class MdCheckbox implements ControlValueAccessor {
     private _color;
     private _controlValueAccessorChangeFn;
     hasFocus: boolean;
-    constructor(_renderer: Renderer, _elementRef: ElementRef);
+    constructor(_renderer: Renderer, _elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef);
     /**
      * Whether the checkbox is checked. Note that setting `checked` will immediately set
      * `indeterminate` to false.
@@ -99,21 +102,14 @@ export declare class MdCheckbox implements ControlValueAccessor {
     _updateColor(newColor: string): void;
     _setElementColor(color: string, isAdd: boolean): void;
     _isRippleDisabled(): boolean;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     writeValue(value: any): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     registerOnChange(fn: (value: any) => void): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     registerOnTouched(fn: any): void;
+    /** Implemented as a part of ControlValueAccessor. */
+    setDisabledState(isDisabled: boolean): void;
     private _transitionCheckState(newState);
     private _emitChangeEvent();
     /** Informs the component when the input has focus so that we can style accordingly */
@@ -130,6 +126,7 @@ export declare class MdCheckbox implements ControlValueAccessor {
      * @param event
      */
     _onInteractionEvent(event: Event): void;
+    focus(): void;
     _onInputClick(event: Event): void;
     private _getAnimationClassForCheckStateTransition(oldState, newState);
     getHostElement(): any;

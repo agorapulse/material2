@@ -15,26 +15,50 @@ var TabsDemo = (function () {
     function TabsDemo(router) {
         var _this = this;
         this.router = router;
+        // Nav bar demo
         this.tabLinks = [
             { label: 'Sun', link: 'sunny-tab' },
             { label: 'Rain', link: 'rainy-tab' },
             { label: 'Fog', link: 'foggy-tab' },
         ];
         this.activeLinkIndex = 0;
+        // Standard tabs demo
         this.tabs = [
             {
-                label: 'Tab One',
-                content: 'This is the body of the first tab' },
-            {
-                label: 'Tab Two',
+                label: 'Tab 1',
+                content: 'This is the body of the first tab'
+            }, {
+                label: 'Tab 2',
                 disabled: true,
-                content: 'This is the body of the second tab' },
-            {
-                label: 'Tab Three',
+                content: 'This is the body of the second tab'
+            }, {
+                label: 'Tab 3',
                 extraContent: true,
-                content: 'This is the body of the third tab' },
+                content: 'This is the body of the third tab'
+            }, {
+                label: 'Tab 4',
+                content: 'This is the body of the fourth tab'
+            },
+        ];
+        // Dynamic tabs demo
+        this.activeTabIndex = 0;
+        this.addTabPosition = 0;
+        this.gotoNewTabAfterAdding = false;
+        this.createWithLongContent = false;
+        this.dynamicTabs = [
             {
-                label: 'Tab Four',
+                label: 'Tab 1',
+                content: 'This is the body of the first tab'
+            }, {
+                label: 'Tab 2',
+                disabled: true,
+                content: 'This is the body of the second tab'
+            }, {
+                label: 'Tab 3',
+                extraContent: true,
+                content: 'This is the body of the third tab'
+            }, {
+                label: 'Tab 4',
                 content: 'This is the body of the fourth tab'
             },
         ];
@@ -49,6 +73,19 @@ var TabsDemo = (function () {
         this.activeLinkIndex =
             this.tabLinks.indexOf(this.tabLinks.find(function (tab) { return router.url.indexOf(tab.link) != -1; }));
     }
+    TabsDemo.prototype.addTab = function (includeExtraContent) {
+        this.dynamicTabs.splice(this.addTabPosition, 0, {
+            label: 'New Tab ' + (this.dynamicTabs.length + 1),
+            content: 'New tab contents ' + (this.dynamicTabs.length + 1),
+            extraContent: includeExtraContent
+        });
+        if (this.gotoNewTabAfterAdding) {
+            this.activeTabIndex = this.addTabPosition;
+        }
+    };
+    TabsDemo.prototype.deleteTab = function (tab) {
+        this.dynamicTabs.splice(this.dynamicTabs.indexOf(tab), 1);
+    };
     TabsDemo = __decorate([
         core_1.Component({
             moduleId: module.id,

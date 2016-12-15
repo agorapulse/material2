@@ -23,6 +23,8 @@ export declare class MdSnackBarRef<T> {
     _action(): void;
     /** Marks the snackbar as opened */
     _open(): void;
+    /** Cleans up the DOM after closing. */
+    private _finishDismiss();
     /** Gets an observable that is notified when the snack bar is finished closing. */
     afterDismissed(): Observable<void>;
     /** Gets an observable that is notified when the snack bar has opened and appeared. */

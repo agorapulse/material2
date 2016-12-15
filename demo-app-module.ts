@@ -13,6 +13,7 @@ import {IconDemo} from './icon/icon-demo';
 import {GesturesDemo} from './gestures/gestures-demo';
 import {InputDemo} from './input/input-demo';
 import {CardDemo} from './card/card-demo';
+import {ChipsDemo} from './chips/chips-demo';
 import {RadioDemo} from './radio/radio-demo';
 import {ButtonToggleDemo} from './button-toggle/button-toggle-demo';
 import {ProgressCircleDemo} from './progress-circle/progress-circle-demo';
@@ -34,6 +35,9 @@ import {PortalDemo, ScienceJoke} from './portal/portal-demo';
 import {MenuDemo} from './menu/menu-demo';
 import {TabsDemo, SunnyTabContent, RainyTabContent, FoggyTabContent} from './tabs/tabs-demo';
 import {ProjectionDemo, ProjectionTestComponent} from './projection/projection-demo';
+import {PlatformDemo} from './platform/platform-demo';
+import {AutocompleteDemo} from './autocomplete/autocomplete-demo';
+import {InputContainerDemo} from './input/input-container-demo';
 
 
 /* Agorapulse UI KIT */
@@ -49,10 +53,12 @@ import {UiKitDemo} from './ui-kit/ui-kit-demo';
     MaterialModule.forRoot(),
   ],
   declarations: [
+    AutocompleteDemo,
     BaselineDemo,
     ButtonDemo,
     ButtonToggleDemo,
     CardDemo,
+    ChipsDemo,
     CheckboxDemo,
     DemoApp,
     DialogDemo,
@@ -61,6 +67,7 @@ import {UiKitDemo} from './ui-kit/ui-kit-demo';
     Home,
     IconDemo,
     InputDemo,
+    InputContainerDemo,
     JazzDialog,
     ListDemo,
     LiveAnnouncerDemo,
@@ -89,6 +96,7 @@ import {UiKitDemo} from './ui-kit/ui-kit-demo';
     SunnyTabContent,
     RainyTabContent,
     FoggyTabContent,
+    PlatformDemo
   ],
   entryComponents: [
     DemoApp,

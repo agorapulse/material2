@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-import { NgModule, Component, ContentChildren, Directive, EventEmitter, HostBinding, Input, Optional, Output, QueryList, ViewEncapsulation, forwardRef } from '@angular/core';
+import { NgModule, Component, ContentChildren, Directive, ElementRef, Renderer, EventEmitter, HostBinding, Input, Optional, Output, QueryList, ViewChild, ViewEncapsulation, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
-import { MdUniqueSelectionDispatcher, coerceBooleanProperty } from '../core';
+import { MdUniqueSelectionDispatcher, coerceBooleanProperty, DefaultStyleCompatibilityModeModule } from '../core';
 /**
  * Provider Expression that allows md-button-toggle-group to register as a ControlValueAccessor.
  * This allows it to support [(ngModel)].
@@ -39,6 +39,8 @@ export var MdButtonToggleGroup = (function () {
         this._name = "md-radio-group-" + _uniqueIdCounter++;
         /** Disables all toggles in the group. */
         this._disabled = null;
+        /** Whether the button toggle group should be vertical. */
+        this._vertical = false;
         /** The currently selected button toggle, should match the value. */
         this._selected = null;
         /** Whether the button toggle group is initialized or not. */
@@ -62,7 +64,6 @@ export var MdButtonToggleGroup = (function () {
         enumerable: true,
         configurable: true
     });
-    /** TODO: internal */
     MdButtonToggleGroup.prototype.ngAfterViewInit = function () {
         this._isInitialized = true;
     };
@@ -83,6 +84,16 @@ export var MdButtonToggleGroup = (function () {
         },
         set: function (value) {
             this._disabled = coerceBooleanProperty(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MdButtonToggleGroup.prototype, "vertical", {
+        get: function () {
+            return this._vertical;
+        },
+        set: function (value) {
+            this._vertical = coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -152,24 +163,15 @@ export var MdButtonToggleGroup = (function () {
         this._controlValueAccessorChangeFn(event.value);
         this._change.emit(event);
     };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     MdButtonToggleGroup.prototype.writeValue = function (value) {
         this.value = value;
     };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     MdButtonToggleGroup.prototype.registerOnChange = function (fn) {
         this._controlValueAccessorChangeFn = fn;
     };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     * TODO: internal
-     */
+    /** Implemented as part of ControlValueAccessor. */
     MdButtonToggleGroup.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
@@ -191,6 +193,10 @@ export var MdButtonToggleGroup = (function () {
     ], MdButtonToggleGroup.prototype, "disabled", null);
     __decorate([
         Input(), 
+        __metadata('design:type', Boolean)
+    ], MdButtonToggleGroup.prototype, "vertical", null);
+    __decorate([
+        Input(), 
         __metadata('design:type', Object)
     ], MdButtonToggleGroup.prototype, "value", null);
     __decorate([
@@ -203,6 +209,7 @@ export var MdButtonToggleGroup = (function () {
             providers: [MD_BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR],
             host: {
                 'role': 'radiogroup',
+                '[class.md-button-toggle-vertical]': 'vertical'
             },
             exportAs: 'mdButtonToggleGroup',
         }), 
@@ -215,6 +222,8 @@ export var MdButtonToggleGroupMultiple = (function () {
     function MdButtonToggleGroupMultiple() {
         /** Disables all toggles in the group. */
         this._disabled = null;
+        /** Whether the button toggle group should be vertical. */
+        this._vertical = false;
     }
     Object.defineProperty(MdButtonToggleGroupMultiple.prototype, "disabled", {
         get: function () {
@@ -226,23 +235,41 @@ export var MdButtonToggleGroupMultiple = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(MdButtonToggleGroupMultiple.prototype, "vertical", {
+        get: function () {
+            return this._vertical;
+        },
+        set: function (value) {
+            this._vertical = coerceBooleanProperty(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
     __decorate([
         Input(), 
         __metadata('design:type', Boolean)
     ], MdButtonToggleGroupMultiple.prototype, "disabled", null);
+    __decorate([
+        Input(), 
+        __metadata('design:type', Boolean)
+    ], MdButtonToggleGroupMultiple.prototype, "vertical", null);
     MdButtonToggleGroupMultiple = __decorate([
         Directive({
             selector: 'md-button-toggle-group[multiple]',
             exportAs: 'mdButtonToggleGroup',
+            host: {
+                '[class.md-button-toggle-vertical]': 'vertical'
+            }
         }), 
         __metadata('design:paramtypes', [])
     ], MdButtonToggleGroupMultiple);
     return MdButtonToggleGroupMultiple;
 }());
 export var MdButtonToggle = (function () {
-    function MdButtonToggle(toggleGroup, toggleGroupMultiple, buttonToggleDispatcher) {
+    function MdButtonToggle(toggleGroup, toggleGroupMultiple, buttonToggleDispatcher, _renderer) {
         var _this = this;
         this.buttonToggleDispatcher = buttonToggleDispatcher;
+        this._renderer = _renderer;
         /** Whether or not this button toggle is checked. */
         this._checked = false;
         /** Whether or not this button toggle is disabled. */
@@ -367,7 +394,6 @@ export var MdButtonToggle = (function () {
         // Emit a change event when the native input does.
         this._emitChangeEvent();
     };
-    /** TODO: internal */
     MdButtonToggle.prototype._onInputClick = function (event) {
         // We have to stop propagation for click events on the visual hidden input element.
         // By default, when a user clicks on a label element, a generated click event will be
@@ -377,6 +403,9 @@ export var MdButtonToggle = (function () {
         // This will lead to multiple click events.
         // Preventing bubbling for the second event will solve that issue.
         event.stopPropagation();
+    };
+    MdButtonToggle.prototype.focus = function () {
+        this._renderer.invokeElementMethod(this._inputElement.nativeElement, 'focus');
     };
     __decorate([
         HostBinding(),
@@ -391,6 +420,10 @@ export var MdButtonToggle = (function () {
         Output(), 
         __metadata('design:type', Observable)
     ], MdButtonToggle.prototype, "change", null);
+    __decorate([
+        ViewChild('input'), 
+        __metadata('design:type', ElementRef)
+    ], MdButtonToggle.prototype, "_inputElement", void 0);
     __decorate([
         HostBinding('class.md-button-toggle-checked'),
         Input(), 
@@ -408,12 +441,12 @@ export var MdButtonToggle = (function () {
     MdButtonToggle = __decorate([
         Component({selector: 'md-button-toggle',
             template: "<label [attr.for]=\"inputId\" class=\"md-button-toggle-label\"> <input #input class=\"md-button-toggle-input md-visually-hidden\" [type]=\"_type\" [id]=\"inputId\" [checked]=\"checked\" [disabled]=\"disabled\" [name]=\"name\" (change)=\"_onInputChange($event)\" (click)=\"_onInputClick($event)\"> <div class=\"md-button-toggle-label-content\"> <ng-content></ng-content> </div> </label> ",
-            styles: ["md-button-toggle-group { box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); position: relative; display: inline-flex; border-radius: 2px; cursor: pointer; white-space: nowrap; } .md-button-toggle-disabled .md-button-toggle-label-content { cursor: default; } md-button-toggle { white-space: nowrap; } .md-button-toggle-label-content { display: inline-block; line-height: 36px; padding: 0 16px; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .md-button-toggle-label-content > * { vertical-align: middle; } /*# sourceMappingURL=button-toggle.css.map */ "],
+            styles: ["md-button-toggle-group { box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); position: relative; display: inline-flex; flex-direction: row; border-radius: 2px; cursor: pointer; white-space: nowrap; } .md-button-toggle-vertical { flex-direction: column; } .md-button-toggle-vertical .md-button-toggle-label-content { display: block; } .md-button-toggle-disabled .md-button-toggle-label-content { cursor: default; } md-button-toggle { white-space: nowrap; } .md-button-toggle-label-content { display: inline-block; line-height: 36px; padding: 0 16px; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .md-button-toggle-label-content > * { vertical-align: middle; } /*# sourceMappingURL=button-toggle.css.map */ "],
             encapsulation: ViewEncapsulation.None,
         }),
         __param(0, Optional()),
         __param(1, Optional()), 
-        __metadata('design:paramtypes', [MdButtonToggleGroup, MdButtonToggleGroupMultiple, MdUniqueSelectionDispatcher])
+        __metadata('design:paramtypes', [MdButtonToggleGroup, MdButtonToggleGroupMultiple, MdUniqueSelectionDispatcher, Renderer])
     ], MdButtonToggle);
     return MdButtonToggle;
 }());
@@ -428,8 +461,13 @@ export var MdButtonToggleModule = (function () {
     };
     MdButtonToggleModule = __decorate([
         NgModule({
-            imports: [FormsModule],
-            exports: [MdButtonToggleGroup, MdButtonToggleGroupMultiple, MdButtonToggle],
+            imports: [FormsModule, DefaultStyleCompatibilityModeModule],
+            exports: [
+                MdButtonToggleGroup,
+                MdButtonToggleGroupMultiple,
+                MdButtonToggle,
+                DefaultStyleCompatibilityModeModule,
+            ],
             declarations: [MdButtonToggleGroup, MdButtonToggleGroupMultiple, MdButtonToggle],
         }), 
         __metadata('design:paramtypes', [])

@@ -20,8 +20,8 @@ export declare class MdProgressCircle implements OnDestroy {
      */
     readonly _ariaValueMin: number;
     readonly _ariaValueMax: number;
-    /** TODO: internal */
-    /** TODO: internal */
+    /** @docs-private */
+    /** @docs-private */
     interdeterminateInterval: number;
     /** Clean up any animations that were running. */
     ngOnDestroy(): void;

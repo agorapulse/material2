@@ -14,7 +14,8 @@ var SelectDemo = (function () {
     function SelectDemo() {
         this.isRequired = false;
         this.isDisabled = false;
-        this.foodControl = new forms_1.FormControl('');
+        this.showSelect = false;
+        this.foodControl = new forms_1.FormControl('pizza-1');
         this.foods = [
             { value: 'steak-0', viewValue: 'Steak' },
             { value: 'pizza-1', viewValue: 'Pizza' },
@@ -22,8 +23,14 @@ var SelectDemo = (function () {
         ];
         this.drinks = [
             { value: 'coke-0', viewValue: 'Coke' },
-            { value: 'sprite-1', viewValue: 'Sprite', disabled: true },
-            { value: 'water-2', viewValue: 'Water' }
+            { value: 'sprite-1', viewValue: 'Sprite' },
+            { value: 'water-2', viewValue: 'Water' },
+            { value: 'pepper-3', viewValue: 'Dr. Pepper' },
+            { value: 'coffee-4', viewValue: 'Coffee' },
+            { value: 'tea-5', viewValue: 'Tea' },
+            { value: 'juice-6', viewValue: 'Orange juice' },
+            { value: 'wine-7', viewValue: 'Wine' },
+            { value: 'milk-8', viewValue: 'Milk' },
         ];
     }
     SelectDemo.prototype.toggleDisabled = function () {

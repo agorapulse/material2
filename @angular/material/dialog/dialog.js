@@ -8,19 +8,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { NgModule, Injector, Injectable } from '@angular/core';
-import { Overlay, OverlayModule, PortalModule, OverlayState, ComponentPortal, OVERLAY_PROVIDERS } from '../core';
+import { Overlay, OverlayModule, PortalModule, OverlayState, ComponentPortal, OVERLAY_PROVIDERS, A11yModule, InteractivityChecker, MdPlatform, DefaultStyleCompatibilityModeModule } from '../core';
 import { MdDialogConfig } from './dialog-config';
 import { MdDialogRef } from './dialog-ref';
 import { DialogInjector } from './dialog-injector';
 import { MdDialogContainer } from './dialog-container';
-import { A11yModule, InteractivityChecker } from '../core';
 import { extendObject } from '../core/util/object-extend';
 export { MdDialogConfig } from './dialog-config';
 export { MdDialogRef } from './dialog-ref';
 // TODO(jelbourn): add support for opening with a TemplateRef
-// TODO(jelbourn): add `closeAll` method
-// TODO(jelbourn): default dialog config
-// TODO(jelbourn): escape key closes dialog
 // TODO(jelbourn): dialog content directives (e.g., md-dialog-header)
 // TODO(jelbourn): animations
 /**
@@ -30,6 +26,8 @@ export var MdDialog = (function () {
     function MdDialog(_overlay, _injector) {
         this._overlay = _overlay;
         this._injector = _injector;
+        /** Keeps track of the currently-open dialogs. */
+        this._openDialogs = [];
     }
     /**
      * Opens a modal dialog containing the given component.
@@ -37,10 +35,27 @@ export var MdDialog = (function () {
      * @param config
      */
     MdDialog.prototype.open = function (component, config) {
+        var _this = this;
         config = _applyConfigDefaults(config);
         var overlayRef = this._createOverlay(config);
         var dialogContainer = this._attachDialogContainer(overlayRef, config);
-        return this._attachDialogContent(component, dialogContainer, overlayRef);
+        var dialogRef = this._attachDialogContent(component, dialogContainer, overlayRef);
+        this._openDialogs.push(dialogRef);
+        dialogRef.afterClosed().subscribe(function () { return _this._removeOpenDialog(dialogRef); });
+        return dialogRef;
+    };
+    /**
+     * Closes all of the currently-open dialogs.
+     */
+    MdDialog.prototype.closeAll = function () {
+        var i = this._openDialogs.length;
+        while (i--) {
+            // The `_openDialogs` property isn't updated after close until the rxjs subscription
+            // runs on the next microtask, in addition to modifying the array as we're going
+            // through it. We loop through all of them and call close without assuming that
+            // they'll be removed from the list instantaneously.
+            this._openDialogs[i].close();
+        }
     };
     /**
      * Creates the overlay into which the dialog will be loaded.
@@ -97,12 +112,33 @@ export var MdDialog = (function () {
      */
     MdDialog.prototype._getOverlayState = function (dialogConfig) {
         var state = new OverlayState();
+        var strategy = this._overlay.position().global();
+        var position = dialogConfig.position;
         state.hasBackdrop = true;
-        state.positionStrategy = this._overlay.position()
-            .global()
-            .centerHorizontally()
-            .centerVertically();
+        state.positionStrategy = strategy;
+        if (position && (position.left || position.right)) {
+            position.left ? strategy.left(position.left) : strategy.right(position.right);
+        }
+        else {
+            strategy.centerHorizontally();
+        }
+        if (position && (position.top || position.bottom)) {
+            position.top ? strategy.top(position.top) : strategy.bottom(position.bottom);
+        }
+        else {
+            strategy.centerVertically();
+        }
+        strategy.width(dialogConfig.width).height(dialogConfig.height);
         return state;
+    };
+    /**
+     * Removes a dialog from the array of open dialogs.
+     */
+    MdDialog.prototype._removeOpenDialog = function (dialogRef) {
+        var index = this._openDialogs.indexOf(dialogRef);
+        if (index > -1) {
+            this._openDialogs.splice(index, 1);
+        }
     };
     MdDialog = __decorate([
         Injectable(), 
@@ -124,13 +160,13 @@ export var MdDialogModule = (function () {
     MdDialogModule.forRoot = function () {
         return {
             ngModule: MdDialogModule,
-            providers: [MdDialog, OVERLAY_PROVIDERS, InteractivityChecker],
+            providers: [MdDialog, OVERLAY_PROVIDERS, InteractivityChecker, MdPlatform],
         };
     };
     MdDialogModule = __decorate([
         NgModule({
-            imports: [OverlayModule, PortalModule, A11yModule],
-            exports: [MdDialogContainer],
+            imports: [OverlayModule, PortalModule, A11yModule, DefaultStyleCompatibilityModeModule],
+            exports: [MdDialogContainer, DefaultStyleCompatibilityModeModule],
             declarations: [MdDialogContainer],
             entryComponents: [MdDialogContainer],
         }), 

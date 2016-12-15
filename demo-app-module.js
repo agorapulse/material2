@@ -23,6 +23,7 @@ var icon_demo_1 = require('./icon/icon-demo');
 var gestures_demo_1 = require('./gestures/gestures-demo');
 var input_demo_1 = require('./input/input-demo');
 var card_demo_1 = require('./card/card-demo');
+var chips_demo_1 = require('./chips/chips-demo');
 var radio_demo_1 = require('./radio/radio-demo');
 var button_toggle_demo_1 = require('./button-toggle/button-toggle-demo');
 var progress_circle_demo_1 = require('./progress-circle/progress-circle-demo');
@@ -44,6 +45,9 @@ var portal_demo_1 = require('./portal/portal-demo');
 var menu_demo_1 = require('./menu/menu-demo');
 var tabs_demo_1 = require('./tabs/tabs-demo');
 var projection_demo_1 = require('./projection/projection-demo');
+var platform_demo_1 = require('./platform/platform-demo');
+var autocomplete_demo_1 = require('./autocomplete/autocomplete-demo');
+var input_container_demo_1 = require('./input/input-container-demo');
 /* Agorapulse UI KIT */
 var ui_kit_demo_1 = require('./ui-kit/ui-kit-demo');
 var DemoAppModule = (function () {
@@ -64,10 +68,12 @@ var DemoAppModule = (function () {
                 material_1.MaterialModule.forRoot(),
             ],
             declarations: [
+                autocomplete_demo_1.AutocompleteDemo,
                 baseline_demo_1.BaselineDemo,
                 button_demo_1.ButtonDemo,
                 button_toggle_demo_1.ButtonToggleDemo,
                 card_demo_1.CardDemo,
+                chips_demo_1.ChipsDemo,
                 checkbox_demo_1.CheckboxDemo,
                 demo_app_1.DemoApp,
                 dialog_demo_1.DialogDemo,
@@ -76,6 +82,7 @@ var DemoAppModule = (function () {
                 demo_app_1.Home,
                 icon_demo_1.IconDemo,
                 input_demo_1.InputDemo,
+                input_container_demo_1.InputContainerDemo,
                 dialog_demo_1.JazzDialog,
                 list_demo_1.ListDemo,
                 live_announcer_demo_1.LiveAnnouncerDemo,
@@ -104,6 +111,7 @@ var DemoAppModule = (function () {
                 tabs_demo_1.SunnyTabContent,
                 tabs_demo_1.RainyTabContent,
                 tabs_demo_1.FoggyTabContent,
+                platform_demo_1.PlatformDemo
             ],
             entryComponents: [
                 demo_app_1.DemoApp,
