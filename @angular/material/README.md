@@ -34,6 +34,20 @@ To bring up a local server: `gulp serve:devapp`
 
 This will automatically watch for changes and rebuild. The browser should refresh automatically when changes are made.
 
+# How to Publish
+
+Bump `src/lib/package.json` version.
+
+Then just do `gulp publish --tag=latest`
+
+npm login credentials and access to `https://www.npmjs.com/package/@agorapulse/material` required.
+
+Desired output:
+```
+Publishing material...
+  Executing "npm publish --access public --tag latest"...
+  stdout: + @agorapulse/material@2.0.0-alpha.11-2-ap.1
+```
 
 # Material Design for Angular 2
 [![npm version](https://badge.fury.io/js/%40angular%2Fmaterial.svg)](https://www.npmjs.com/package/%40angular%2Fmaterial)
@@ -73,7 +87,7 @@ High level items planned for December 2016:
 * Continued expanding e2e test coverage
 * Paginated tabs.
 * Scroll / resize handling for overlays
-* Production build 
+* Production build
 * AoT compile e2e app
 * Release beta.0
 

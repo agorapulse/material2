@@ -9,6 +9,12 @@
   $accent: map-get($theme, accent);
 
   md-checkbox[ap-checkbox] {
+    &.md-primary {
+      .md-checkbox-frame { border-color: md-color($primary, 500); }
+    }
+    &.md-accent {
+      .md-checkbox-frame { border-color: md-color($accent, 500); }
+    }
     .md-checkbox-inner-container {
       .md-checkbox-background {
         transform: scale(0.5);
@@ -16,10 +22,7 @@
           display: none;
         }
       }
-      .md-checkbox-frame {
-        border-color: md-color($accent, 500);
-        border-width: 1px;
-      }
+      .md-checkbox-frame { border-width: 1px; }
     }
   }
 

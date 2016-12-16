@@ -552,12 +552,15 @@
     height: auto; }
   .ap-default-theme md-card[ap-card].children-card {
     margin: 20px 0; }
+  .ap-default-theme md-checkbox[ap-checkbox].md-primary .md-checkbox-frame {
+    border-color: #ff4d00; }
+  .ap-default-theme md-checkbox[ap-checkbox].md-accent .md-checkbox-frame {
+    border-color: #00a2ff; }
   .ap-default-theme md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-background {
     transform: scale(0.5); }
     .ap-default-theme md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-background .md-checkbox-checkmark {
       display: none; }
   .ap-default-theme md-checkbox[ap-checkbox] .md-checkbox-inner-container .md-checkbox-frame {
-    border-color: #00a2ff;
     border-width: 1px; }
   .ap-default-theme body {
     font-family: Roboto, 'Helvetica Neue', sans-serif; }
@@ -801,7 +804,8 @@
         width: 100%;
         background: white;
         width: 100%;
-        position: relative; }
+        position: relative;
+        top: 0; }
       .ap-default-theme [ap-select] .md-select-trigger .md-select-arrow {
         margin-left: auto; }
   .ap-default-theme [ap-sidenav] {
