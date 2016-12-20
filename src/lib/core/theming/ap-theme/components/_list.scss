@@ -12,10 +12,18 @@
     padding-top: 0;
     border-right: 1px solid md-color($md-ap-light-grey, 500);
 
-    [md-list-item] .md-list-item {
-      height: $item-height;
-      border-bottom: 1px solid md-color($md-ap-light-grey, 500);
+    [md-list-item] {
+      .md-list-item {
+        height: $item-height;
+        border-bottom: 1px solid md-color($md-ap-light-grey, 500);
+
+      }
+      &.selected,
+      &[selected] {
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.19);
+      }
     }
+
   }
 
 }
