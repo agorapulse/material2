@@ -8,29 +8,34 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $size-large: 140px;
+  $size-normal: 80px;
+  $size-small: 40px;
+  $size-mini: 25px;
+
   img[ap-avatar] {
-    min-width: 80px;
-    max-width: 80px;
-    min-height: 80px;
-    max-height: 80px;
+    min-width: $size-normal;
+    max-width: $size-normal;
+    min-height: $size-normal;
+    max-height: $size-normal;
 
     &.large {
-      min-width: 140px;
-      max-width: 140px;
-      min-height: 140px;
-      max-height: 140px;
+      min-width: $size-large;
+      max-width: $size-large;
+      min-height: $size-large;
+      max-height: $size-large;
     }
     &.small {
-      min-width: 40px;
-      max-width: 40px;
-      min-height: 40px;
-      max-height: 40px;
+      min-width: $size-small;
+      max-width: $size-small;
+      min-height: $size-small;
+      max-height: $size-small;
     }
     &.mini {
-      min-width: 20px;
-      max-width: 20px;
-      min-height: 20px;
-      max-height: 20px;
+      min-width: $size-mini;
+      max-width: $size-mini;
+      min-height: $size-mini;
+      max-height: $size-mini;
     }
   }
 

@@ -74,6 +74,14 @@
         }
       }
 
+      &.users {
+        [ap-avatar] {
+          margin-right: -5px;
+          border: 1px solid $color-success;
+          &:last-child { margin-right: auto; }
+        }
+      }
+
     }
 
   }
