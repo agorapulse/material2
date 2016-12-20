@@ -10,6 +10,7 @@
   "scripts": {
     "build": "gulp build",
     "demo-app": "gulp serve:devapp",
+    "components": "gulp build:components",
     "test": "gulp test",
     "tslint": "gulp lint",
     "stylelint": "gulp lint",

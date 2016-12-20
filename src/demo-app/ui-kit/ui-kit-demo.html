@@ -41,14 +41,14 @@
   <md-card>
     <h1>Primary colors</h1>
     <div class="colors">
-      <div class="color orange"><span>orange</span></div>
+      <div class="color orange"><span>orange - primary</span></div>
       <div class="color light-orange"><span>light-orange</span></div>
       <div class="color dark"><span>dark</span></div>
       <div class="color light-dark"><span>light-dark</span></div>
     </div>
     <h1>Secondary colors</h1>
     <div class="colors">
-      <div class="color blue"><span>blue</span></div>
+      <div class="color blue"><span>blue - accent</span></div>
       <div class="color green"><span>green</span></div>
       <div class="color red"><span>red</span></div>
       <div class="color dark-grey"><span>dark-grey</span></div>
@@ -147,7 +147,49 @@
 
   <md-card>
     <h1>Buttons</h1>
-    <div style="margin-bottom: 10px;">
+    <div style="margin-bottom: 10px">
+      <button ap-button md-raised-button size="xl" color="primary">Btn XL primary</button>
+      <button ap-button md-raised-button size="l" color="primary">Btn L primary</button>
+      <button ap-button md-raised-button size="m" color="primary">Btn L primary</button>
+      <button ap-button md-raised-button size="sm" color="primary">Btn L primary</button>
+    </div>
+    <div style="margin-bottom: 10px">
+      <button ap-button md-raised-button size="xl" color="accent">Btn L accent</button>
+      <button ap-button md-raised-button size="l" color="accent">Btn L accent</button>
+      <button ap-button md-raised-button size="m" color="accent">Btn L accent</button>
+      <button ap-button md-raised-button size="sm" color="accent">Btn L accent</button>
+    </div>
+    <div style="margin-bottom: 10px">
+      <button ap-button md-raised-button size="xl" clear>Btn M clear</button>
+      <button ap-button md-raised-button size="l" clear>Btn M clear</button>
+      <button ap-button md-raised-button size="m" clear>Btn M clear</button>
+      <button ap-button md-raised-button size="sm" clear>Btn M clear</button>
+    </div>
+    <div style="margin-bottom: 10px">
+      <button ap-button md-raised-button size="xl" round clear>Btn M round</button>
+      <button ap-button md-raised-button size="l" round clear>Btn M round</button>
+      <button ap-button md-raised-button size="m" round clear>Btn M round</button>
+      <button ap-button md-raised-button size="sm" round clear>Btn M round</button>
+    </div>
+
+    <div style="margin-bototm: 10px">
+      <button ap-button md-fab color="primary">
+        <md-icon class="md-24">message</md-icon>
+      </button>
+      <button ap-button action md-raised-button size="sm" flat>
+        <md-icon class="md-24">visibility</md-icon> Hide
+      </button>
+      <button ap-button action md-raised-button size="sm" flat>
+        <md-icon class="md-24">block</md-icon> Block
+      </button>
+      <button ap-button action md-raised-button size="sm" flat>
+        <md-icon class="md-24">person_add</md-icon> Assign
+      </button>
+      <button ap-button action md-raised-button size="sm" flat>
+        <md-icon class="md-24">label_outline</md-icon> Tag
+      </button>
+    </div>
+    <!--div style="margin-bottom: 10px;">
       <button ap-button md-raised-button big color="accent">Save</button>
       <button ap-button md-raised-button big color="accent" disabled>Save</button>
       <button ap-button md-raised-button color="accent">Save</button>
@@ -180,7 +222,7 @@
       <button ap-button md-raised-button big z-depth-2 color-accent color="white">
         More About
       </button>
-    </div>
+    </div-->
   </md-card>
 
   <md-card>
@@ -225,7 +267,21 @@
         <a md-tab-link [active]="false">Publishing</a>
       </nav>
       <div class="fill-remaining-space"></div>
-      <md-icon>code</md-icon>
+
+      <div navbar-block class="users">
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+      </div>
+
+      <div navbar-block class="avatar-dropdown">
+        <img ap-avatar class="small" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+      </div>
+
     </md-toolbar>
   </md-card>
 </div>

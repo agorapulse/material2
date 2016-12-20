@@ -70,6 +70,7 @@
       &.label, &.error, &.success {
         font-family: 'Open Sans';
         text-transform: initial;
+        &:first-letter { text-transform: uppercase; }
       }
       &.placeholder {
         font-size: 14px;
