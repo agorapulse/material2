@@ -212,6 +212,13 @@
     </nav>
     <h1>Toolbar</h1>
     <md-toolbar ap-main-toolbar z-depth-2>
+      <div navbar-block class="avatar-desc">
+        <md-icon class="avatar">code</md-icon>
+        <div class="desc">
+          <span ellipsis>Macdonald's Boulogne</span>
+          <a><md-icon>settings</md-icon>Manage this profile</a>
+        </div>
+      </div>
       <nav md-tab-nav-bar aria-label="weather navigation links">
         <a md-tab-link [active]="true">Inbox</a>
         <a md-tab-link [active]="false">Monitoring</a>

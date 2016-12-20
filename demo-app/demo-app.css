@@ -531,10 +531,10 @@
       min-height: 40px;
       max-height: 40px; }
     .ap-default-theme img[ap-avatar].mini {
-      min-width: 20px;
-      max-width: 20px;
-      min-height: 20px;
-      max-height: 20px; }
+      min-width: 25px;
+      max-width: 25px;
+      min-height: 25px;
+      max-height: 25px; }
   .ap-default-theme [md-raised-button][ap-button] {
     border-radius: 5rem;
     min-width: 115px;
@@ -638,6 +638,10 @@
     border-radius: 100%; }
   .ap-default-theme .ap-components [square] {
     border-radius: 3px; }
+  .ap-default-theme .ap-components [ellipsis] {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }
   .ap-default-theme .ap-components [color-primary] {
     color: #ff4d00; }
   .ap-default-theme .ap-components [color-accent] {
@@ -761,6 +765,46 @@
       .ap-default-theme md-toolbar[ap-main-toolbar] [md-tab-nav-bar] md-ink-bar {
         width: 60px !important;
         margin-left: 50px; }
+    .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block] {
+      border-right: 1px solid #e3e3e3;
+      border-left: 1px solid #e3e3e3;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 15px; }
+      .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block]:first-child {
+        border-left: 0;
+        padding-left: 0; }
+      .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block]:last-child {
+        border-right: 0;
+        padding-right: 0; }
+      .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc {
+        width: 295px; }
+        .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .avatar {
+          width: 30px;
+          height: 30px;
+          margin-right: 12px; }
+        .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc {
+          overflow: hidden; }
+          .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc > * {
+            display: block; }
+          .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc span {
+            font-size: 15px;
+            font-family: "Hind"; }
+          .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc a {
+            font-size: 11px;
+            font-family: "Open Sans";
+            height: 17px;
+            margin-top: -1px; }
+            .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc a md-icon {
+              font-size: 11px;
+              width: 11px;
+              margin-right: 5px; }
+      .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].users [ap-avatar] {
+        margin-right: -5px;
+        border: 1px solid #8DDE57; }
+        .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].users [ap-avatar]:last-child {
+          margin-right: auto; }
   .ap-default-theme nav[ap-main-navbar],
   .ap-default-theme nav[ap-main-header] {
     display: flex;
@@ -826,6 +870,8 @@
     .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item {
       height: 130px;
       border-bottom: 1px solid #f7f7f7; }
+    .ap-default-theme md-nav-list[ap-list] [md-list-item].selected, .ap-default-theme md-nav-list[ap-list] [md-list-item][selected] {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19); }
 
 body {
   font-family: Roboto, 'Helvetica Neue', sans-serif; }
