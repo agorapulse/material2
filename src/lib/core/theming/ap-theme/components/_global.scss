@@ -96,8 +96,9 @@
       }
     }
 
-    [rounded] { border-radius: 100%; }
+    [hidden] { display: none; }
 
+    [rounded] { border-radius: 100%; }
     [square] { border-radius: 3px; }
 
     [ellipsis] {
