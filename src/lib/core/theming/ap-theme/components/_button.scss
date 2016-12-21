@@ -45,6 +45,8 @@
       font-family: "Open Sans";
       min-width: auto;
     }
+
+    &[transparent] { background: transparent; }
   }
 
 }

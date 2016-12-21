@@ -108,7 +108,9 @@
       <br>
       <div ap-select>
         <md-select placeholder="Subscription" [formControl]="control">
-          <md-option *ngFor="let subscription of subscriptions" [value]="subscription.value"> {{ subscription.viewValue }} </md-option>
+          <md-option *ngFor="let subscription of subscriptions" [value]="subscription.value">
+            {{ subscription.viewValue }}
+          </md-option>
         </md-select>
       </div>
       <div ap-input class="fixed-icon">
@@ -150,26 +152,26 @@
     <div style="margin-bottom: 10px">
       <button ap-button md-raised-button size="xl" color="primary">Btn XL primary</button>
       <button ap-button md-raised-button size="l" color="primary">Btn L primary</button>
-      <button ap-button md-raised-button size="m" color="primary">Btn L primary</button>
-      <button ap-button md-raised-button size="sm" color="primary">Btn L primary</button>
+      <button ap-button md-raised-button size="m" color="primary">Btn M primary</button>
+      <button ap-button md-raised-button size="sm" color="primary">Btn SM primary</button>
     </div>
     <div style="margin-bottom: 10px">
-      <button ap-button md-raised-button size="xl" color="accent">Btn L accent</button>
+      <button ap-button md-raised-button size="xl" color="accent">Btn XL accent</button>
       <button ap-button md-raised-button size="l" color="accent">Btn L accent</button>
-      <button ap-button md-raised-button size="m" color="accent">Btn L accent</button>
-      <button ap-button md-raised-button size="sm" color="accent">Btn L accent</button>
+      <button ap-button md-raised-button size="m" color="accent">Btn M accent</button>
+      <button ap-button md-raised-button size="sm" color="accent">Btn SM accent</button>
     </div>
     <div style="margin-bottom: 10px">
-      <button ap-button md-raised-button size="xl" clear>Btn M clear</button>
-      <button ap-button md-raised-button size="l" clear>Btn M clear</button>
+      <button ap-button md-raised-button size="xl" clear>Btn XL clear</button>
+      <button ap-button md-raised-button size="l" clear>Btn L clear</button>
       <button ap-button md-raised-button size="m" clear>Btn M clear</button>
-      <button ap-button md-raised-button size="sm" clear>Btn M clear</button>
+      <button ap-button md-raised-button size="sm" clear>Btn SM clear</button>
     </div>
     <div style="margin-bottom: 10px">
-      <button ap-button md-raised-button size="xl" round clear>Btn M round</button>
-      <button ap-button md-raised-button size="l" round clear>Btn M round</button>
+      <button ap-button md-raised-button size="xl" round clear>Btn XL round</button>
+      <button ap-button md-raised-button size="l" round clear>Btn L round</button>
       <button ap-button md-raised-button size="m" round clear>Btn M round</button>
-      <button ap-button md-raised-button size="sm" round clear>Btn M round</button>
+      <button ap-button md-raised-button size="sm" round clear>Btn SM round</button>
     </div>
 
     <div style="margin-bototm: 10px">

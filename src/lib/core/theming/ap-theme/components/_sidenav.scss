@@ -18,7 +18,38 @@
       .md-list-item { color: md-contrast($md-ap-dark, 500); }
     }
 
-    ul { list-style-type: none; padding: 0; }
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none; padding: 0;
+      margin: 20px 0;
+      li { margin: 12px; }
+    }
+
+    .logo {
+      align-self: center;
+      margin-bottom: 30px;
+      img { width: $sidenav-logo-width; }
+    }
+    .button {
+      align-self: center;
+      margin-bottom: 30px;
+      button[ap-button] {
+        color: white;
+        border-color: white;
+        width: $sidenav-logo-width;
+      }
+    }
+
+    ul.accounts {
+      li.account {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        .name { flex:1; margin: 0 15px; color: white; }
+      }
+    }
+
   }
 
 }
