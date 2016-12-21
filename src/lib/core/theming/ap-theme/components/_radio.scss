@@ -9,7 +9,18 @@
   $accent: map-get($theme, accent);
 
   md-radio-button[ap-radio] {
-    .md-radio-container .md-radio-outer-circle {
+    &[color='primary'] {
+      .md-radio-inner-circle {
+        background-color: md-color($primary, 500);
+      }
+      .md-radio-container .md-radio-outer-circle {
+        border-color: md-color($primary, 500);
+      }
+      .md-radio-ripple .md-ripple-foreground {
+        background-color: md-color($primary, 0.26);
+      }
+    }
+    .md-radio-outer-circle {
       border-color: md-color($accent, 500);
       border-width: 1px;
     }
