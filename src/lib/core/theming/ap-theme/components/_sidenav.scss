@@ -23,7 +23,7 @@
       flex-direction: column;
       list-style-type: none; padding: 0;
       margin: 20px 0;
-      li { margin: 12px; }
+      li.active { background-color: md-color($md-ap-light-dark, 500);}
     }
 
     .logo {
@@ -46,6 +46,7 @@
         cursor: pointer;
         display: flex;
         align-items: center;
+        padding: 12px;
         .name { flex:1; margin: 0 15px; color: white; }
       }
     }
