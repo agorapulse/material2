@@ -231,11 +231,44 @@
     <h1>Sidenav</h1>
     <md-sidenav-layout class="demo-sidenav-layout">
       <md-sidenav ap-sidenav #sidemenu opened mode="side">
-        <md-nav-list>
-          <a md-list-item>
-            Test menu item
-          </a>
-        </md-nav-list>
+        <ul>
+          <li class="logo">
+            <!-- TODO check what to do with logos (in theme or in local project) -->
+            <img src="http://socialtoolssummit.com/wp-content/uploads/2014/05/Agora-Box-1.png">
+          </li>
+          <li class="button">
+            <button ap-button md-raised-button size="m" round clear transparent>
+              <md-icon>near_me</md-icon><span>Publish</span>
+            </button>
+          </li>
+          <!--li class="title aller-light">
+            Accounts
+          </li-->
+          <ul class="accounts">
+            <li noselect class="account bold facebook">
+              <img ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C"/>
+              <span class="name">Account 1</span>
+              <div ap-badge>
+                <span>18</span>
+              </div>
+            </li>
+            <li noselect class="account bold facebook">
+              <img ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C"/>
+              <span class="name">Account 2</span>
+              <div ap-badge>
+                <span>99+</span>
+              </div>
+            </li>
+            <li noselect class="account bold facebook" [class.active]="true">
+              <img ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C"/>
+              <span class="name">Account 3</span>
+              <div ap-badge>
+                <span>0</span>
+              </div>
+            </li>
+          </ul>
+
+        </ul>
         <button md-button (click)="sidemenu.close()">CLOSE</button>
       </md-sidenav>
 
