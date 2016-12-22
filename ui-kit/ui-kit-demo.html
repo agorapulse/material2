@@ -41,14 +41,14 @@
   <md-card>
     <h1>Primary colors</h1>
     <div class="colors">
-      <div class="color orange"><span>orange</span></div>
+      <div class="color orange"><span>orange - primary</span></div>
       <div class="color light-orange"><span>light-orange</span></div>
       <div class="color dark"><span>dark</span></div>
       <div class="color light-dark"><span>light-dark</span></div>
     </div>
     <h1>Secondary colors</h1>
     <div class="colors">
-      <div class="color blue"><span>blue</span></div>
+      <div class="color blue"><span>blue - accent</span></div>
       <div class="color green"><span>green</span></div>
       <div class="color red"><span>red</span></div>
       <div class="color dark-grey"><span>dark-grey</span></div>
@@ -108,7 +108,9 @@
       <br>
       <div ap-select>
         <md-select placeholder="Subscription" [formControl]="control">
-          <md-option *ngFor="let subscription of subscriptions" [value]="subscription.value"> {{ subscription.viewValue }} </md-option>
+          <md-option *ngFor="let subscription of subscriptions" [value]="subscription.value">
+            {{ subscription.viewValue }}
+          </md-option>
         </md-select>
       </div>
       <div ap-input class="fixed-icon">
@@ -134,7 +136,7 @@
       </div>
       <div>
         <label>Radio box</label>
-        <md-radio-button ap-radio name="group1">Default</md-radio-button>
+        <md-radio-button ap-radio color="primary" name="group1">Default</md-radio-button>
         <md-radio-button ap-radio name="group1" checked="true">Active</md-radio-button>
       </div>
       <div>
@@ -147,7 +149,49 @@
 
   <md-card>
     <h1>Buttons</h1>
-    <div style="margin-bottom: 10px;">
+    <div style="margin-bottom: 10px">
+      <button ap-button md-raised-button size="xl" color="primary">Btn XL primary</button>
+      <button ap-button md-raised-button size="l" color="primary">Btn L primary</button>
+      <button ap-button md-raised-button size="m" color="primary">Btn M primary</button>
+      <button ap-button md-raised-button size="sm" color="primary">Btn SM primary</button>
+    </div>
+    <div style="margin-bottom: 10px">
+      <button ap-button md-raised-button size="xl" color="accent">Btn XL accent</button>
+      <button ap-button md-raised-button size="l" color="accent">Btn L accent</button>
+      <button ap-button md-raised-button size="m" color="accent">Btn M accent</button>
+      <button ap-button md-raised-button size="sm" color="accent">Btn SM accent</button>
+    </div>
+    <div style="margin-bottom: 10px">
+      <button ap-button md-raised-button size="xl" clear>Btn XL clear</button>
+      <button ap-button md-raised-button size="l" clear>Btn L clear</button>
+      <button ap-button md-raised-button size="m" clear>Btn M clear</button>
+      <button ap-button md-raised-button size="sm" clear>Btn SM clear</button>
+    </div>
+    <div style="margin-bottom: 10px">
+      <button ap-button md-raised-button size="xl" round clear>Btn XL round</button>
+      <button ap-button md-raised-button size="l" round clear>Btn L round</button>
+      <button ap-button md-raised-button size="m" round clear>Btn M round</button>
+      <button ap-button md-raised-button size="sm" round clear>Btn SM round</button>
+    </div>
+
+    <div style="margin-bototm: 10px">
+      <button ap-button md-fab color="primary">
+        <md-icon class="md-24">message</md-icon>
+      </button>
+      <button ap-button action md-raised-button size="sm" flat>
+        <md-icon class="md-24">visibility</md-icon> Hide
+      </button>
+      <button ap-button action md-raised-button size="sm" flat>
+        <md-icon class="md-24">block</md-icon> Block
+      </button>
+      <button ap-button action md-raised-button size="sm" flat>
+        <md-icon class="md-24">person_add</md-icon> Assign
+      </button>
+      <button ap-button action md-raised-button size="sm" flat>
+        <md-icon class="md-24">label_outline</md-icon> Tag
+      </button>
+    </div>
+    <!--div style="margin-bottom: 10px;">
       <button ap-button md-raised-button big color="accent">Save</button>
       <button ap-button md-raised-button big color="accent" disabled>Save</button>
       <button ap-button md-raised-button color="accent">Save</button>
@@ -180,7 +224,7 @@
       <button ap-button md-raised-button big z-depth-2 color-accent color="white">
         More About
       </button>
-    </div>
+    </div-->
   </md-card>
 
   <md-card>
@@ -225,7 +269,57 @@
         <a md-tab-link [active]="false">Publishing</a>
       </nav>
       <div class="fill-remaining-space"></div>
-      <md-icon>code</md-icon>
+
+      <div navbar-block class="users">
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+        <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+      </div>
+
+      <div navbar-block class="avatar-dropdown">
+        <img ap-avatar class="small" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
+      </div>
+
     </md-toolbar>
+  </md-card>
+
+  <md-card>
+    <md-nav-list ap-list>
+      <h1>List</h1>
+      <a md-list-item>
+        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <span md-line>Sebastian Giro</span>
+        <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
+      </a>
+      <a md-list-item>
+        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <span md-line>Sebastian Giro</span>
+        <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
+      </a>
+      <a md-list-item selected>
+        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <span md-line>Sebastian Giro</span>
+        <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
+      </a>
+      <a md-list-item>
+        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <span md-line>Sebastian Giro</span>
+        <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
+      </a>
+      <a md-list-item>
+        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <span md-line>Sebastian Giro</span>
+        <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
+      </a>
+      <a md-list-item>
+        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <span md-line>Sebastian Giro</span>
+        <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
+      </a>
+    </md-nav-list>
   </md-card>
 </div>

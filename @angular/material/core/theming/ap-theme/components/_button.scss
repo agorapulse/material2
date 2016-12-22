@@ -8,22 +8,45 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $button-xl-padding: 15px 20px;
+  $button-l-padding: 10px 20px;
+  $button-m-padding: 8px 20px;
+  $button-sm-padding: 5px 10px;
+
   [md-raised-button][ap-button] {
-    border-radius: 5rem;
-    min-width: 115px;
     max-width: 100%;
-    line-height: 40px;
-    border-radius: 5rem;
+    line-height: 20px;
+    font-family: "Hind";
+    font-size: 13px;
     overflow: hidden;
-    padding: 0 30px;
+    padding: $button-m-padding;
     text-overflow: ellipsis;
 
-    &[big] {
-      line-height: 50px;
+    &[color='primary'] {
+
     }
-    &[flat] {
-      border-radius: 0;
+
+    &[size='xl'] { padding: $button-xl-padding }
+    &[size='l'] { padding: $button-l-padding }
+    &[size='m'] { padding: $button-m-padding }
+    &[size='sm'] { padding: $button-sm-padding }
+
+    &[round] {
+      border-radius: 5rem;
     }
+
+    &[clear] {
+      box-shadow: none;
+      border: 1px solid md-color($primary);
+      color: md-color($primary);
+    }
+
+    &[action] {
+      font-family: "Open Sans";
+      min-width: auto;
+    }
+
+    &[transparent] { background: transparent; }
   }
 
 }

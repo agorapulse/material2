@@ -25,6 +25,12 @@
       min-height: $size-large;
       max-height: $size-large;
     }
+    &.normal {
+      min-width: $size-normal;
+      max-width: $size-normal;
+      min-height: $size-normal;
+      max-height: $size-normal;
+    }
     &.small {
       min-width: $size-small;
       max-width: $size-small;
