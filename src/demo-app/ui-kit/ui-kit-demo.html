@@ -237,11 +237,11 @@
     <h1>Sidenav</h1>
     <md-sidenav-layout class="demo-sidenav-layout">
       <md-sidenav ap-sidenav #sidemenu opened mode="side">
-        <ul>
+        <ul class="content">
           <li class="logo">
             INSERT LOGO HERE
           </li>
-          <li class="button">
+          <li class="publish">
             <button ap-button md-raised-button size="m" round clear transparent>
               <md-icon>near_me</md-icon><span>Publish</span>
             </button>
@@ -273,7 +273,10 @@
               </div>
             </li>
           </ul>
-
+          <ul class="actions">
+            <li><md-icon>add</md-icon><span>Action 1</span></li>
+            <li><md-icon>settings</md-icon><span>Action 2</span></li>
+          </ul>
         </ul>
         <button md-button (click)="sidemenu.close()">CLOSE</button>
       </md-sidenav>
