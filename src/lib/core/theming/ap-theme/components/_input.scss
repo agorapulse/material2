@@ -13,9 +13,34 @@
     max-width: 100%;
     position: relative;
     width: 220px;
-
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &[search] {
+      display: flex;
+      align-items: center;
+      md-icon, input {
+        color: #636B73;
+      }
+      md-icon {
+        display: block;
+        margin: 0;
+        font-size: 27px;
+      }
+      input {
+        flex: 1;
+        border: 0;
+        margin: 0;
+        width: 100%;
+        font-size: 18px;
+        font-family: "Open Sans";
+        background: transparent;
+      }
+      &.active input,
+      input:focus {
+        border: 0;
+      }
     }
     &.fixed-icon {
       input { padding-right: 43px; }

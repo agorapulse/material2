@@ -40,8 +40,12 @@
         width: $sidenav-logo-width;
       }
     }
-
+    [ap-input][search]{
+      width: 100%;
+      padding: 0 12px;
+    }
     ul.accounts {
+      margin: 10px 0;
       li.account {
         cursor: pointer;
         display: flex;
