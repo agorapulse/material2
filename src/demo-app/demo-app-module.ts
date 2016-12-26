@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {MaterialModule} from '@angular/material';
 import {DEMO_APP_ROUTES} from './demo-app/routes';
 import {ProgressBarDemo} from './progress-bar/progress-bar-demo';
-import {JazzDialog, DialogDemo} from './dialog/dialog-demo';
+import {JazzDialog, ContentElementDialog, DialogDemo} from './dialog/dialog-demo';
 import {RippleDemo} from './ripple/ripple-demo';
 import {IconDemo} from './icon/icon-demo';
 import {GesturesDemo} from './gestures/gestures-demo';
@@ -16,7 +16,7 @@ import {CardDemo} from './card/card-demo';
 import {ChipsDemo} from './chips/chips-demo';
 import {RadioDemo} from './radio/radio-demo';
 import {ButtonToggleDemo} from './button-toggle/button-toggle-demo';
-import {ProgressCircleDemo} from './progress-circle/progress-circle-demo';
+import {ProgressSpinnerDemo} from './progress-spinner/progress-spinner-demo';
 import {TooltipDemo} from './tooltip/tooltip-demo';
 import {ListDemo} from './list/list-demo';
 import {BaselineDemo} from './baseline/baseline-demo';
@@ -69,6 +69,7 @@ import {UiKitDemo} from './ui-kit/ui-kit-demo';
     InputDemo,
     InputContainerDemo,
     JazzDialog,
+    ContentElementDialog,
     ListDemo,
     LiveAnnouncerDemo,
     MdCheckboxDemoNestedChecklist,
@@ -78,7 +79,7 @@ import {UiKitDemo} from './ui-kit/ui-kit-demo';
     OverlayDemo,
     PortalDemo,
     ProgressBarDemo,
-    ProgressCircleDemo,
+    ProgressSpinnerDemo,
     ProjectionDemo,
     ProjectionTestComponent,
     RadioDemo,
@@ -101,6 +102,7 @@ import {UiKitDemo} from './ui-kit/ui-kit-demo';
   entryComponents: [
     DemoApp,
     JazzDialog,
+    ContentElementDialog,
     RotiniPanel,
     ScienceJoke,
     SpagettiPanel,

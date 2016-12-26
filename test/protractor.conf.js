@@ -27,6 +27,9 @@ const config = {
       rules: [
         // Exclude md-menu elements because those are empty if not active.
         { id: 'aria-required-children', selector: '*:not(md-menu)' },
+
+        // Disable color constrast checks since the final colors will vary based on the theme.
+        { id: 'color-contrast', enabled: false },
       ]
     }
   ]
@@ -40,7 +43,11 @@ if (process.env['TRAVIS']) {
     'browserName': 'chrome',
     'tunnel-identifier': process.env['TRAVIS_JOB_NUMBER'],
     'build': process.env['TRAVIS_JOB_NUMBER'],
-    'name': 'Material 2 E2E Tests'
+    'name': 'Material 2 E2E Tests',
+
+    // By default Saucelabs tries to record the whole e2e run. This can slow down the builds.
+    'recordVideo': false,
+    'recordScreenshots': false
   };
 }
 
