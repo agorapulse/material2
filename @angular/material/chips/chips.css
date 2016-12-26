@@ -6,22 +6,22 @@
   /*
    * Only apply the margins to chips
    */ }
-  .md-chip-list-wrapper .md-chip {
+  .md-chip-list-wrapper .md-chip:not(.md-basic-chip) {
     margin: 0 3px 0 3px; }
-    .md-chip-list-wrapper .md-chip:first-child {
+    .md-chip-list-wrapper .md-chip:not(.md-basic-chip):first-child {
       margin-left: 0;
       margin-right: 3px; }
-      [dir='rtl'] .md-chip-list-wrapper .md-chip:first-child {
+      [dir='rtl'] .md-chip-list-wrapper .md-chip:not(.md-basic-chip):first-child {
         margin-left: 3px;
         margin-right: 0; }
-    .md-chip-list-wrapper .md-chip:last-child {
+    .md-chip-list-wrapper .md-chip:not(.md-basic-chip):last-child {
       margin-left: 3px;
       margin-right: 0; }
-      [dir='rtl'] .md-chip-list-wrapper .md-chip:last-child {
+      [dir='rtl'] .md-chip-list-wrapper .md-chip:not(.md-basic-chip):last-child {
         margin-left: 0;
         margin-right: 3px; }
 
-.md-chip {
+.md-chip:not(.md-basic-chip) {
   display: inline-block;
   padding: 8px 12px 8px 12px;
   border-radius: 24px;
@@ -30,14 +30,14 @@
 
 .md-chip-list-stacked .md-chip-list-wrapper {
   display: block; }
-  .md-chip-list-stacked .md-chip-list-wrapper .md-chip {
+  .md-chip-list-stacked .md-chip-list-wrapper .md-chip:not(.md-basic-chip) {
     display: block;
     margin: 0;
     margin-bottom: 8px; }
-    [dir='rtl'] .md-chip-list-stacked .md-chip-list-wrapper .md-chip {
+    [dir='rtl'] .md-chip-list-stacked .md-chip-list-wrapper .md-chip:not(.md-basic-chip) {
       margin: 0;
       margin-bottom: 8px; }
-    .md-chip-list-stacked .md-chip-list-wrapper .md-chip:last-child, [dir='rtl'] .md-chip-list-stacked .md-chip-list-wrapper .md-chip:last-child {
+    .md-chip-list-stacked .md-chip-list-wrapper .md-chip:not(.md-basic-chip):last-child, [dir='rtl'] .md-chip-list-stacked .md-chip-list-wrapper .md-chip:not(.md-basic-chip):last-child {
       margin-bottom: 0; }
 
 /*# sourceMappingURL=chips.css.map */

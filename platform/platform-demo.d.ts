@@ -1,6 +1,6 @@
-import { MdPlatform } from '@angular/material';
+import { Platform } from '@angular/material';
 export declare class PlatformDemo {
-    platform: MdPlatform;
+    platform: Platform;
     supportedInputTypes: Set<string>;
-    constructor(platform: MdPlatform);
+    constructor(platform: Platform);
 }

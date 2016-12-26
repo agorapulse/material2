@@ -148,11 +148,11 @@ md-checkbox {
   opacity: 0;
   transform: scaleX(0) rotate(0deg); }
 
-.md-checkbox-align-end .md-checkbox-inner-container {
+.md-checkbox-label-before .md-checkbox-inner-container {
   order: 1;
   margin-left: 8px;
   margin-right: auto; }
-  [dir='rtl'] .md-checkbox-align-end .md-checkbox-inner-container {
+  [dir='rtl'] .md-checkbox-label-before .md-checkbox-inner-container {
     margin-left: auto;
     margin-right: 8px; }
 

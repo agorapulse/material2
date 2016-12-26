@@ -15,7 +15,7 @@ var checkbox_demo_1 = require('../checkbox/checkbox-demo');
 var overlay_demo_1 = require('../overlay/overlay-demo');
 var portal_demo_1 = require('../portal/portal-demo');
 var progress_bar_demo_1 = require('../progress-bar/progress-bar-demo');
-var progress_circle_demo_1 = require('../progress-circle/progress-circle-demo');
+var progress_spinner_demo_1 = require('../progress-spinner/progress-spinner-demo');
 var select_demo_1 = require('../select/select-demo');
 var sidenav_demo_1 = require('../sidenav/sidenav-demo');
 var slide_toggle_demo_1 = require('../slide-toggle/slide-toggle-demo');
@@ -45,7 +45,7 @@ exports.DEMO_APP_ROUTES = [
     { path: 'sidenav', component: sidenav_demo_1.SidenavDemo },
     { path: 'slide-toggle', component: slide_toggle_demo_1.SlideToggleDemo },
     { path: 'slider', component: slider_demo_1.SliderDemo },
-    { path: 'progress-circle', component: progress_circle_demo_1.ProgressCircleDemo },
+    { path: 'progress-spinner', component: progress_spinner_demo_1.ProgressSpinnerDemo },
     { path: 'progress-bar', component: progress_bar_demo_1.ProgressBarDemo },
     { path: 'portal', component: portal_demo_1.PortalDemo },
     { path: 'projection', component: projection_demo_1.ProjectionDemo },

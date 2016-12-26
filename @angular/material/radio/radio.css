@@ -49,11 +49,11 @@ md-radio-button {
     padding-right: 8px;
     padding-left: 0; }
 
-.md-radio-label-content.md-radio-align-end {
+.md-radio-label-content.md-radio-label-before {
   order: -1;
   padding-left: 0;
   padding-right: 8px; }
-  [dir='rtl'] .md-radio-label-content.md-radio-align-end {
+  [dir='rtl'] .md-radio-label-content.md-radio-label-before {
     padding-right: 0;
     padding-left: 8px; }
 

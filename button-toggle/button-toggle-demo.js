@@ -26,7 +26,7 @@ var ButtonToggleDemo = (function () {
             moduleId: module.id,
             selector: 'button-toggle-demo',
             templateUrl: 'button-toggle-demo.html',
-            providers: [material_1.MdUniqueSelectionDispatcher],
+            providers: [material_1.UniqueSelectionDispatcher],
         }), 
         __metadata('design:paramtypes', [])
     ], ButtonToggleDemo);

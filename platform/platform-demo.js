@@ -21,7 +21,7 @@ var PlatformDemo = (function () {
             selector: 'platform-demo',
             templateUrl: 'platform-demo.html',
         }), 
-        __metadata('design:paramtypes', [material_1.MdPlatform])
+        __metadata('design:paramtypes', [material_1.Platform])
     ], PlatformDemo);
     return PlatformDemo;
 }());

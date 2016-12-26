@@ -22,6 +22,7 @@ export var SHOW_ANIMATION = '225ms cubic-bezier(0.4,0.0,1,1)';
 export var HIDE_ANIMATION = '195ms cubic-bezier(0.0,0.0,0.2,1)';
 /**
  * Internal component that wraps user-provided snack bar content.
+ * @docs-private
  */
 export var MdSnackBarContainer = (function (_super) {
     __extends(MdSnackBarContainer, _super);
@@ -80,7 +81,9 @@ export var MdSnackBarContainer = (function (_super) {
     MdSnackBarContainer.prototype._onExit = function () {
         return this.onExit.asObservable();
     };
-    /** Makes sure the exit callbacks have been invoked when the element is destroyed. */
+    /**
+     * Makes sure the exit callbacks have been invoked when the element is destroyed.
+     */
     MdSnackBarContainer.prototype.ngOnDestroy = function () {
         var _this = this;
         // Wait for the zone to settle before removing the element. Helps prevent
@@ -96,7 +99,7 @@ export var MdSnackBarContainer = (function (_super) {
     ], MdSnackBarContainer.prototype, "_portalHost", void 0);
     MdSnackBarContainer = __decorate([
         Component({selector: 'snack-bar-container',
-            template: "<template portalHost></template>",
+            template: "<template cdkPortalHost></template> ",
             styles: ["/** * Applies styles for users in high contrast mode. Note that this only applies * to Microsoft browsers. Chrome can be included by checking for the `html[hc]` * attribute, however Chrome handles high contrast differently. */ :host { box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12); background: #323232; border-radius: 2px; box-sizing: content-box; display: block; height: 20px; max-width: 568px; min-width: 288px; overflow: hidden; padding: 14px 24px; transform: translateY(100%); } @media screen and (-ms-high-contrast: active) { :host { border: solid 1px; } } /*# sourceMappingURL=snack-bar-container.css.map */ "],
             host: {
                 'role': 'alert',

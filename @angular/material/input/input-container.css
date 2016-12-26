@@ -8,16 +8,16 @@ md-input-container {
     text-align: right; }
 
 .md-input-element::-webkit-input-placeholder {
-  visibility: hidden; }
+  color: transparent; }
 
 .md-input-element::-moz-placeholder {
-  visibility: hidden; }
+  color: transparent; }
 
 .md-input-element:-ms-input-placeholder {
-  visibility: hidden; }
+  color: transparent; }
 
 .md-input-element::placeholder {
-  visibility: hidden; }
+  color: transparent; }
 
 .md-end .md-input-element {
   text-align: right; }

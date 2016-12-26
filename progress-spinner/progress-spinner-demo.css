@@ -1,0 +1,7 @@
+.demo-progress-spinner {
+  width: 100%; }
+  .demo-progress-spinner md-progress-spinner,
+  .demo-progress-spinner md-spinner {
+    display: inline-block; }
+
+/*# sourceMappingURL=progress-spinner-demo.css.map */

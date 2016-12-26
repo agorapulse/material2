@@ -23,7 +23,7 @@ var LiveAnnouncerDemo = (function () {
             selector: 'toolbar-demo',
             templateUrl: 'live-announcer-demo.html',
         }), 
-        __metadata('design:paramtypes', [material_1.MdLiveAnnouncer])
+        __metadata('design:paramtypes', [material_1.LiveAnnouncer])
     ], LiveAnnouncerDemo);
     return LiveAnnouncerDemo;
 }());

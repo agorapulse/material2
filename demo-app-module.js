@@ -26,7 +26,7 @@ var card_demo_1 = require('./card/card-demo');
 var chips_demo_1 = require('./chips/chips-demo');
 var radio_demo_1 = require('./radio/radio-demo');
 var button_toggle_demo_1 = require('./button-toggle/button-toggle-demo');
-var progress_circle_demo_1 = require('./progress-circle/progress-circle-demo');
+var progress_spinner_demo_1 = require('./progress-spinner/progress-spinner-demo');
 var tooltip_demo_1 = require('./tooltip/tooltip-demo');
 var list_demo_1 = require('./list/list-demo');
 var baseline_demo_1 = require('./baseline/baseline-demo');
@@ -84,6 +84,7 @@ var DemoAppModule = (function () {
                 input_demo_1.InputDemo,
                 input_container_demo_1.InputContainerDemo,
                 dialog_demo_1.JazzDialog,
+                dialog_demo_1.ContentElementDialog,
                 list_demo_1.ListDemo,
                 live_announcer_demo_1.LiveAnnouncerDemo,
                 checkbox_demo_1.MdCheckboxDemoNestedChecklist,
@@ -93,7 +94,7 @@ var DemoAppModule = (function () {
                 overlay_demo_1.OverlayDemo,
                 portal_demo_1.PortalDemo,
                 progress_bar_demo_1.ProgressBarDemo,
-                progress_circle_demo_1.ProgressCircleDemo,
+                progress_spinner_demo_1.ProgressSpinnerDemo,
                 projection_demo_1.ProjectionDemo,
                 projection_demo_1.ProjectionTestComponent,
                 radio_demo_1.RadioDemo,
@@ -116,6 +117,7 @@ var DemoAppModule = (function () {
             entryComponents: [
                 demo_app_1.DemoApp,
                 dialog_demo_1.JazzDialog,
+                dialog_demo_1.ContentElementDialog,
                 overlay_demo_1.RotiniPanel,
                 portal_demo_1.ScienceJoke,
                 overlay_demo_1.SpagettiPanel,

@@ -5,10 +5,13 @@ export declare class DialogDemo {
     lastCloseResult: string;
     config: MdDialogConfig;
     constructor(dialog: MdDialog);
-    open(): void;
+    openJazz(): void;
+    openContentElement(): void;
 }
 export declare class JazzDialog {
     dialogRef: MdDialogRef<JazzDialog>;
     jazzMessage: string;
     constructor(dialogRef: MdDialogRef<JazzDialog>);
+}
+export declare class ContentElementDialog {
 }

@@ -1,0 +1,1 @@
+{"version":3,"sources":["progress-spinner-demo.css"],"names":[],"mappings":"AAAA;EACE,YAAY,EAAE;EACd;;IAEE,sBAAsB,EAAE","file":"progress-spinner-demo.css","sourcesContent":[".demo-progress-spinner {\n  width: 100%; }\n  .demo-progress-spinner md-progress-spinner,\n  .demo-progress-spinner md-spinner {\n    display: inline-block; }\n"]}

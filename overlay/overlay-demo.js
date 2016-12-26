@@ -52,7 +52,7 @@ var OverlayDemo = (function () {
             .global()
             .centerHorizontally();
         config.hasBackdrop = true;
-        config.backdropClass = 'md-overlay-transparent-backdrop';
+        config.backdropClass = 'cdk-overlay-transparent-backdrop';
         var overlayRef = this.overlay.create(config);
         overlayRef.attach(this.templatePortals.first);
         overlayRef.backdropClick().subscribe(function () { return overlayRef.detach(); });

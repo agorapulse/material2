@@ -49,7 +49,7 @@ md-tab-body {
     overflow-y: auto;
     z-index: 1;
     flex-grow: 1; }
-  :host[md-dynamic-height] md-tab-body.md-tab-body-active {
+  :host.md-tab-group-dynamic-height md-tab-body.md-tab-body-active {
     overflow-y: hidden; }
 
 .md-tab-disabled {

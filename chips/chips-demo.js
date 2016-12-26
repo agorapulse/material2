@@ -21,6 +21,12 @@ var ChipsDemo = (function () {
             { name: 'Kristiyan' },
             { name: 'Paul' }
         ];
+        this.availableColors = [
+            { name: 'none', color: '' },
+            { name: 'Primary', color: 'primary' },
+            { name: 'Accent', color: 'accent' },
+            { name: 'Warn', color: 'warn' }
+        ];
     }
     ChipsDemo.prototype.alert = function (message) {
         alert(message);

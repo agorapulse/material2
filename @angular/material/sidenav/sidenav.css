@@ -113,7 +113,8 @@ md-sidenav {
   .md-sidenav-focus-trap > .cdk-focus-trap-content {
     box-sizing: border-box;
     height: 100%;
-    overflow-y: auto; }
+    overflow-y: auto;
+    transform: translateZ(0); }
 
 .md-sidenav-invalid {
   display: none; }

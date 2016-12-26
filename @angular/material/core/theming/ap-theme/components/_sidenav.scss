@@ -14,6 +14,14 @@
     color: md-contrast($md-ap-dark, 500);
     box-shadow: none;
 
+    ul.content {
+      min-height: 100%;
+      margin: 0;
+      & > * {
+        padding: 0 12px;
+      }
+    }
+
     md-nav-list {
       .md-list-item { color: md-contrast($md-ap-dark, 500); }
     }
@@ -22,7 +30,7 @@
       display: flex;
       flex-direction: column;
       list-style-type: none; padding: 0;
-      margin: 20px 0;
+      padding: 20px 0;
       li.active { background-color: md-color($md-ap-light-dark, 500);}
     }
 
@@ -31,7 +39,7 @@
       margin-bottom: 30px;
       img { width: $sidenav-logo-width; }
     }
-    .button {
+    .publish {
       align-self: center;
       margin-bottom: 30px;
       button[ap-button] {
@@ -40,14 +48,31 @@
         width: $sidenav-logo-width;
       }
     }
-
+    [ap-input][search]{
+      width: 100%;
+    }
     ul.accounts {
+      margin: 10px 0;
+      padding: 0;
+      flex: 1;
       li.account {
         cursor: pointer;
         display: flex;
         align-items: center;
         padding: 12px;
+        min-height: 64px;
         .name { flex:1; margin: 0 15px; color: white; }
+      }
+    }
+    .actions {
+      li {
+        display: block;
+        font-family: "Open Sans";
+        font-size: 15px;
+        padding: 6px 12px;
+        cursor: pointer;
+        md-icon { margin-right: 15px; }
+        & > * { vertical-align: middle; }
       }
     }
 

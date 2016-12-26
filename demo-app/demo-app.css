@@ -63,6 +63,11 @@
  * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`
  * attribute, however Chrome handles high contrast differently.
  */
+/**
+ * Applies styles for users in high contrast mode. Note that this only applies
+ * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`
+ * attribute, however Chrome handles high contrast differently.
+ */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700);
 .md-elevation-z0 {
@@ -143,7 +148,7 @@
 [md-ripple] {
   overflow: hidden; }
 
-[md-ripple].md-ripple-unbounded {
+[md-ripple].mdRippleUnbounded {
   overflow: visible; }
 
 .md-ripple-background {
@@ -156,13 +161,13 @@
   right: 0;
   bottom: 0; }
 
-.md-ripple-unbounded .md-ripple-background {
+.mdRippleUnbounded .md-ripple-background {
   display: none; }
 
 .md-ripple-background.md-ripple-active {
   opacity: 1; }
 
-.md-ripple-focused .md-ripple-background {
+.mdRippleFocused .md-ripple-background {
   opacity: 1; }
 
 .md-ripple-foreground {
@@ -179,7 +184,7 @@
 .md-ripple-foreground.md-ripple-fade-out {
   opacity: 0; }
 
-.md-visually-hidden {
+.cdk-visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -190,46 +195,45 @@
   text-transform: none;
   width: 1px; }
 
-.md-overlay-container, .md-global-overlay-wrapper {
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
   pointer-events: none;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%; }
 
-.md-overlay-container {
+.cdk-overlay-container {
   position: fixed;
   z-index: 1000; }
 
-.md-global-overlay-wrapper {
+.cdk-global-overlay-wrapper {
   display: flex;
   position: absolute;
   z-index: 1000; }
 
-.md-overlay-pane {
+.cdk-overlay-pane {
   position: absolute;
   pointer-events: auto;
   box-sizing: border-box;
   z-index: 1000; }
 
-.md-overlay-backdrop {
+.cdk-overlay-backdrop {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 1000;
   pointer-events: auto;
   transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
   opacity: 0; }
+  .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    opacity: 0.48; }
 
-.md-overlay-backdrop.md-overlay-backdrop-showing {
-  opacity: 0.48; }
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.6); }
 
-.md-overlay-dark-backdrop {
-  background: #212121; }
-
-.md-overlay-transparent-backdrop {
+.cdk-overlay-transparent-backdrop {
   background: none; }
 
 .ap-default-theme {
@@ -237,7 +241,7 @@
     background-color: md-color($primary);
     border-color: md-color($accent, A400);
   }*/ }
-  .ap-default-theme .md-ripple-focused .md-ripple-background {
+  .ap-default-theme .mdRippleFocused .md-ripple-background {
     background-color: rgba(0, 162, 255, 0.1); }
   .ap-default-theme [md-button].md-button-focus.md-primary .md-button-focus-overlay, .ap-default-theme [md-icon-button].md-button-focus.md-primary .md-button-focus-overlay, .ap-default-theme [md-raised-button].md-button-focus.md-primary .md-button-focus-overlay, .ap-default-theme [md-fab].md-button-focus.md-primary .md-button-focus-overlay, .ap-default-theme [md-mini-fab].md-button-focus.md-primary .md-button-focus-overlay {
     background-color: rgba(255, 77, 0, 0.12); }
@@ -315,19 +319,19 @@
     background-color: rgba(0, 162, 255, 0.26); }
   .ap-default-theme .md-checkbox:not(.md-checkbox-disabled).md-warn .md-checkbox-ripple .md-ripple-foreground {
     background-color: rgba(244, 67, 54, 0.26); }
-  .ap-default-theme .md-chip {
+  .ap-default-theme .md-chip:not(.md-basic-chip) {
     background-color: #e0e0e0;
     color: rgba(0, 0, 0, 0.87); }
-  .ap-default-theme .md-chip.selected {
+  .ap-default-theme .md-chip.md-chip-selected:not(.md-basic-chip) {
     background-color: #808080;
     color: rgba(255, 255, 255, 0.87); }
-    .ap-default-theme .md-chip.selected.md-primary {
+    .ap-default-theme .md-chip.md-chip-selected:not(.md-basic-chip).md-primary {
       background-color: #ff4d00;
       color: rgba(255, 255, 255, 0.87); }
-    .ap-default-theme .md-chip.selected.md-accent {
+    .ap-default-theme .md-chip.md-chip-selected:not(.md-basic-chip).md-accent {
       background-color: #00a2ff;
       color: rgba(255, 255, 255, 0.87); }
-    .ap-default-theme .md-chip.selected.md-warn {
+    .ap-default-theme .md-chip.md-chip-selected:not(.md-basic-chip).md-warn {
       background-color: #f44336;
       color: white; }
   .ap-default-theme md-dialog-container {
@@ -380,25 +384,25 @@
     background: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27#ffd1bd%27%2F%3E%3C%2Fsvg%3E"); }
   .ap-default-theme .md-progress-bar-buffer {
     background-color: #ffd1bd; }
-  .ap-default-theme md-progress-bar[color='accent'] .md-progress-bar-background {
-    background: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27#bde7ff%27%2F%3E%3C%2Fsvg%3E"); }
-  .ap-default-theme md-progress-bar[color='accent'] .md-progress-bar-buffer {
-    background-color: #bde7ff; }
-  .ap-default-theme md-progress-bar[color='accent'] .md-progress-bar-fill::after {
-    background-color: #008fe0; }
-  .ap-default-theme md-progress-bar[color='warn'] .md-progress-bar-background {
-    background: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27#ffcdd2%27%2F%3E%3C%2Fsvg%3E"); }
-  .ap-default-theme md-progress-bar[color='warn'] .md-progress-bar-buffer {
-    background-color: #ffcdd2; }
-  .ap-default-theme md-progress-bar[color='warn'] .md-progress-bar-fill::after {
-    background-color: #e53935; }
   .ap-default-theme .md-progress-bar-fill::after {
     background-color: #e04400; }
-  .ap-default-theme md-progress-circle path, .ap-default-theme md-spinner path {
+  .ap-default-theme md-progress-bar.md-accent .md-progress-bar-background {
+    background: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27#bde7ff%27%2F%3E%3C%2Fsvg%3E"); }
+  .ap-default-theme md-progress-bar.md-accent .md-progress-bar-buffer {
+    background-color: #bde7ff; }
+  .ap-default-theme md-progress-bar.md-accent .md-progress-bar-fill::after {
+    background-color: #008fe0; }
+  .ap-default-theme md-progress-bar.md-warn .md-progress-bar-background {
+    background: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27#ffcdd2%27%2F%3E%3C%2Fsvg%3E"); }
+  .ap-default-theme md-progress-bar.md-warn .md-progress-bar-buffer {
+    background-color: #ffcdd2; }
+  .ap-default-theme md-progress-bar.md-warn .md-progress-bar-fill::after {
+    background-color: #e53935; }
+  .ap-default-theme md-progress-spinner path, .ap-default-theme md-progress-circle path, .ap-default-theme md-spinner path {
     stroke: #e04400; }
-  .ap-default-theme md-progress-circle[color='accent'] path, .ap-default-theme md-spinner[color='accent'] path {
+  .ap-default-theme md-progress-spinner.md-accent path, .ap-default-theme md-progress-circle.md-accent path, .ap-default-theme md-spinner.md-accent path {
     stroke: #008fe0; }
-  .ap-default-theme md-progress-circle[color='warn'] path, .ap-default-theme md-spinner[color='warn'] path {
+  .ap-default-theme md-progress-spinner.md-warn path, .ap-default-theme md-progress-circle.md-warn path, .ap-default-theme md-spinner.md-warn path {
     stroke: #e53935; }
   .ap-default-theme .md-radio-outer-circle {
     border-color: rgba(0, 0, 0, 0.54); }
@@ -540,6 +544,19 @@
       max-width: 25px;
       min-height: 25px;
       max-height: 25px; }
+  .ap-default-theme [ap-badge] {
+    background: #ff4d00;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    color: white;
+    font-family: "Open Sans";
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 25px; }
+    .ap-default-theme [ap-badge] span {
+      display: block;
+      text-align: center; }
   .ap-default-theme [md-raised-button][ap-button] {
     max-width: 100%;
     line-height: 20px;
@@ -665,6 +682,19 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden; }
+  .ap-default-theme .ap-components [noselect] {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                      not supported by any browser */ }
   .ap-default-theme .ap-components [color-primary] {
     color: #ff4d00; }
   .ap-default-theme .ap-components [color-accent] {
@@ -728,6 +758,26 @@
     width: 220px; }
     .ap-default-theme [ap-input]:last-child {
       margin-bottom: 0; }
+    .ap-default-theme [ap-input][search] {
+      display: flex;
+      align-items: center; }
+      .ap-default-theme [ap-input][search] md-icon, .ap-default-theme [ap-input][search] input {
+        color: #636B73; }
+      .ap-default-theme [ap-input][search] md-icon {
+        display: block;
+        margin: 0;
+        font-size: 27px; }
+      .ap-default-theme [ap-input][search] input {
+        flex: 1;
+        border: 0;
+        margin: 0;
+        width: 100%;
+        font-size: 18px;
+        font-family: "Open Sans";
+        background: transparent; }
+      .ap-default-theme [ap-input][search].active input,
+      .ap-default-theme [ap-input][search] input:focus {
+        border: 0; }
     .ap-default-theme [ap-input].fixed-icon input {
       padding-right: 43px; }
     .ap-default-theme [ap-input].fixed-icon md-icon {
@@ -885,6 +935,11 @@
     background: #2a2f34;
     color: rgba(255, 255, 255, 0.87);
     box-shadow: none; }
+    .ap-default-theme [ap-sidenav] ul.content {
+      min-height: 100%;
+      margin: 0; }
+      .ap-default-theme [ap-sidenav] ul.content > * {
+        padding: 0 12px; }
     .ap-default-theme [ap-sidenav] md-nav-list .md-list-item {
       color: rgba(255, 255, 255, 0.87); }
     .ap-default-theme [ap-sidenav] ul {
@@ -892,7 +947,7 @@
       flex-direction: column;
       list-style-type: none;
       padding: 0;
-      margin: 20px 0; }
+      padding: 20px 0; }
       .ap-default-theme [ap-sidenav] ul li.active {
         background-color: #76818b; }
     .ap-default-theme [ap-sidenav] .logo {
@@ -901,23 +956,40 @@
       margin-bottom: 30px; }
       .ap-default-theme [ap-sidenav] .logo img {
         width: 160px; }
-    .ap-default-theme [ap-sidenav] .button {
+    .ap-default-theme [ap-sidenav] .publish {
       -ms-grid-row-align: center;
       align-self: center;
       margin-bottom: 30px; }
-      .ap-default-theme [ap-sidenav] .button button[ap-button] {
+      .ap-default-theme [ap-sidenav] .publish button[ap-button] {
         color: white;
         border-color: white;
         width: 160px; }
-    .ap-default-theme [ap-sidenav] ul.accounts li.account {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      padding: 12px; }
-      .ap-default-theme [ap-sidenav] ul.accounts li.account .name {
-        flex: 1;
-        margin: 0 15px;
-        color: white; }
+    .ap-default-theme [ap-sidenav] [ap-input][search] {
+      width: 100%; }
+    .ap-default-theme [ap-sidenav] ul.accounts {
+      margin: 10px 0;
+      padding: 0;
+      flex: 1; }
+      .ap-default-theme [ap-sidenav] ul.accounts li.account {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        min-height: 64px; }
+        .ap-default-theme [ap-sidenav] ul.accounts li.account .name {
+          flex: 1;
+          margin: 0 15px;
+          color: white; }
+    .ap-default-theme [ap-sidenav] .actions li {
+      display: block;
+      font-family: "Open Sans";
+      font-size: 15px;
+      padding: 6px 12px;
+      cursor: pointer; }
+      .ap-default-theme [ap-sidenav] .actions li md-icon {
+        margin-right: 15px; }
+      .ap-default-theme [ap-sidenav] .actions li > * {
+        vertical-align: middle; }
   .ap-default-theme md-slide-toggle[ap-slide-toggle] {
     margin: 0; }
   .ap-default-theme md-nav-list[ap-list] {

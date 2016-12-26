@@ -29,7 +29,7 @@ var ProjectionTestComponent = (function () {
     ProjectionTestComponent = __decorate([
         core_1.Component({
             selector: '[projection-test]',
-            template: "\n    <div class=\"demo-outer {{cssClass}}\">\n      Before\n      <dom-projection-host><ng-content></ng-content></dom-projection-host>\n      After\n    </div>\n  ",
+            template: "\n    <div class=\"demo-outer {{cssClass}}\">\n      Before\n      <cdk-dom-projection-host><ng-content></ng-content></cdk-dom-projection-host>\n      After\n    </div>\n  ",
             styles: ["\n    .demo-outer {\n      background-color: #663399;\n    }\n  "]
         }), 
         __metadata('design:paramtypes', [material_1.DomProjection, core_1.ElementRef])

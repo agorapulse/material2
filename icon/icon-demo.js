@@ -9,12 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var platform_browser_1 = require('@angular/platform-browser');
 var material_1 = require('@angular/material');
 var IconDemo = (function () {
-    function IconDemo(mdIconRegistry) {
+    function IconDemo(mdIconRegistry, sanitizer) {
         mdIconRegistry
-            .addSvgIcon('thumb-up', '/icon/assets/thumbup-icon.svg')
-            .addSvgIconSetInNamespace('core', '/icon/assets/core-icon-set.svg')
+            .addSvgIcon('thumb-up', sanitizer.bypassSecurityTrustResourceUrl('/icon/assets/thumbup-icon.svg'))
+            .addSvgIconSetInNamespace('core', sanitizer.bypassSecurityTrustResourceUrl('/icon/assets/core-icon-set.svg'))
             .registerFontClassAlias('fontawesome', 'fa');
     }
     IconDemo = __decorate([
@@ -26,7 +27,7 @@ var IconDemo = (function () {
             viewProviders: [material_1.MdIconRegistry],
             encapsulation: core_1.ViewEncapsulation.None,
         }), 
-        __metadata('design:paramtypes', [material_1.MdIconRegistry])
+        __metadata('design:paramtypes', [material_1.MdIconRegistry, platform_browser_1.DomSanitizer])
     ], IconDemo);
     return IconDemo;
 }());
