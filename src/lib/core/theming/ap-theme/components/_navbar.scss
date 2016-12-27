@@ -24,7 +24,10 @@
       border-bottom: none;
       height: 100%;
       [md-tab-link] {
+        display: flex;
         align-self: center;
+        align-items: center;
+        justify-content: center;
       }
       md-ink-bar {
         width: 60px !important;
