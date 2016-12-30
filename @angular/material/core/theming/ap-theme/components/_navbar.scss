@@ -101,16 +101,28 @@
   }
 
   nav[ap-main-header] {
-    height: 64px;
-    padding: 0 30px;
+    height: 45px;
+    padding: 0 20px;
     background: white;
-  }
-
-  nav[ap-main-header] {
+    & > * {
+      margin: 0 10px;
+      &:first-child { margin-left: 0; }
+      &:last-child { margin-right: 0; }
+    }
     &.left {
       border-right: 1px solid $border-color;
       -webkit-box-shadow: 3px 0 12px -2px rgba(0, 0, 0, 0.1);
       box-shadow: 3px 0 12px -2px rgba(0, 0, 0, 0.1)
+    }
+    [ap-select] {
+      font-size: 11px;
+      font-family: "Open Sans";
+      .md-select-arrow { margin-top: 2px; }
+    }
+    a md-icon{
+      font-size: 12px;
+      width: 12px;
+      height: 11px;
     }
   }
 }

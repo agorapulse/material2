@@ -1,6 +1,6 @@
 {
   "name": "@agorapulse/material",
-  "version": "2.0.0-beta.1-ap.2",
+  "version": "2.0.0-beta.1-ap.3",
   "description": "Agorapulse Angular 2 Material",
   "main": "./bundles/material.umd.js",
   "module": "./index.js",

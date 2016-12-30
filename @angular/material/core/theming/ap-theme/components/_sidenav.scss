@@ -61,7 +61,13 @@
         align-items: center;
         padding: 12px;
         min-height: 64px;
-        .name { flex:1; margin: 0 15px; color: white; }
+        .name {
+          flex:1;
+          margin: 0 15px;
+          color: white;
+          font-family: "Open Sans";
+          font-size: 15px;
+        }
       }
     }
     .actions {

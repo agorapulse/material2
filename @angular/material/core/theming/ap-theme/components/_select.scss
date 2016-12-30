@@ -42,7 +42,6 @@
 
     &[no-border] {
       z-index: 1;
-      margin: 0;
       height: 100%;
       display: flex;
       align-items: center;
@@ -54,9 +53,11 @@
         margin: 0;
         min-width: auto;
         background: transparent;
-        .md-select-value { display: none; }
         .md-select-arrow { margin-left: 5px; }
       }
+    }
+    &[only-arrow] {
+      .md-select-trigger .md-select-value { display: none; }
     }
   }
 

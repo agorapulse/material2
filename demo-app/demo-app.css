@@ -892,12 +892,27 @@
       .ap-default-theme nav[ap-main-header] a > * {
         vertical-align: middle; }
   .ap-default-theme nav[ap-main-header] {
-    height: 64px;
-    padding: 0 30px;
+    height: 45px;
+    padding: 0 20px;
     background: white; }
-  .ap-default-theme nav[ap-main-header].left {
-    border-right: 1px solid rgba(175, 175, 175, 0.39);
-    box-shadow: 3px 0 12px -2px rgba(0, 0, 0, 0.1); }
+    .ap-default-theme nav[ap-main-header] > * {
+      margin: 0 10px; }
+      .ap-default-theme nav[ap-main-header] > *:first-child {
+        margin-left: 0; }
+      .ap-default-theme nav[ap-main-header] > *:last-child {
+        margin-right: 0; }
+    .ap-default-theme nav[ap-main-header].left {
+      border-right: 1px solid rgba(175, 175, 175, 0.39);
+      box-shadow: 3px 0 12px -2px rgba(0, 0, 0, 0.1); }
+    .ap-default-theme nav[ap-main-header] [ap-select] {
+      font-size: 11px;
+      font-family: "Open Sans"; }
+      .ap-default-theme nav[ap-main-header] [ap-select] .md-select-arrow {
+        margin-top: 2px; }
+    .ap-default-theme nav[ap-main-header] a md-icon {
+      font-size: 12px;
+      width: 12px;
+      height: 11px; }
   .ap-default-theme md-radio-button[ap-radio][color='primary'] .md-radio-inner-circle {
     background-color: #ff4d00; }
   .ap-default-theme md-radio-button[ap-radio][color='primary'] .md-radio-container .md-radio-outer-circle {
@@ -934,7 +949,6 @@
         margin-left: auto; }
     .ap-default-theme [ap-select][no-border] {
       z-index: 1;
-      margin: 0;
       height: 100%;
       display: flex;
       align-items: center;
@@ -945,10 +959,10 @@
         margin: 0;
         min-width: auto;
         background: transparent; }
-        .ap-default-theme [ap-select][no-border] .md-select-trigger .md-select-value {
-          display: none; }
         .ap-default-theme [ap-select][no-border] .md-select-trigger .md-select-arrow {
           margin-left: 5px; }
+    .ap-default-theme [ap-select][only-arrow] .md-select-trigger .md-select-value {
+      display: none; }
   .ap-default-theme [ap-sidenav] {
     width: 285px;
     background: #2a2f34;
@@ -998,7 +1012,9 @@
         .ap-default-theme [ap-sidenav] ul.accounts li.account .name {
           flex: 1;
           margin: 0 15px;
-          color: white; }
+          color: white;
+          font-family: "Open Sans";
+          font-size: 15px; }
     .ap-default-theme [ap-sidenav] .actions li {
       display: block;
       font-family: "Open Sans";
