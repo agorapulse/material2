@@ -12,24 +12,45 @@
 
   md-card[ap-card] {
     font-family: "Open Sans";
+    padding: 24px;
+    padding-bottom: 20px;
 
     md-card-header {
       height: auto;
+      .md-card-header-text { width: 100%; }
       md-card-title {
         font-size: 11px;
         color: md-color($md-ap-dark-grey, 500);
+        margin-bottom: 13px;
+        display: flex;
+        justify-content: space-between;
+        .actions {}
       }
       md-card-subtitle {
         font-family: "Open Sans";
         font-size: 13px;
       }
     }
-    [md-card-image] {
-      max-height: $image-max-height;
-      overflow: hidden;
-      width: 100%;
-      margin: 0 auto;
-      img { width: 100%; }
+    md-card-content {
+      [md-card-image] {
+        max-height: $image-max-height;
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        img { width: 100%; }
+      }
+      p {
+        &.social-info,
+        &.status-info { margin-bottom: 0; }
+        &.status-info {
+          font-size: 11px;
+          color: md-color($md-ap-dark-grey, 500);
+          > * {
+            vertical-align: middle;
+            line-height: 1;
+          }
+        }
+      }
     }
     &.parent-card {
       md-card-header md-card-subtitle {
@@ -37,9 +58,15 @@
         font-size: 16px;
         color: md-color($md-ap-dark, 500);
       }
+      md-card-header md-card-title .actions {
+        display: none;
+      }
+      md-card-content p.status-info { display: none; }
     }
     &.children-card {
+      padding: 15px 20px;
       margin: 20px 0;
+      md-card-content p.social-info { display: none; }
     }
   }
 
