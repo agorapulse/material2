@@ -17,6 +17,9 @@
       margin-bottom: 0;
     }
 
+    &[textarea] {
+      
+    }
     &[search] {
       display: flex;
       align-items: center;
@@ -107,6 +110,8 @@
       display: none;
       margin-top: -5px;
     }
+
+    textarea { resize: none; }
   }
 
 }

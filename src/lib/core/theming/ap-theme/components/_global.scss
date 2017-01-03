@@ -126,10 +126,18 @@
         bottom: 100%;
         width: 0;
         height: 0;
+        box-shadow: $z-depth-3;
+        z-index: -1;
       }
       &.arrow-up:after {
-        border-bottom: 10px solid green;
+        border-bottom: 10px solid white;
       	border-top: 10px solid transparent;
+      	border-left: 10px solid transparent;
+      	border-right: 10px solid transparent;
+      }
+      &.arrow-down:after {
+        border-bottom: 10px solid transparent;
+      	border-top: 10px solid white;
       	border-left: 10px solid transparent;
       	border-right: 10px solid transparent;
       }
