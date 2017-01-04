@@ -182,6 +182,12 @@
       }
       span { padding: 0 25px; text-align: center; }
     }
+
+    [v-separator] {
+      width: 2px;
+      background: $color-border;
+      margin: 0 25px;
+    }
     .fill-remaining-space,
     [fill] {
       -webkit-box-flex: 1;

@@ -18,7 +18,7 @@
     }
 
     &[textarea] {
-      
+      textarea { width: 100%; }
     }
     &[search] {
       display: flex;
