@@ -44,7 +44,7 @@
         margin: 0 auto;
         img { width: 100%; }
       }
-      p {
+      div {
         &.social-info,
         &.status-info { margin-bottom: 0; }
         &.status-info {
@@ -73,11 +73,12 @@
       margin: 20px 0;
     }
     &.reply-card {
-      p.status-info {
+      width: 100%;
+      .status-info {
         display: flex;
         align-items: center;
         .info {
-          
+
         }
         [ap-button] { align-self: flex-end; }
       }
