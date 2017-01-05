@@ -78,9 +78,8 @@
         display: flex;
         align-items: center;
         .info {
-
+          line-height: 17px;
         }
-        [ap-button] { align-self: flex-end; }
       }
     }
   }
