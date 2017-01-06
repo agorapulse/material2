@@ -24,6 +24,11 @@
         border: 0;
         &:focus { outline: 0; }
       }
+      .footer-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
     }
     &[search] {
       display: flex;
@@ -112,7 +117,6 @@
 
     span {
       text-align: right;
-      display: none;
       margin-top: -5px;
     }
 
