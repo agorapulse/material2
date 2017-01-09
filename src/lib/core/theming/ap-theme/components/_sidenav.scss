@@ -43,9 +43,18 @@
       align-self: center;
       margin-bottom: 30px;
       button[ap-button] {
+        font-family: "Open Sans";
+        font-size: 15px;
         color: white;
-        border-color: white;
-        width: $sidenav-logo-width;
+        width: 140px;
+        border-radius: 11px;
+        md-icon {
+          margin-right: 4px;
+          font-size: 18px;
+          line-height: 22px;
+          vertical-align: middle;
+        }
+        span { vertical-align: initial; }
       }
     }
     [ap-input][search]{
@@ -59,14 +68,14 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        padding: 12px;
+        padding: 12px 16px;
         min-height: 64px;
         .name {
           flex:1;
           margin: 0 15px;
           color: white;
           font-family: "Open Sans";
-          font-size: 15px;
+          font-size: 13px;
         }
       }
     }
