@@ -50,6 +50,7 @@
         border-radius: 11px;
         md-icon {
           margin-right: 4px;
+          margin-left: -5px;
           font-size: 18px;
           line-height: 22px;
           vertical-align: middle;
@@ -61,14 +62,13 @@
       width: 100%;
     }
     ul.accounts {
-      margin: 10px 0;
       padding: 0;
       flex: 1;
       li.account {
         cursor: pointer;
         display: flex;
         align-items: center;
-        padding: 12px 16px;
+        padding: 12px 20px 12px 9px;
         min-height: 64px;
         .name {
           flex:1;

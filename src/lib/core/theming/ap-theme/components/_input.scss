@@ -34,13 +34,14 @@
     &[search] {
       display: flex;
       align-items: center;
-      md-icon, input {
-        color: #636B73;
+      md-icon, input, input::placeholder {
+        color: #6A7179;
       }
       md-icon {
         display: block;
         margin: 0;
         font-size: 27px;
+        margin-left: -4px;
       }
       input {
         flex: 1;
