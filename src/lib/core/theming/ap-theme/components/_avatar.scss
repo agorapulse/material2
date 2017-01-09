@@ -39,6 +39,7 @@
       max-height: $size-small;
     }
     &.avatar {
+      border-radius: 3px;
       min-width: $size-avatar;
       max-width: $size-avatar;
       min-height: $size-avatar;
