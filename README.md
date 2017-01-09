@@ -49,6 +49,14 @@ Publishing material...
   stdout: + @agorapulse/material@2.0.0-alpha.11-2-ap.1
 ```
 
+# How to publish to gh-pages
+
+Build demo app: `gulp build:devapp`
+
+Copy all dist folder from master branch to gh-pages branch
+
+Then push the changes
+
 # Material Design for Angular 2
 [![npm version](https://badge.fury.io/js/%40angular%2Fmaterial.svg)](https://www.npmjs.com/package/%40angular%2Fmaterial)
 [![Build Status](https://travis-ci.org/angular/material2.svg?branch=master)](https://travis-ci.org/angular/material2)
