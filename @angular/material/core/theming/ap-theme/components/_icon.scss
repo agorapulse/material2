@@ -1,0 +1,27 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-icon-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  [ap-icon] {
+    background-size: 100%;
+    &.facebook {
+      background-image: url($assets-path + "icons/facebook-icon.png");
+    }
+    &.instagram {
+      background-image: url($assets-path + "icons/instagram-icon.png");
+    }
+    &.twitter {
+      background-image: url($assets-path + "icons/twitter-icon.png");
+    }
+    &.linkedin {
+      background-image: url($assets-path + "icons/linkedin-icon.png");
+    }
+  }
+
+}

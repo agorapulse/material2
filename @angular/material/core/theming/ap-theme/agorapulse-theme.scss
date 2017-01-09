@@ -9,6 +9,7 @@
 @import 'components/card';
 @import 'components/checkbox';
 @import 'components/global';
+@import 'components/icon';
 @import 'components/input';
 @import 'components/navbar';
 @import 'components/radio';
@@ -50,6 +51,7 @@
     @include ap-card-theme($agorapulse-theme);
     @include ap-checkbox-theme($agorapulse-theme);
     @include ap-global-theme($agorapulse-theme);
+    @include ap-icon-theme($agorapulse-theme);
     @include ap-input-theme($agorapulse-theme);
     @include ap-navbar-theme($agorapulse-theme);
     @include ap-radio-theme($agorapulse-theme);

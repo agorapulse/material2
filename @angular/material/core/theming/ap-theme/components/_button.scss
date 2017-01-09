@@ -21,10 +21,7 @@
     overflow: hidden;
     padding: $button-m-padding;
     text-overflow: ellipsis;
-
-    &[color='primary'] {
-
-    }
+    margin: 0 10px;
 
     &[size='xl'] { padding: $button-xl-padding }
     &[size='l'] { padding: $button-l-padding }
@@ -47,6 +44,23 @@
     }
 
     &[transparent] { background: transparent; }
+
+    &[mini-button] {
+      padding: 5px;
+      border: 0;
+      box-shadow: none;
+      color: md-color($primary);
+      border-radius: 5rem;
+      min-width: auto;
+      md-icon {
+        display: block;
+        margin: 0;
+        line-height: 1;
+        height: auto;
+        width: auto;
+      }
+    }
+
   }
 
 }

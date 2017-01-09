@@ -117,6 +117,32 @@
                                       not supported by any browser */
     }
 
+    [arrow] {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 20px;
+        bottom: 100%;
+        width: 0;
+        height: 0;
+        box-shadow: $z-depth-3;
+        z-index: -1;
+      }
+      &.arrow-up:after {
+        border-bottom: 10px solid white;
+      	border-top: 10px solid transparent;
+      	border-left: 10px solid transparent;
+      	border-right: 10px solid transparent;
+      }
+      &.arrow-down:after {
+        border-bottom: 10px solid transparent;
+      	border-top: 10px solid white;
+      	border-left: 10px solid transparent;
+      	border-right: 10px solid transparent;
+      }
+    }
+
     [color-primary] { color: md-color($primary); }
     [color-accent] { color: md-color($accent); }
 
@@ -155,6 +181,12 @@
         height: 1px;
       }
       span { padding: 0 25px; text-align: center; }
+    }
+
+    [v-separator] {
+      width: 2px;
+      background: $color-border;
+      margin: 0 25px;
     }
     .fill-remaining-space,
     [fill] {

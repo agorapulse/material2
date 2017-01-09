@@ -66,11 +66,15 @@
             font-family: "Open Sans";
             height: 17px;
             margin-top: -1px;
+            color: #499EFF;
+            text-decoration: underline;
 
             md-icon {
               font-size: 11px;
               width: 11px;
-              margin-right: 5px;
+              height: 15px;
+              margin-right: 4px;
+              vertical-align: middle;
             }
 
           }

@@ -41,32 +41,42 @@
     }
     .publish {
       align-self: center;
-      margin-bottom: 30px;
+      margin-bottom: 55px;
       button[ap-button] {
+        font-family: "Open Sans";
+        font-size: 15px;
         color: white;
-        border-color: white;
-        width: $sidenav-logo-width;
+        width: 140px;
+        border-radius: 11px;
+        md-icon {
+          margin-right: 4px;
+          margin-left: -5px;
+          font-size: 18px;
+          line-height: 22px;
+          vertical-align: middle;
+        }
+        span { vertical-align: initial; }
       }
     }
     [ap-input][search]{
       width: 100%;
     }
     ul.accounts {
-      margin: 10px 0;
       padding: 0;
       flex: 1;
       li.account {
         cursor: pointer;
         display: flex;
         align-items: center;
-        padding: 12px;
+        padding: 12px 20px 12px 9px;
         min-height: 64px;
         .name {
           flex:1;
           margin: 0 15px;
           color: white;
           font-family: "Open Sans";
-          font-size: 15px;
+          font-size: 13px;
+          font-weight: 600;
         }
       }
     }

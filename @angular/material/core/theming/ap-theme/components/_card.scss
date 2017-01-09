@@ -8,12 +8,79 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $image-max-height: 280px;
+
   md-card[ap-card] {
+    font-family: "Open Sans";
+    padding: 24px;
+    padding-bottom: 20px;
+
+    &.inset {
+    }
+
     md-card-header {
       height: auto;
+      .md-card-header-text { width: 100%; }
+      md-card-title {
+        font-size: 11px;
+        color: md-color($md-ap-dark-grey, 500);
+        margin-bottom: 13px;
+        display: flex;
+        justify-content: space-between;
+        .actions {
+          cursor: pointer;
+        }
+      }
+      md-card-subtitle {
+        font-family: "Open Sans";
+        font-size: 13px;
+      }
+    }
+    md-card-content {
+      [md-card-image] {
+        max-height: $image-max-height;
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        img { width: 100%; }
+      }
+      div {
+        &.social-info,
+        &.status-info { margin-bottom: 0; }
+        &.status-info {
+          font-size: 11px;
+          color: md-color($md-ap-dark-grey, 500);
+          padding-left: 45px;
+          > * {
+            vertical-align: middle;
+            line-height: 1;
+          }
+        }
+      }
+      [ap-input][textarea] {
+        width: 100%;
+      }
+    }
+    &.parent-card {
+      md-card-header md-card-subtitle {
+        font-family: Hind;
+        font-size: 16px;
+        color: md-color($md-ap-dark, 500);
+      }
     }
     &.children-card {
+      padding: 15px 20px;
       margin: 20px 0;
+    }
+    &.reply-card {
+      width: 100%;
+      .status-info {
+        display: flex;
+        align-items: center;
+        .info {
+          line-height: 17px;
+        }
+      }
     }
   }
 
