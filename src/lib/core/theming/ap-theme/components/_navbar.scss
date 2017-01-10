@@ -84,6 +84,7 @@
             margin-top: -1px;
             color: #499EFF;
 
+            &:hover { text-decoration: none; }
             i {
               font-size: 11px;
               width: 11px;
@@ -139,7 +140,7 @@
       letter-spacing: 0.3px;
       .md-select-arrow { margin-top: 2px; }
     }
-    a i {
+    a i, a md-icon {
       font-size: 12px;
       width: 12px;
       height: 11px;
