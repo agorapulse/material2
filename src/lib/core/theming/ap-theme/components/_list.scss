@@ -8,16 +8,48 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $item-title-color: #2A2F34;
+  $item-text-color: #9B9B9B;
+
   md-nav-list[ap-list] {
     padding-top: 0;
     border-right: 1px solid md-color($md-ap-light-grey, 500);
 
     [md-list-item] {
       position: relative;
+      &:hover { text-decoration: none; }
       .md-list-item {
         height: $item-height;
         /*border-bottom: 1px solid md-color($md-ap-light-grey, 500);*/
         border-bottom: 1px solid $color-border;
+        font-family: "Open Sans";
+
+        .md-list-text {
+          padding-right: 0;
+          .title {
+            display: flex;
+            .name {
+              flex: 1;
+              font-size: 14px;
+              color: $item-title-color;
+            }
+            .status {
+              display: flex;
+              align-items: center;
+              font-size: 12px;
+              color: #9A9A9A;
+              [ap-social-icon] { opacity: 0.5; }
+              > * { margin-left: 10px; }
+              i { font-size: 13px; }
+              i, div { width: 12px; height: 12px; }
+            }
+          }
+          .text {
+            font-size: 13px;
+            color: $item-text-color;
+          }
+        }
+
       }
       &.selected,
       &[selected]:before {
