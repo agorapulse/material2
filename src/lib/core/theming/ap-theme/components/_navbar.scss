@@ -71,7 +71,7 @@
           overflow: hidden;
 
           & > * { display: block; }
-          span {
+          & > span {
             font-size: 15px;
             font-family: "Hind";
             letter-spacing: 0.5px;
@@ -83,15 +83,15 @@
             height: 17px;
             margin-top: -1px;
             color: #499EFF;
-            text-decoration: underline;
 
-            md-icon {
+            i {
               font-size: 11px;
               width: 11px;
               height: 15px;
               margin-right: 4px;
               vertical-align: middle;
             }
+            span { text-decoration: underline; }
 
           }
         }
@@ -139,7 +139,7 @@
       letter-spacing: 0.3px;
       .md-select-arrow { margin-top: 2px; }
     }
-    a md-icon{
+    a i {
       font-size: 12px;
       width: 12px;
       height: 11px;
