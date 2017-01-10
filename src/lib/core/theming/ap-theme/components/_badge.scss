@@ -12,11 +12,13 @@
     background: md-color($primary, 500);
     color: white;
     font-family: "Open Sans";
+    letter-spacing: 0.3px;
     font-size: 13px;
     font-weight: 600;
     line-height: 19px;
     padding: 1px 9px;
     border-radius: 25px;
+    min-width: 30px;
 
     &[round] {
       border-radius: 100%;

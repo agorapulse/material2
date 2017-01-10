@@ -31,7 +31,7 @@
       flex-direction: column;
       list-style-type: none; padding: 0;
       padding: 20px 0;
-      li.active { background-color: md-color($md-ap-light-dark, 500);}
+      li.active { background-color: $sidenav-item-active;}
     }
 
     .logo {
@@ -44,11 +44,12 @@
       margin-bottom: 55px;
       button[ap-button] {
         font-family: "Open Sans";
+        letter-spacing: 0.3px;
         font-size: 15px;
         color: white;
         width: 140px;
         border-radius: 11px;
-        md-icon {
+        i {
           margin-right: 4px;
           margin-left: -5px;
           font-size: 18px;
@@ -75,6 +76,7 @@
           margin: 0 15px;
           color: white;
           font-family: "Open Sans";
+          letter-spacing: 0.3px;
           font-size: 13px;
           font-weight: 600;
         }
@@ -84,11 +86,11 @@
       li {
         display: block;
         font-family: "Open Sans";
+        letter-spacing: 0.3px;
         font-size: 15px;
         padding: 6px 12px;
         cursor: pointer;
-        md-icon { margin-right: 15px; }
-        & > * { vertical-align: middle; }
+        i { margin-right: 15px; vertical-align: middle; }
       }
     }
 

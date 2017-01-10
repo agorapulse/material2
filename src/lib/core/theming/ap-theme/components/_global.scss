@@ -33,7 +33,8 @@
     }
 
     h1, h2, h3, h4, h5 {
-      font-family: Hind, sans-serif;
+      font-family: "Hind";
+      letter-spacing: 0.5px;
       font-weight: 400;
     }
     h1 { font-size: 28px; }
@@ -41,7 +42,7 @@
     h3 { font-size: 20px; }
     h4 { font-size: 18px; }
     h5 { font-size: 16px; font-weight: 500; }
-    h6 { font-family: 'Open Sans'; font-size: 14px; font-weight: 400; }
+    h6 { font-family: 'Open Sans'; font-size: 14px; font-weight: 400; letter-spacing: 0.3px; }
 
     a {
       text-decoration: none;
@@ -51,6 +52,7 @@
     }
     p {
       font-family: 'Open Sans';
+      letter-spacing: 0.3px;
       font-weight: 400;
       font-size: 13px;
       line-height: 22px;
@@ -61,6 +63,7 @@
 
     label {
       font-family: 'Open Sans';
+      letter-spacing: 0.3px;
       font-weight: 400;
       font-size: 11px;
       color: $color-label-p;
@@ -69,6 +72,7 @@
     span, p {
       &.label, &.error, &.success {
         font-family: 'Open Sans';
+        letter-spacing: 0.3px;
         text-transform: initial;
         &:first-letter { text-transform: uppercase; }
       }
@@ -167,10 +171,15 @@
     [z-depth-4-light] { box-shadow: $z-depth-4-light }
     [z-depth-5-light] { box-shadow: $z-depth-5-light }
 
+    [icon-ap] {
+      font-family: agorapulse;
+    }
+
     [h-separator] {
       display: flex;
       align-items: center;
       font-family: "Open Sans";
+      letter-spacing: 0.3px;
       font-size: 15px;
       margin: 15px 0;
       color: $color-placeholder;

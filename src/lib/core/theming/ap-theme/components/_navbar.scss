@@ -39,6 +39,7 @@
       display: flex;
       span {
         font-family: "Open Sans";
+        letter-spacing: 0.3px;
         font-size: 13px;
         font-weight: 600;
         color: md-color($primary, 500);
@@ -73,10 +74,12 @@
           span {
             font-size: 15px;
             font-family: "Hind";
+            letter-spacing: 0.5px;
           }
           a {
             font-size: 11px;
             font-family: "Open Sans";
+            letter-spacing: 0.3px;
             height: 17px;
             margin-top: -1px;
             color: #499EFF;
@@ -133,6 +136,7 @@
     [ap-select] {
       font-size: 11px;
       font-family: "Open Sans";
+      letter-spacing: 0.3px;
       .md-select-arrow { margin-top: 2px; }
     }
     a md-icon{

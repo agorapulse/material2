@@ -17,6 +17,7 @@
     max-width: 100%;
     line-height: 20px;
     font-family: "Hind";
+    letter-spacing: 0.5px;
     font-size: 13px;
     overflow: hidden;
     padding: $button-m-padding;
@@ -40,6 +41,7 @@
 
     &[action] {
       font-family: "Open Sans";
+      letter-spacing: 0.3px;
       min-width: auto;
     }
 
