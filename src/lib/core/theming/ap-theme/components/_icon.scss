@@ -9,6 +9,10 @@
   $accent: map-get($theme, accent);
 
   [ap-icon] {
+    font-family: agorapulse;
+  }
+
+  [ap-social-icon] {
     background-size: 100%;
     &.facebook {
       background-image: url($assets-path + "icons/facebook-icon.png");
