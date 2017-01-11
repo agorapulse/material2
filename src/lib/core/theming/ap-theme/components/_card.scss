@@ -21,14 +21,20 @@
 
     md-card-header {
       height: auto;
-      .md-card-header-text { width: 100%; }
+      .md-card-header-text {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+      }
       md-card-title {
         font-size: 11px;
         color: md-color($md-ap-dark-grey, 500);
         margin-bottom: 13px;
         display: flex;
         justify-content: space-between;
+        white-space: nowrap;
         .actions {
+          margin-left: 15px;
           cursor: pointer;
         }
       }
