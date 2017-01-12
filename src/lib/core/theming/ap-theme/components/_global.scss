@@ -19,6 +19,18 @@
 
   .ap-components {
 
+    ::-webkit-scrollbar * {
+        background:transparent;
+    }
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #bbb;
+        min-height: 40px;
+    }
+
     .background-dark {
       background: md-color($md-ap-dark, 500);
       color: md-contrast($md-ap-dark, 500);
