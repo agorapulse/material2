@@ -19,6 +19,9 @@
     [md-list-item] { opacity: 0.6; }
     [md-list-item] {
       position: relative;
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(0,0,0,.1);
+      transition: all .3s ease-in-out;
 
       &:hover { text-decoration: none; }
 
@@ -58,16 +61,10 @@
       &.selected,
       &[selected] {
         opacity: 1;
-        &:before {
-          // TODO this was my first try to make the overflow shadow work.
-          // It can be possibly be done if we sync the item-list width with the
-          // :before width. But I didnt want to put the responsive query's in this package
-          box-shadow: 0 0 16px 0 rgba(0,0,0,.19);
-          content: '';
-          width: 100%;
-          position: absolute;
-          height: $item-height;
-        }
+        // TODO this was my first try to make the overflow shadow work.
+        // It can be possibly be done if we sync the item-list width with the
+        // :before width. But I didnt want to put the responsive query's in this package
+        box-shadow: 0 0 16px 0 rgba(0,0,0,.19);
       }
     }
 
