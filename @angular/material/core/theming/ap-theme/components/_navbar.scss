@@ -35,13 +35,27 @@
       }
     }
 
+    .trial {
+      display: flex;
+      span {
+        font-family: "Open Sans";
+        letter-spacing: 0.3px;
+        font-size: 13px;
+        font-weight: 600;
+        color: md-color($primary, 500);
+        display: inline;
+        width: 90px;
+        text-align: right;
+      }
+    }
+
     [navbar-block] {
       border-right: 1px solid $color-border;
       border-left: 1px solid $color-border;
       height: 100%;
       display: flex;
       align-items: center;
-      padding: 0 15px;
+      padding: 0 20px;
       &:first-child { border-left: 0; padding-left: 0; }
       &:last-child { border-right: 0; padding-right: 0; }
 
@@ -57,25 +71,28 @@
           overflow: hidden;
 
           & > * { display: block; }
-          span {
+          & > span {
             font-size: 15px;
             font-family: "Hind";
+            letter-spacing: 0.5px;
           }
           a {
             font-size: 11px;
             font-family: "Open Sans";
+            letter-spacing: 0.3px;
             height: 17px;
             margin-top: -1px;
             color: #499EFF;
-            text-decoration: underline;
 
-            md-icon {
+            &:hover { text-decoration: none; }
+            i {
               font-size: 11px;
               width: 11px;
               height: 15px;
               margin-right: 4px;
               vertical-align: middle;
             }
+            span { text-decoration: underline; }
 
           }
         }
@@ -88,7 +105,6 @@
           &:last-child { margin-right: auto; }
         }
       }
-
     }
 
   }
@@ -121,9 +137,10 @@
     [ap-select] {
       font-size: 11px;
       font-family: "Open Sans";
+      letter-spacing: 0.3px;
       .md-select-arrow { margin-top: 2px; }
     }
-    a md-icon{
+    a i, a md-icon {
       font-size: 12px;
       width: 12px;
       height: 11px;

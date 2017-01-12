@@ -70,9 +70,11 @@ body {
     }
   }
 
-  [ap-avatar] {
-    margin-right: 20px;
-    margin-left: 5px;
+  .avatars {
+    [ap-avatar] {
+      margin-right: 20px;
+      margin-left: 5px;
+    }
   }
   [ap-select] {
     width: 220px;

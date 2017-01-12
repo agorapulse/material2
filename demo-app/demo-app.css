@@ -75,6 +75,7 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700);
+@import url(https://file.myfontastic.com/mMdiJgGJiqJwPE3XL2zVeP/icons.css);
 .md-elevation-z0 {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12); }
 
@@ -559,11 +560,13 @@
     background: #ff4d00;
     color: white;
     font-family: "Open Sans";
+    letter-spacing: 0.3px;
     font-size: 13px;
     font-weight: 600;
     line-height: 19px;
     padding: 1px 9px;
-    border-radius: 25px; }
+    border-radius: 25px;
+    min-width: 30px; }
     .ap-default-theme [ap-badge][round] {
       border-radius: 100%;
       width: 25px;
@@ -577,6 +580,7 @@
     max-width: 100%;
     line-height: 20px;
     font-family: "Hind";
+    letter-spacing: 0.5px;
     font-size: 13px;
     overflow: hidden;
     padding: 8px 20px;
@@ -598,6 +602,7 @@
       color: #ff4d00; }
     .ap-default-theme [md-raised-button][ap-button][action] {
       font-family: "Open Sans";
+      letter-spacing: 0.3px;
       min-width: auto; }
     .ap-default-theme [md-raised-button][ap-button][transparent] {
       background: transparent; }
@@ -616,22 +621,28 @@
         width: auto; }
   .ap-default-theme md-card[ap-card] {
     font-family: "Open Sans";
+    letter-spacing: 0.3px;
     padding: 24px;
     padding-bottom: 20px; }
     .ap-default-theme md-card[ap-card] md-card-header {
       height: auto; }
       .ap-default-theme md-card[ap-card] md-card-header .md-card-header-text {
-        width: 100%; }
+        width: 100%;
+        height: auto;
+        overflow: hidden; }
       .ap-default-theme md-card[ap-card] md-card-header md-card-title {
         font-size: 11px;
         color: #9b9b9b;
         margin-bottom: 13px;
         display: flex;
-        justify-content: space-between; }
+        justify-content: space-between;
+        white-space: nowrap; }
         .ap-default-theme md-card[ap-card] md-card-header md-card-title .actions {
+          margin-left: 15px;
           cursor: pointer; }
       .ap-default-theme md-card[ap-card] md-card-header md-card-subtitle {
         font-family: "Open Sans";
+        letter-spacing: 0.3px;
         font-size: 13px; }
     .ap-default-theme md-card[ap-card] md-card-content [md-card-image] {
       max-height: 280px;
@@ -652,7 +663,8 @@
     .ap-default-theme md-card[ap-card] md-card-content [ap-input][textarea] {
       width: 100%; }
     .ap-default-theme md-card[ap-card].parent-card md-card-header md-card-subtitle {
-      font-family: Hind;
+      font-family: "Hind";
+      letter-spacing: 0.5px;
       font-size: 16px;
       color: #2a2f34; }
     .ap-default-theme md-card[ap-card].children-card {
@@ -690,7 +702,8 @@
     background: #f7f7f7;
     color: black; }
   .ap-default-theme .ap-components h1, .ap-default-theme .ap-components h2, .ap-default-theme .ap-components h3, .ap-default-theme .ap-components h4, .ap-default-theme .ap-components h5 {
-    font-family: Hind, sans-serif;
+    font-family: "Hind";
+    letter-spacing: 0.5px;
     font-weight: 400; }
   .ap-default-theme .ap-components h1 {
     font-size: 28px; }
@@ -706,7 +719,8 @@
   .ap-default-theme .ap-components h6 {
     font-family: 'Open Sans';
     font-size: 14px;
-    font-weight: 400; }
+    font-weight: 400;
+    letter-spacing: 0.3px; }
   .ap-default-theme .ap-components a {
     text-decoration: none;
     color: #5E6165;
@@ -715,6 +729,7 @@
       text-decoration: underline; }
   .ap-default-theme .ap-components p {
     font-family: 'Open Sans';
+    letter-spacing: 0.3px;
     font-weight: 400;
     font-size: 13px;
     line-height: 22px;
@@ -723,12 +738,14 @@
     margin: 10px 0; }
   .ap-default-theme .ap-components label {
     font-family: 'Open Sans';
+    letter-spacing: 0.3px;
     font-weight: 400;
     font-size: 11px;
     color: #5E6165;
     text-transform: uppercase; }
   .ap-default-theme .ap-components span.label, .ap-default-theme .ap-components span.error, .ap-default-theme .ap-components span.success, .ap-default-theme .ap-components p.label, .ap-default-theme .ap-components p.error, .ap-default-theme .ap-components p.success {
     font-family: 'Open Sans';
+    letter-spacing: 0.3px;
     text-transform: initial; }
     .ap-default-theme .ap-components span.label:first-letter, .ap-default-theme .ap-components span.error:first-letter, .ap-default-theme .ap-components span.success:first-letter, .ap-default-theme .ap-components p.label:first-letter, .ap-default-theme .ap-components p.error:first-letter, .ap-default-theme .ap-components p.success:first-letter {
       text-transform: uppercase; }
@@ -834,6 +851,7 @@
     display: flex;
     align-items: center;
     font-family: "Open Sans";
+    letter-spacing: 0.3px;
     font-size: 15px;
     margin: 15px 0;
     color: #cbcbcb; }
@@ -853,14 +871,16 @@
   .ap-default-theme .ap-components [fill] {
     flex: 1 1 auto; }
   .ap-default-theme [ap-icon] {
+    font-family: agorapulse; }
+  .ap-default-theme [ap-social-icon] {
     background-size: 100%; }
-    .ap-default-theme [ap-icon].facebook {
+    .ap-default-theme [ap-social-icon].facebook {
       background-image: url("../node_modules/@agorapulse/material/core/theming/ap-theme/assets/icons/facebook-icon.png"); }
-    .ap-default-theme [ap-icon].instagram {
+    .ap-default-theme [ap-social-icon].instagram {
       background-image: url("../node_modules/@agorapulse/material/core/theming/ap-theme/assets/icons/instagram-icon.png"); }
-    .ap-default-theme [ap-icon].twitter {
+    .ap-default-theme [ap-social-icon].twitter {
       background-image: url("../node_modules/@agorapulse/material/core/theming/ap-theme/assets/icons/twitter-icon.png"); }
-    .ap-default-theme [ap-icon].linkedin {
+    .ap-default-theme [ap-social-icon].linkedin {
       background-image: url("../node_modules/@agorapulse/material/core/theming/ap-theme/assets/icons/linkedin-icon.png"); }
   .ap-default-theme [ap-input] {
     margin: 8px 0;
@@ -905,6 +925,7 @@
         width: 100%;
         font-size: 16px;
         font-family: "Open Sans";
+        letter-spacing: 0.3px;
         background: transparent; }
       .ap-default-theme [ap-input][search].active input,
       .ap-default-theme [ap-input][search] input:focus {
@@ -972,13 +993,24 @@
       .ap-default-theme md-toolbar[ap-main-toolbar] [md-tab-nav-bar] md-ink-bar {
         width: 60px !important;
         margin-left: 50px; }
+    .ap-default-theme md-toolbar[ap-main-toolbar] .trial {
+      display: flex; }
+      .ap-default-theme md-toolbar[ap-main-toolbar] .trial span {
+        font-family: "Open Sans";
+        letter-spacing: 0.3px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #ff4d00;
+        display: inline;
+        width: 90px;
+        text-align: right; }
     .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block] {
       border-right: 1px solid #e3e3e3;
       border-left: 1px solid #e3e3e3;
       height: 100%;
       display: flex;
       align-items: center;
-      padding: 0 15px; }
+      padding: 0 20px; }
       .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block]:first-child {
         border-left: 0;
         padding-left: 0; }
@@ -995,22 +1027,27 @@
           overflow: hidden; }
           .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc > * {
             display: block; }
-          .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc span {
+          .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc > span {
             font-size: 15px;
-            font-family: "Hind"; }
+            font-family: "Hind";
+            letter-spacing: 0.5px; }
           .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc a {
             font-size: 11px;
             font-family: "Open Sans";
+            letter-spacing: 0.3px;
             height: 17px;
             margin-top: -1px;
-            color: #499EFF;
-            text-decoration: underline; }
-            .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc a md-icon {
+            color: #499EFF; }
+            .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc a:hover {
+              text-decoration: none; }
+            .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc a i {
               font-size: 11px;
               width: 11px;
               height: 15px;
               margin-right: 4px;
               vertical-align: middle; }
+            .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].avatar-desc .desc a span {
+              text-decoration: underline; }
       .ap-default-theme md-toolbar[ap-main-toolbar] [navbar-block].users [ap-avatar] {
         margin-right: -5px;
         border: 1px solid #8DDE57; }
@@ -1042,10 +1079,11 @@
       box-shadow: 3px 0 12px -2px rgba(0, 0, 0, 0.1); }
     .ap-default-theme nav[ap-main-header] [ap-select] {
       font-size: 11px;
-      font-family: "Open Sans"; }
+      font-family: "Open Sans";
+      letter-spacing: 0.3px; }
       .ap-default-theme nav[ap-main-header] [ap-select] .md-select-arrow {
         margin-top: 2px; }
-    .ap-default-theme nav[ap-main-header] a md-icon {
+    .ap-default-theme nav[ap-main-header] a i, .ap-default-theme nav[ap-main-header] a md-icon {
       font-size: 12px;
       width: 12px;
       height: 11px; }
@@ -1118,7 +1156,7 @@
       padding: 0;
       padding: 20px 0; }
       .ap-default-theme [ap-sidenav] ul li.active {
-        background-color: #76818b; }
+        background-color: #3E454C; }
     .ap-default-theme [ap-sidenav] .logo {
       -ms-grid-row-align: center;
       align-self: center;
@@ -1131,16 +1169,15 @@
       margin-bottom: 55px; }
       .ap-default-theme [ap-sidenav] .publish button[ap-button] {
         font-family: "Open Sans";
+        letter-spacing: 0.3px;
         font-size: 15px;
         color: white;
         width: 140px;
         border-radius: 11px; }
-        .ap-default-theme [ap-sidenav] .publish button[ap-button] md-icon {
+        .ap-default-theme [ap-sidenav] .publish button[ap-button] i {
           margin-right: 4px;
-          margin-left: -5px;
-          font-size: 18px;
-          line-height: 22px;
-          vertical-align: middle; }
+          margin-left: -2px;
+          font-size: 13px; }
         .ap-default-theme [ap-sidenav] .publish button[ap-button] span {
           vertical-align: initial; }
     .ap-default-theme [ap-sidenav] [ap-input][search] {
@@ -1159,35 +1196,66 @@
           margin: 0 15px;
           color: white;
           font-family: "Open Sans";
+          letter-spacing: 0.3px;
           font-size: 13px;
           font-weight: 600; }
     .ap-default-theme [ap-sidenav] .actions li {
       display: block;
       font-family: "Open Sans";
+      letter-spacing: 0.3px;
       font-size: 15px;
       padding: 6px 12px;
       cursor: pointer; }
-      .ap-default-theme [ap-sidenav] .actions li md-icon {
-        margin-right: 15px; }
-      .ap-default-theme [ap-sidenav] .actions li > * {
+      .ap-default-theme [ap-sidenav] .actions li i {
+        margin-right: 15px;
         vertical-align: middle; }
   .ap-default-theme md-slide-toggle[ap-slide-toggle] {
     margin: 0; }
   .ap-default-theme md-nav-list[ap-list] {
     padding-top: 0;
     border-right: 1px solid #f7f7f7; }
+    .ap-default-theme md-nav-list[ap-list][active] [md-list-item] {
+      opacity: 0.6; }
     .ap-default-theme md-nav-list[ap-list] [md-list-item] {
-      position: relative; }
+      position: relative;
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+      transition: all .2s ease-in-out; }
+      .ap-default-theme md-nav-list[ap-list] [md-list-item]:hover {
+        text-decoration: none; }
       .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item {
         height: 130px;
         /*border-bottom: 1px solid md-color($md-ap-light-grey, 500);*/
-        border-bottom: 1px solid #e3e3e3; }
-      .ap-default-theme md-nav-list[ap-list] [md-list-item].selected, .ap-default-theme md-nav-list[ap-list] [md-list-item][selected]:before {
-        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.19);
-        content: '';
-        width: 100%;
-        position: absolute;
-        height: 130px; }
+        border-bottom: 1px solid #e3e3e3;
+        font-family: "Open Sans"; }
+        .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text {
+          padding-right: 0; }
+          .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .title {
+            display: flex; }
+            .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .title .name {
+              flex: 1;
+              font-size: 14px;
+              color: #2A2F34; }
+            .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .title .status {
+              display: flex;
+              align-items: center;
+              font-size: 12px;
+              color: #9A9A9A; }
+              .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .title .status [ap-social-icon] {
+                opacity: 0.5; }
+              .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .title .status > * {
+                margin-left: 10px; }
+              .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .title .status i {
+                font-size: 13px; }
+              .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .title .status i, .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .title .status div {
+                width: 12px;
+                height: 12px; }
+          .ap-default-theme md-nav-list[ap-list] [md-list-item] .md-list-item .md-list-text .text {
+            font-size: 13px;
+            color: #9B9B9B; }
+      .ap-default-theme md-nav-list[ap-list] [md-list-item].selected, .ap-default-theme md-nav-list[ap-list] [md-list-item][selected] {
+        opacity: 1;
+        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.19); }
 
 body {
   font-family: Roboto, 'Helvetica Neue', sans-serif; }
@@ -1246,7 +1314,7 @@ body {
       font-size: 11px;
       position: absolute;
       top: -15px; }
-  body [ap-avatar] {
+  body .avatars [ap-avatar] {
     margin-right: 20px;
     margin-left: 5px; }
   body [ap-select] {
