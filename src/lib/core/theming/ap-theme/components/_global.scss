@@ -27,7 +27,7 @@
       height: 10px;
     }
     ::-webkit-scrollbar-thumb {
-        background: #bbb;
+        background: md-color($primary);
         min-height: 40px;
     }
 
