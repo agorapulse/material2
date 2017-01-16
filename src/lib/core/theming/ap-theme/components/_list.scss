@@ -41,6 +41,10 @@
 
         .md-list-text {
           padding-right: 0;
+          justify-content: center;
+          height: 100%;
+          padding: 15px;
+
           .title {
             display: flex;
             .name {
@@ -62,6 +66,22 @@
           .text {
             font-size: 13px;
             color: $item-text-color;
+            overflow: hidden;
+            white-space: initial;
+            max-height: 38px;
+          }
+          .status-info {
+            font-size: 11px;
+            color: md-color($md-ap-dark-grey, 500);
+            margin-top: 11px;
+            > * {
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 1;
+            }
+            .managers-info span {
+              margin-left: 10px;
+            }
           }
         }
 

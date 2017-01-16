@@ -13,14 +13,12 @@
   $size-small: 40px;
   $size-avatar: 30px;
   $size-mini: 25px;
-  $size-avatar-icon: 20px;
 
   [ap-avatar] {
     min-width: $size-normal;
     max-width: $size-normal;
     min-height: $size-normal;
     max-height: $size-normal;
-    overflow: hidden;
     position: relative;
 
     img { width: 100%; height: 100% }
@@ -44,7 +42,7 @@
       max-height: $size-small;
     }
     &.avatar {
-      border-radius: 3px;
+      img { border-radius: 3px; }
       min-width: $size-avatar;
       max-width: $size-avatar;
       min-height: $size-avatar;
@@ -55,23 +53,6 @@
       max-width: $size-mini;
       min-height: $size-mini;
       max-height: $size-mini;
-    }
-
-    [ap-badge-icon] {
-      min-width: $size-avatar-icon;
-      max-width: $size-avatar-icon;
-      min-height: $size-avatar-icon;
-      max-height: $size-avatar-icon;
-      overflow: hidden;
-      z-index: 1;
-      position: absolute;
-      border-radius: 100%;
-      background: color($primary);
-
-      &.top { top: 0; }
-      &.bottom { bottom: 0; }
-      &.right { right: 0; }
-      &.left { left: 0; }
     }
   }
 

@@ -8,6 +8,9 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $size-small-icon: 20px;
+  $size-medium-icon: 25px;
+
   [ap-badge] {
     background: md-color($primary, 500);
     color: white;
@@ -29,6 +32,31 @@
     }
 
     span { display: block; text-align: center; }
+  }
+
+  [ap-badge-icon] {
+    min-width: $size-medium-icon;
+    max-width: $size-medium-icon;
+    min-height: $size-medium-icon;
+    max-height: $size-medium-icon;
+
+    &[size="sm"] {
+      min-width: $size-small-icon;
+      max-width: $size-small-icon;
+      min-height: $size-small-icon;
+      max-height: $size-small-icon;
+    }
+
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    border-radius: 100%;
+    background: md-color($primary);
+
+    &.top { top: -3px; }
+    &.bottom { bottom: -3px; }
+    &.right { right: -3px; }
+    &.left { left: -3px; }
   }
 
 }
