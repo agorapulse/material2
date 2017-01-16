@@ -21,6 +21,7 @@
 
     md-card-header {
       height: auto;
+      margin-bottom: 0;
       .md-card-header-text {
         width: 100%;
         height: auto;
@@ -60,9 +61,14 @@
           color: md-color($md-ap-dark-grey, 500);
           padding-left: 45px;
           > * {
+            display: inline-block;
             vertical-align: middle;
             line-height: 1;
           }
+        }
+        &.social-info {
+          font-family: "Open Sans";
+          font-size: 13px;
         }
       }
       [ap-input][textarea] {
@@ -89,6 +95,15 @@
         .info {
           line-height: 17px;
         }
+        [ap-button] {
+          padding: 0 11px;
+          &.review i { color: #8DDE57; }
+          &.assign i { color: #CE28FF; }
+          &.tag i { color: #5EA9FF; }
+        }
+      }
+      [ap-input][textarea] {
+        margin-top: 15px;
       }
     }
   }
