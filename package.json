@@ -11,6 +11,7 @@
     "build": "gulp build:components",
     "demo-app": "gulp serve:devapp",
     "components": "gulp build:components",
+    "publish": "gulp publish --tag=latest",
     "test": "gulp test",
     "tslint": "gulp lint",
     "stylelint": "gulp lint",
