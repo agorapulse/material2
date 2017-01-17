@@ -12,6 +12,7 @@
     font-family: agorapulse;
 
     &.review { color: #8DDE57; }
+    &.remove { color: $color-error; }
     &.assign { color: #CE28FF; }
     &.tag { color: #5EA9FF; }
   }
