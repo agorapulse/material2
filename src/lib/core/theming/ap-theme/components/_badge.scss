@@ -9,7 +9,9 @@
   $accent: map-get($theme, accent);
 
   $size-small-icon: 20px;
+  $offset-small: -3px;
   $size-medium-icon: 25px;
+  $offset-medium: -10px;
 
   [ap-badge] {
     background: md-color($primary, 500);
@@ -54,12 +56,17 @@
       max-width: $size-small-icon;
       min-height: $size-small-icon;
       max-height: $size-small-icon;
+
+      &.top { top: $offset-small; }
+      &.bottom { bottom: $offset-small; }
+      &.right { right: $offset-small; }
+      &.left { left: $offset-small; }
     }
 
-    &.top { top: -5px; }
-    &.bottom { bottom: -5px; }
-    &.right { right: -5px; }
-    &.left { left: -5px; }
+    &.top { top: $offset-medium; }
+    &.bottom { bottom: $offset-medium; }
+    &.right { right: $offset-medium; }
+    &.left { left: $offset-medium; }
 
     &.star, &.check { color: #FFF; }
     &.star { background-color: #FFCC00; }
