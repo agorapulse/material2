@@ -33,6 +33,10 @@
 
     [ap-icon] { margin-right: 5px; }
 
+    &.review i { color: #8DDE57; }
+    &.assign i { color: #CE28FF; }
+    &.tag i { color: #5EA9FF; }
+
     &[size='xl'] { padding: $button-xl-padding; height: $button-xl-height; }
     &[size='l'] { padding: $button-l-padding; height: $button-l-height; }
     &[size='m'] { padding: $button-m-padding; height: $button-m-height; }
