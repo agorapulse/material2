@@ -183,6 +183,10 @@
     [z-depth-4-light] { box-shadow: $z-depth-4-light }
     [z-depth-5-light] { box-shadow: $z-depth-5-light }
 
+    [display-flex] {
+      display: flex;
+    }
+
     [h-separator] {
       display: flex;
       align-items: center;
