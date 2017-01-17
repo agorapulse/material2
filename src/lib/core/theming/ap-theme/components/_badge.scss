@@ -35,6 +35,15 @@
   }
 
   [ap-badge-icon] {
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: $size-medium-icon;
     max-width: $size-medium-icon;
     min-height: $size-medium-icon;
@@ -47,16 +56,20 @@
       max-height: $size-small-icon;
     }
 
-    overflow: hidden;
-    z-index: 1;
-    position: absolute;
-    border-radius: 100%;
-    background: md-color($primary);
+    &.top { top: -5px; }
+    &.bottom { bottom: -5px; }
+    &.right { right: -5px; }
+    &.left { left: -5px; }
 
-    &.top { top: -3px; }
-    &.bottom { bottom: -3px; }
-    &.right { right: -3px; }
-    &.left { left: -3px; }
+    &.star, &.check { color: #FFF; }
+    &.star { background-color: #FFCC00; }
+    &.check { background-color: #8DDE57; }
+
+    i[ap-icon], md-icon {
+      vertical-align: middle;
+      margin-top: 3px;
+    }
+
   }
 
 }
