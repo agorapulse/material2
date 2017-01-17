@@ -10,6 +10,10 @@
 
   [ap-icon] {
     font-family: agorapulse;
+
+    &.review { color: #8DDE57; }
+    &.assign { color: #CE28FF; }
+    &.tag { color: #5EA9FF; }
   }
 
   [ap-social-icon] {
