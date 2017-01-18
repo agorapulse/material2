@@ -29,10 +29,13 @@
         align-items: center;
         justify-content: center;
         color: $tab-link-color;
+        width: 135px;
+        min-width: inherit;
+        [ap-select] { margin-right: -11px; }
       }
       md-ink-bar {
         width: 60px !important;
-        margin-left: 50px;
+        margin-left: 38px;
       }
     }
 

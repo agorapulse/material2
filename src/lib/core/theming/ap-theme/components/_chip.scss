@@ -1,0 +1,27 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-chip-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  [ap-chip-status] {
+    font-size: 11px;
+    color: md-color($md-ap-dark-grey, 500);
+    display: flex;
+    align-items: center;
+    /*.managers-info span {
+      margin-left: 10px;
+    }*/
+    i[ap-icon], md-icon {
+      margin-left: 10px;
+      margin-right: 5px;
+      margin-top: 2px;
+    }
+    .managers-info { margin-top: -1px; }
+  }
+
+}

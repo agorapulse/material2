@@ -10,20 +10,20 @@ $black-87-opacity: rgba(black, 0.87);
 $white-87-opacity: rgba(white, 0.87);
 
 $md-ap-orange: (
-  50: #ffffff,
-  100: #ffd1bd,
-  200: #ffaa85,
-  300: #ff783d,
-  400: #ff621f,
+  50: #ffeae0,
+  100: #ffcab3,
+  200: #ffa680,
+  300: #ff824d,
+  400: #ff6826,
   500: #ff4d00,
-  600: #e04400,
-  700: #c23b00,
-  800: #a33100,
-  900: #852800,
+  600: #ff4600,
+  700: #ff3d00,
+  800: #ff3400,
+  900: #ff2500,
   A100: #ffffff,
-  A200: #ffd1bd,
-  A400: #ff621f,
-  A700: #c23b00,
+  A200: #fff3f2,
+  A400: #ffc5bf,
+  A700: #ffaea6,
   contrast: (
     50: black,
     100: black,
@@ -38,7 +38,7 @@ $md-ap-orange: (
     A100: black,
     A200: black,
     A400: black,
-    A700: $white-87-opacity,
+    A700: black,
   )
 );
 

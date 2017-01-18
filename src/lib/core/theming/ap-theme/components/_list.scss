@@ -71,17 +71,7 @@
             max-height: 38px;
           }
           .status-info {
-            font-size: 11px;
-            color: md-color($md-ap-dark-grey, 500);
             margin-top: 11px;
-            > * {
-              display: inline-block;
-              vertical-align: middle;
-              line-height: 1;
-            }
-            .managers-info i {
-              margin: 0 7px;
-            }
           }
         }
 
