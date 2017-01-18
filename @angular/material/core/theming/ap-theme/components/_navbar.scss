@@ -9,7 +9,7 @@
   $accent: map-get($theme, accent);
 
   $border-color: rgba( md-color($md-ap-grey, 500), .39 );
-
+  $tab-link-color: #202326;
   // Use md-color to extract individual colors from a palette as necessary.
   /*.candy-carousel {
     background-color: md-color($primary);
@@ -28,10 +28,14 @@
         align-self: center;
         align-items: center;
         justify-content: center;
+        color: $tab-link-color;
+        width: 135px;
+        min-width: inherit;
+        [ap-select] { margin-right: -11px; }
       }
       md-ink-bar {
         width: 60px !important;
-        margin-left: 50px;
+        margin-left: 38px;
       }
     }
 

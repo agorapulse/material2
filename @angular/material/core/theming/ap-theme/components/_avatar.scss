@@ -14,11 +14,14 @@
   $size-avatar: 30px;
   $size-mini: 25px;
 
-  img[ap-avatar] {
+  [ap-avatar] {
     min-width: $size-normal;
     max-width: $size-normal;
     min-height: $size-normal;
     max-height: $size-normal;
+    position: relative;
+
+    img { width: 100%; height: 100% }
 
     &.large {
       min-width: $size-large;
@@ -39,7 +42,7 @@
       max-height: $size-small;
     }
     &.avatar {
-      border-radius: 3px;
+      img { border-radius: 3px; }
       min-width: $size-avatar;
       max-width: $size-avatar;
       min-height: $size-avatar;

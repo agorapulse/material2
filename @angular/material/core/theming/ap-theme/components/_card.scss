@@ -15,12 +15,15 @@
     letter-spacing: 0.3px;
     padding: 24px;
     padding-bottom: 20px;
+    margin: 25px 0 0 0;
 
     &.inset {
     }
 
     md-card-header {
       height: auto;
+      margin-bottom: 0;
+      margin: 0;
       .md-card-header-text {
         width: 100%;
         height: auto;
@@ -42,9 +45,11 @@
         font-family: "Open Sans";
         letter-spacing: 0.3px;
         font-size: 13px;
+        margin-bottom: 0;
       }
     }
     md-card-content {
+      margin-top: 15px;
       [md-card-image] {
         max-height: $image-max-height;
         overflow: hidden;
@@ -54,14 +59,18 @@
       }
       div {
         &.social-info,
-        &.status-info { margin-bottom: 0; }
         &.status-info {
-          font-size: 11px;
-          color: md-color($md-ap-dark-grey, 500);
-          padding-left: 45px;
-          > * {
-            vertical-align: middle;
-            line-height: 1;
+          margin-top: 11px; margin-bottom: 0;
+          [ap-chip-status] {
+            padding-left: 45px;
+          }
+        }
+        &.social-info {
+          font-family: "Open Sans";
+          font-size: 13px;
+          span {
+            color: #7D93A0;
+            margin-right: 15px;
           }
         }
       }
@@ -78,17 +87,25 @@
       }
     }
     &.children-card {
+      width: 100%;
       padding: 15px 20px;
-      margin: 20px 0;
+      md-card-content { margin-top: 0; }
     }
-    &.reply-card {
+    &.quick-reply-card {
       width: 100%;
       .status-info {
         display: flex;
         align-items: center;
+        margin-top: 11px;
         .info {
           line-height: 17px;
         }
+        [ap-button] {
+          padding: 0 11px;
+        }
+      }
+      [ap-input][textarea] {
+        margin-top: 15px;
       }
     }
   }

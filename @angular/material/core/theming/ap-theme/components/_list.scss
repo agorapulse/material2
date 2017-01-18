@@ -15,8 +15,16 @@
     padding-top: 0;
     border-right: 1px solid md-color($md-ap-light-grey, 500);
 
+    .review-all {
+      text-align: center;
+      padding: 19px 0;
+      font-family: "Open Sans";
+      font-size: 13px;
+      border-bottom: 1px solid $color-border;
+    }
+
     &[active]
-    [md-list-item] { opacity: 0.6; }
+    [md-list-item], .review-all { opacity: 0.6; }
     [md-list-item] {
       position: relative;
       opacity: 1;
@@ -33,6 +41,10 @@
 
         .md-list-text {
           padding-right: 0;
+          justify-content: center;
+          height: 100%;
+          padding: 15px;
+
           .title {
             display: flex;
             .name {
@@ -54,6 +66,12 @@
           .text {
             font-size: 13px;
             color: $item-text-color;
+            overflow: hidden;
+            white-space: initial;
+            max-height: 38px;
+          }
+          .status-info {
+            margin-top: 11px;
           }
         }
 

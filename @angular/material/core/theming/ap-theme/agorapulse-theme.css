@@ -73,6 +73,11 @@
  * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`
  * attribute, however Chrome handles high contrast differently.
  */
+/**
+ * Applies styles for users in high contrast mode. Note that this only applies
+ * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`
+ * attribute, however Chrome handles high contrast differently.
+ */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700);
 @import url(https://file.myfontastic.com/mMdiJgGJiqJwPE3XL2zVeP/icons.css);

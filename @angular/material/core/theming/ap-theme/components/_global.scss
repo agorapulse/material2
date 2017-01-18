@@ -19,6 +19,18 @@
 
   .ap-components {
 
+    ::-webkit-scrollbar * {
+        background:transparent;
+    }
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: md-color($primary);
+        min-height: 40px;
+    }
+
     .background-dark {
       background: md-color($md-ap-dark, 500);
       color: md-contrast($md-ap-dark, 500);
@@ -170,6 +182,10 @@
     [z-depth-3-light] { box-shadow: $z-depth-3-light }
     [z-depth-4-light] { box-shadow: $z-depth-4-light }
     [z-depth-5-light] { box-shadow: $z-depth-5-light }
+
+    [display-flex] {
+      display: flex;
+    }
 
     [h-separator] {
       display: flex;

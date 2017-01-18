@@ -243,8 +243,8 @@
             </li>
           </ul>
           <ul class="actions">
-            <li><md-icon>add</md-icon><span>Action 1</span></li>
-            <li><md-icon>settings</md-icon><span>Action 2</span></li>
+            <li><i ap-icon class="ap-add"></i><span>Add an account</span></li>
+            <li><i ap-icon class="ap-settings"></i><span>Manage menu</span></li>
           </ul>
         </ul>
         <button md-button (click)="sidemenu.close()">CLOSE</button>
@@ -268,18 +268,24 @@
     <h1>Toolbar</h1>
     <md-toolbar ap-main-toolbar z-depth-2>
       <div navbar-block class="avatar-desc">
-        <md-icon class="avatar">code</md-icon>
+        <div ap-social-icon class="avatar facebook"></div>
         <div class="desc">
           <span ellipsis>Macdonald's Boulogne</span>
-          <a><md-icon>settings</md-icon>Manage this profile</a>
+          <a><i ap-icon class="ap-settings"></i><span>Manage this profile</span></a>
         </div>
       </div>
-      <nav md-tab-nav-bar aria-label="weather navigation links">
+      <nav md-tab-nav-bar aria-label="navigation links">
         <a md-tab-link [active]="true">Inbox</a>
         <a md-tab-link [active]="false">Monitoring</a>
         <a md-tab-link [active]="false">Publishing</a>
       </nav>
-      <div class="fill-remaining-space"></div>
+
+      <div fill></div>
+
+      <div class="trial">
+        <span>Trial period end in 8 days</span>
+        <button ap-button md-raised-button size="sm" clear>Subscribe</button>
+      </div>
 
       <div navbar-block class="users">
         <img ap-avatar class="mini" rounded [src]="'https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-1/p24x24/13697031_731916956911195_2107886986825962297_n.jpg?oh=5ee7fcf6e9d88165dde4c59514412945&oe=58AE720C'"/>
@@ -302,32 +308,52 @@
     <md-nav-list ap-list>
       <h1>List</h1>
       <a md-list-item>
-        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
-        <span md-line>Sebastian Giro</span>
-        <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
-      </a>
-      <a md-list-item>
-        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <div ap-avatar md-list-avatar class="small">
+          <div ap-badge-icon size="sm" round class="bottom left star">
+            <i ap-icon class="ap-star"></i>
+          </div>
+          <img rounded src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C">
+        </div>
         <span md-line>Sebastian Giro</span>
         <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
       </a>
       <a md-list-item selected>
-        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <div ap-avatar md-list-avatar class="small">
+          <div ap-badge-icon size="sm" round class="bottom left star">
+            <i ap-icon class="ap-star"></i>
+          </div>
+          <img rounded src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C">
+        </div>
         <span md-line>Sebastian Giro</span>
         <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
       </a>
       <a md-list-item>
-        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <div ap-avatar md-list-avatar class="small">
+          <div ap-badge-icon size="sm" round class="bottom left star">
+            <i ap-icon class="ap-star"></i>
+          </div>
+          <img rounded src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C">
+        </div>
         <span md-line>Sebastian Giro</span>
         <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
       </a>
       <a md-list-item>
-        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <div ap-avatar md-list-avatar class="small">
+          <div ap-badge-icon size="sm" round class="bottom left star">
+            <i ap-icon class="ap-star"></i>
+          </div>
+          <img rounded src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C">
+        </div>
         <span md-line>Sebastian Giro</span>
         <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
       </a>
       <a md-list-item>
-        <img md-list-avatar ap-avatar class="small" src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C" alt="Image of test">
+        <div ap-avatar md-list-avatar class="small">
+          <div ap-badge-icon size="sm" round class="bottom left star">
+            <i ap-icon class="ap-star"></i>
+          </div>
+          <img rounded src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p40x40/13697031_731916956911195_2107886986825962297_n.jpg?oh=482ec666400f3f783e5d77e937a0f833&oe=58DC620C">
+        </div>
         <span md-line>Sebastian Giro</span>
         <span md-line class="demo-secondary-text">Thundercats drinking vinegar YOLO truffaut, tumblr meditation direct trade retro. Bicycle rights next level forage sartorial quinoa leggings.</span>
       </a>

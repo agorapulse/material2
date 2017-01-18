@@ -9,9 +9,16 @@
   $accent: map-get($theme, accent);
 
   $button-xl-padding: 15px 20px;
+  $button-xl-height: 50px;
+
   $button-l-padding: 10px 20px;
+  $button-l-height: 40px;
+
   $button-m-padding: 8px 20px;
+  $button-m-height: 36px;
+
   $button-sm-padding: 5px 10px;
+  $button-sm-height: 30px;
 
   [md-raised-button][ap-button] {
     max-width: 100%;
@@ -24,10 +31,12 @@
     text-overflow: ellipsis;
     margin: 0 10px;
 
-    &[size='xl'] { padding: $button-xl-padding }
-    &[size='l'] { padding: $button-l-padding }
-    &[size='m'] { padding: $button-m-padding }
-    &[size='sm'] { padding: $button-sm-padding }
+    [ap-icon] { margin-right: 5px; }
+
+    &[size='xl'] { padding: $button-xl-padding; height: $button-xl-height; }
+    &[size='l'] { padding: $button-l-padding; height: $button-l-height; }
+    &[size='m'] { padding: $button-m-padding; height: $button-m-height; }
+    &[size='sm'] { padding: $button-sm-padding; height: $button-sm-height; }
 
     &[round] {
       border-radius: 5rem;
@@ -47,6 +56,9 @@
 
     &[transparent] { background: transparent; }
 
+    &[only-icon] {
+      [ap-icon] { margin: 0; }
+    }
     &[mini-button] {
       padding: 5px;
       border: 0;
@@ -54,7 +66,7 @@
       color: md-color($primary);
       border-radius: 5rem;
       min-width: auto;
-      md-icon {
+      md-icon, i {
         display: block;
         margin: 0;
         line-height: 1;

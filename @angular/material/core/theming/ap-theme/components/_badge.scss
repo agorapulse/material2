@@ -8,6 +8,11 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $size-small-icon: 20px;
+  $offset-small: -3px;
+  $size-medium-icon: 25px;
+  $offset-medium: -10px;
+
   [ap-badge] {
     background: md-color($primary, 500);
     color: white;
@@ -29,6 +34,49 @@
     }
 
     span { display: block; text-align: center; }
+  }
+
+  [ap-badge-icon] {
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: $size-medium-icon;
+    max-width: $size-medium-icon;
+    min-height: $size-medium-icon;
+    max-height: $size-medium-icon;
+
+    &[size="sm"] {
+      min-width: $size-small-icon;
+      max-width: $size-small-icon;
+      min-height: $size-small-icon;
+      max-height: $size-small-icon;
+
+      &.top { top: $offset-small; }
+      &.bottom { bottom: $offset-small; }
+      &.right { right: $offset-small; }
+      &.left { left: $offset-small; }
+    }
+
+    &.top { top: $offset-medium; }
+    &.bottom { bottom: $offset-medium; }
+    &.right { right: $offset-medium; }
+    &.left { left: $offset-medium; }
+
+    &.star, &.check { color: #FFF; }
+    &.star { background-color: #FFCC00; }
+    &.check { background-color: #8DDE57; }
+
+    i[ap-icon], md-icon {
+      vertical-align: middle;
+      margin-top: 3px;
+    }
+
   }
 
 }
