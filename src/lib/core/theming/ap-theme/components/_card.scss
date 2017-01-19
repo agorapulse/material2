@@ -97,8 +97,19 @@
         display: flex;
         align-items: center;
         margin-top: 11px;
+        padding-left: 45px;
         .info {
           line-height: 17px;
+          .likes {
+            font-size: 13px;
+            color: $item-text-color;
+            .like-count { color: #5C9FEC; }
+          }
+          .actions {
+            font-size: 11px;
+            color: $color-placeholder;
+            margin-top: 3px;
+          }
         }
         [ap-button] {
           padding: 0 11px;
