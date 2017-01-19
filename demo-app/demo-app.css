@@ -687,6 +687,8 @@
     padding: 24px;
     padding-bottom: 20px;
     margin: 25px 0 0 0; }
+    .ap-default-theme md-card[ap-card][tall] {
+      height: 100%; }
     .ap-default-theme md-card[ap-card] md-card-header {
       height: auto;
       margin-bottom: 0;
@@ -747,9 +749,19 @@
       .ap-default-theme md-card[ap-card].quick-reply-card .status-info {
         display: flex;
         align-items: center;
-        margin-top: 11px; }
+        margin-top: 11px;
+        padding-left: 45px; }
         .ap-default-theme md-card[ap-card].quick-reply-card .status-info .info {
           line-height: 17px; }
+          .ap-default-theme md-card[ap-card].quick-reply-card .status-info .info .likes {
+            font-size: 13px;
+            color: #9B9B9B; }
+            .ap-default-theme md-card[ap-card].quick-reply-card .status-info .info .likes .like-count {
+              color: #5C9FEC; }
+          .ap-default-theme md-card[ap-card].quick-reply-card .status-info .info .actions {
+            font-size: 11px;
+            color: #cbcbcb;
+            margin-top: 3px; }
         .ap-default-theme md-card[ap-card].quick-reply-card .status-info [ap-button] {
           padding: 0 11px; }
       .ap-default-theme md-card[ap-card].quick-reply-card [ap-input][textarea] {
@@ -1289,7 +1301,8 @@
         font-size: 15px;
         color: white;
         width: 140px;
-        border-radius: 11px; }
+        border-color: #fff;
+        /*border-radius: 11px;*/ }
         .ap-default-theme [ap-sidenav] .publish button[ap-button] i {
           margin-right: 4px;
           margin-left: -2px;

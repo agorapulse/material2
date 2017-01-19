@@ -8,9 +8,6 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  $item-title-color: #2A2F34;
-  $item-text-color: #9B9B9B;
-
   md-nav-list[ap-list] {
     padding-top: 0;
     border-right: 1px solid md-color($md-ap-light-grey, 500);
