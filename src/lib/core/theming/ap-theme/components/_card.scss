@@ -19,6 +19,9 @@
 
     &.inset {
     }
+    &[tall] {
+      height: 100%;
+    }
 
     md-card-header {
       height: auto;
