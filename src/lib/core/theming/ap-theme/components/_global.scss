@@ -115,7 +115,7 @@
     [hidden] { display: none; }
 
     [rounded] { border-radius: 100%; }
-    [square] { border-radius: 3px; }
+    [square], [square] img { border-radius: 3px; }
 
     [ellipsis] {
       text-overflow: ellipsis;

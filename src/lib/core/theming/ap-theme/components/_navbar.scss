@@ -31,11 +31,17 @@
         color: $tab-link-color;
         width: 135px;
         min-width: inherit;
+        font-family: "Open Sans";
+        font-size: 13px;
+        opacity: 1;
+        text-decoration: none;
+
         [ap-select] { margin-right: -11px; }
+        &:hover [ap-badge] { text-decoration: none; }
       }
       md-ink-bar {
-        width: 60px !important;
-        margin-left: 38px;
+        width: 40px !important;
+        margin-left: 48px;
       }
     }
 
