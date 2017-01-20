@@ -22,6 +22,11 @@
       margin-top: 2px;
     }
     .managers-info { margin-top: -1px; }
+    [ap-button] {
+      margin-left: auto;
+      margin-right: 0;
+      i[ap-icon], md-icon { margin-left: 0; }
+    }
   }
 
 }
