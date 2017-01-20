@@ -9,9 +9,11 @@
   $accent: map-get($theme, accent);
 
   $size-small-icon: 20px;
-  $offset-small: -3px;
   $size-medium-icon: 25px;
+  $size-large-icon: 40px;
+  $offset-small: -3px;
   $offset-medium: -10px;
+  $offset-large: -5px;
 
   [ap-badge] {
     background: md-color($primary, 500);
@@ -62,15 +64,36 @@
       &.right { right: $offset-small; }
       &.left { left: $offset-small; }
     }
+    &[size="l"] {
+      min-width: $size-large-icon;
+      max-width: $size-large-icon;
+      min-height: $size-large-icon;
+      max-height: $size-large-icon;
+      font-size: 18px;
+      font-weight: 500;
+
+      &.top { top: $offset-large; }
+      &.bottom { bottom: $offset-large; }
+      &.right { right: $offset-large; }
+      &.left { left: $offset-large; }
+    }
 
     &.top { top: $offset-medium; }
     &.bottom { bottom: $offset-medium; }
     &.right { right: $offset-medium; }
     &.left { left: $offset-medium; }
 
-    &.star, &.check { color: #FFF; }
+    &[no-offset] {
+      &.top { top: 0; }
+      &.bottom { bottom: 0; }
+      &.right { right: 0; }
+      &.left { left: 0; }
+    }
+
+    &.star, &.check, &.blue { color: #FFF; }
     &.star { background-color: #FFCC00; }
     &.check { background-color: #8DDE57; }
+    &.blue { background-color: #009CFF; }
 
     i[ap-icon], md-icon {
       vertical-align: middle;
