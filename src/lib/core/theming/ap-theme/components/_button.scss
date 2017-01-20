@@ -59,6 +59,9 @@
     &[only-icon] {
       [ap-icon] { margin: 0; }
     }
+    &[no-shadow] {
+      box-shadow: none;
+    }
     &[mini-button] {
       padding: 5px;
       border: 0;
@@ -73,6 +76,11 @@
         height: auto;
         width: auto;
       }
+    }
+
+    &.review {
+      background-color: $color-success;
+      color: #FFF;
     }
 
   }

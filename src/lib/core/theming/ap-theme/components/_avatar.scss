@@ -13,6 +13,7 @@
   $size-small: 40px;
   $size-avatar: 30px;
   $size-mini: 25px;
+  $size-mini-sm: 20px;
 
   [ap-avatar] {
     min-width: $size-normal;
@@ -53,6 +54,16 @@
       max-width: $size-mini;
       min-height: $size-mini;
       max-height: $size-mini;
+    }
+    &.mini-sm {
+      min-width: $size-mini-sm;
+      max-width: $size-mini-sm;
+      min-height: $size-mini-sm;
+      max-height: $size-mini-sm;
+    }
+
+    &.green-border {
+      border: 2px solid $color-success;
     }
   }
 

@@ -105,9 +105,9 @@
     }
 
     &.star, &.check, &.blue { color: #FFF; }
-    &.star { background-color: #FFCC00; }
-    &.check { background-color: #8DDE57; }
-    &.blue { background-color: #009CFF; }
+    &.star { background-color: $color-favorite; }
+    &.check { background-color: $color-success; }
+    &.blue { background-color: $color-blue; }
 
     i[ap-icon], md-icon {
       vertical-align: middle;

@@ -47,6 +47,7 @@
 
     .trial {
       display: flex;
+      align-items: center;
       span {
         font-family: "Open Sans";
         letter-spacing: 0.3px;
@@ -148,12 +149,14 @@
       font-size: 11px;
       font-family: "Open Sans";
       letter-spacing: 0.3px;
+      .md-select-value, .md-select-arrow { color: $item-text-color; }
       .md-select-arrow { margin-top: 2px; }
     }
     a i, a md-icon {
       font-size: 12px;
       width: 12px;
       height: 11px;
+      color: #9B9B9B;
     }
   }
 }
