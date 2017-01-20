@@ -31,6 +31,30 @@
     &.linkedin {
       background-image: url($assets-path + "icons/linkedin-icon.png");
     }
+    &.button {
+      filter: none;
+      -webkit-filter: grayscale(100%);
+      -moz-filter:    grayscale(100%);
+      -ms-filter:     grayscale(100%);
+      -o-filter:      grayscale(100%);
+      opacity: 0.5;
+      &:hover{
+        -webkit-filter: grayscale(0);
+        -moz-filter:    grayscale(0);
+        -ms-filter:     grayscale(0);
+        -o-filter:      grayscale(0);
+      }
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    [ap-social-icon] {
+      width: 20px;
+      height: 20px;
+      margin: 0 10px;
+    }
   }
 
 }
