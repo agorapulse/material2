@@ -32,6 +32,7 @@
     margin: 0 10px;
 
     [ap-icon] { margin-right: 5px; }
+    span { margin-top: inherit; }
 
     &[size='xl'] { padding: $button-xl-padding; height: $button-xl-height; }
     &[size='l'] { padding: $button-l-padding; height: $button-l-height; }
@@ -52,6 +53,7 @@
       font-family: "Open Sans";
       letter-spacing: 0.3px;
       min-width: auto;
+      color: #7D93A0;
     }
 
     &[transparent] { background: transparent; }
@@ -66,21 +68,26 @@
       padding: 5px;
       border: 0;
       box-shadow: none;
-      color: md-color($primary);
-      border-radius: 5rem;
+      border-radius: 100%;
       min-width: auto;
+      background: transparent;
+      width: 32px;
+      height: 32px;
+      color: $color-placeholder;
       md-icon, i {
         display: block;
         margin: 0;
         line-height: 1;
         height: auto;
         width: auto;
+        font-size: 20px;
       }
     }
 
     &.review {
       background-color: $color-success;
       color: #FFF;
+      min-width: 100px;
     }
 
   }

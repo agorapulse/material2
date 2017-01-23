@@ -22,11 +22,24 @@
     &[tall] {
       height: 100%;
       margin: 0;
-      text-align: center;
-      [ap-avatar] { margin: 0 auto; }
-      .social-icons {
-        padding: 0;
-        margin-top: 35px;
+      &.user-info {
+        text-align: center;
+        md-card-content {
+          margin-top: 22px;
+          md-card-title {
+            font-size: 16px;
+            color: #4A4A4A;
+          }
+          md-card-subtitle {
+            font-size: 13px;
+            color: $item-text-color;
+          }
+        }
+        [ap-avatar] { margin: 0 auto; }
+        .social-icons {
+          padding: 0;
+          margin-top: 35px;
+        }
       }
     }
 
@@ -38,6 +51,7 @@
         width: 100%;
         height: auto;
         overflow: hidden;
+        margin: 0 15px;
       }
       md-card-title {
         font-size: 11px;
@@ -72,7 +86,7 @@
         &.status-info {
           margin-top: 11px; margin-bottom: 0;
           [ap-chip-status] {
-            padding-left: 45px;
+            padding-left: 55px;
           }
         }
         &.social-info {
@@ -89,16 +103,18 @@
       }
     }
     &.parent-card {
+      margin-top: 0;
       md-card-header md-card-subtitle {
         font-family: "Hind";
         letter-spacing: 0.5px;
         font-size: 16px;
         color: md-color($md-ap-dark, 500);
+        .md-card-header-text { margin: 0px 15px; }
       }
     }
     &.children-card {
       width: 100%;
-      padding: 15px 20px;
+      padding: 15px 20px;ç
       md-card-content { margin-top: 0; }
     }
     &.quick-reply-card {
@@ -117,8 +133,8 @@
           }
           .actions {
             font-size: 11px;
-            color: $color-placeholder;
             margin-top: 3px;
+            &, a { color: $color-placeholder; }
           }
         }
         [ap-button] {
