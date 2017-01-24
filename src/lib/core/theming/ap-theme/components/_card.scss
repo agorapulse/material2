@@ -15,7 +15,7 @@
     letter-spacing: 0.3px;
     padding: 24px;
     padding-bottom: 20px;
-    margin: 25px 0 0 0;
+    margin-bottom: 25px;
 
     &.inset {
     }
@@ -104,6 +104,7 @@
     }
     &.parent-card {
       margin-top: 0;
+      margin-bottom: 25px;
       md-card-header md-card-subtitle {
         font-family: "Hind";
         letter-spacing: 0.5px;
@@ -114,7 +115,7 @@
     }
     &.children-card {
       width: 100%;
-      padding: 15px 20px;ç
+      padding: 15px 20px;
       md-card-content { margin-top: 0; }
     }
     &.quick-reply-card {
