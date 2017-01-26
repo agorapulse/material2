@@ -72,6 +72,7 @@
           }
           .status-info {
             margin-top: 11px;
+            overflow-x: visible;
           }
         }
 
@@ -83,7 +84,8 @@
         // TODO this was my first try to make the overflow shadow work.
         // It can be possibly be done if we sync the item-list width with the
         // :before width. But I didnt want to put the responsive query's in this package
-        box-shadow: 0 0 16px 0 rgba(0,0,0,.19);
+        border-top: 1px solid #41BFCA;
+        border-bottom: 1px solid #41BFCA;
       }
     }
 

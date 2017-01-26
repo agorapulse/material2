@@ -85,9 +85,9 @@
     }
 
     &.review {
-      background-color: $color-success;
-      color: #FFF;
-      min-width: 100px;
+      color: #fff;
+      background-color: $color-placeholder;
+      &.reviewed { background-color: $color-success; }
     }
 
   }

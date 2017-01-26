@@ -1,3 +1,13 @@
+# Custom notes
+
+All the needed files path:
+/src/lib/core/theming/ap-theme:
+
+This folder has all the custom components for agorapulse, the shared
+assets, the pallete of colors used, some custom variables and the file
+agorapulse-theme.scss. The main use for this file is to create the ap-theme of
+material, and import all the custom components, assets, fonts, etc.
+
 # How to test Agorapulse theme
 First clone.
 Do npm install
