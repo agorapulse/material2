@@ -83,6 +83,21 @@
         font-size: 20px;
       }
     }
+    &[bar-button] {
+      margin: 0;
+      height: 100%;
+      box-shadow: none;
+      padding: 5px 20px;
+      background: transparent;
+      color: $item-text-color;
+      border-right: 1px solid $color-placeholder;
+
+      &.review-color { color: $color-success; }
+      &.remove-color { color: $color-error; }
+      &.flag-color { color: $color-error; }
+      &.assign-color { color: $color-assign; }
+      &.tag-color { color: $color-tag; }
+    }
 
     &.review {
       color: #fff;

@@ -102,6 +102,12 @@
         width: 100%;
       }
     }
+    md-card-footer {
+      border-top: 1px solid $color-border;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
     &.parent-card {
       margin-top: 0;
       md-card-header md-card-subtitle {
@@ -119,6 +125,10 @@
     }
     &.quick-reply-card {
       width: 100%;
+      md-card-content { margin-bottom: 48px; }
+      md-card-footer {
+        height: 48px;
+      }
       .status-info {
         display: flex;
         align-items: center;
