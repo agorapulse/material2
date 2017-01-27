@@ -128,6 +128,8 @@
       md-card-content { margin-bottom: 48px; }
       md-card-footer {
         height: 48px;
+        justify-content: space-between;
+        [ap-button][bar-button] { flex: 1; }
       }
       .status-info {
         display: flex;
