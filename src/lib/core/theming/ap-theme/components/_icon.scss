@@ -26,6 +26,15 @@
     &.linkedin {
       background-image: url($assets-path + "icons/linkedin-icon.png");
     }
+    &.pinterest {
+      background-image: url($assets-path + "icons/pinterest-icon.png");
+    }
+    &.google {
+      background-image: url($assets-path + "icons/google-icon.png");
+    }
+    &.youtube {
+      background-image: url($assets-path + "icons/youtube-icon.png");
+    }
     &.button {
       filter: none;
       -webkit-filter: grayscale(100%);
