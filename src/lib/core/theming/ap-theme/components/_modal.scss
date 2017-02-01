@@ -18,6 +18,12 @@
     height: 100%;
     z-index: 9999;
     background: rgba(0, 0, 0, 0.24);
+    .bottom, .top, .left, .right, .centered { display: flex; }
+    .bottom { align-items: flex-end; }
+    .top { align-items: flex-start; }
+    .left { justify-content: flex-start; }
+    .right { justify-content: flex-end; }
+    .centered { justify-content: center; }
   }
 
   [ap-modal] {
@@ -32,6 +38,14 @@
 
   [ap-modal][role='publish'] {
     flex-direction: column;
-    .content { display: flex; flex: 1; }
+    height: 90vh;
+    .content { display: flex; flex: 1; padding: 28px 16px; }
+    .footer {
+      background: #f0f0f0;
+      height: 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
