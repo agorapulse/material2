@@ -51,6 +51,14 @@
           padding: 10px 0;
         }
       }
+      .main-content {
+        .accounts {
+          display: flex;
+          .account {
+            margin-right: 2px; 
+          }
+        }
+      }
     }
     .footer {
       background: #f0f0f0;

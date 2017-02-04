@@ -62,16 +62,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: $size-medium-icon;
-    max-width: $size-medium-icon;
-    min-height: $size-medium-icon;
-    max-height: $size-medium-icon;
+    &, & > * {      
+      min-width: $size-medium-icon;
+      max-width: $size-medium-icon;
+      min-height: $size-medium-icon;
+      max-height: $size-medium-icon;
+    }
 
     &[size="sm"] {
-      min-width: $size-small-icon;
-      max-width: $size-small-icon;
-      min-height: $size-small-icon;
-      max-height: $size-small-icon;
+      &, & > * {
+        min-width: $size-small-icon;
+        max-width: $size-small-icon;
+        min-height: $size-small-icon;
+        max-height: $size-small-icon;
+      }
 
       &.top { top: $offset-small; }
       &.bottom { bottom: $offset-small; }
@@ -79,10 +83,12 @@
       &.left { left: $offset-small; }
     }
     &[size="l"] {
-      min-width: $size-large-icon;
-      max-width: $size-large-icon;
-      min-height: $size-large-icon;
-      max-height: $size-large-icon;
+      &, & > * {
+        min-width: $size-large-icon;
+        max-width: $size-large-icon;
+        min-height: $size-large-icon;
+        max-height: $size-large-icon;
+      }
       font-size: 18px;
       font-weight: 500;
 
