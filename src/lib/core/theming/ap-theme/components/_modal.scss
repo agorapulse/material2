@@ -16,7 +16,7 @@
     left:0;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 999;
     background: rgba(0, 0, 0, 0.24);
     .bottom, .top, .left, .right, .centered { display: flex; }
     .bottom { align-items: flex-end; }
@@ -35,17 +35,25 @@
     box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
     background: white;
     display: flex;
+    font-family: "Open Sans";
   }
 
   [ap-modal][role='publish'] {
     flex-direction: column;
     height: auto;
+    [ap-input] label {
+      text-transform: none;
+      color: $item-text-color;
+    }
     .content {
       display: flex;
       flex: 1;
-      padding: 0 16px;
+      overflow-y: auto;
+      .accounts-content, .main-content, .preview-content {
+        padding: 30px 16px;
+      }
       .accounts-content {
-        padding: 30px;
+        width: 250px;
         .account {
           display: flex;
           align-items: center;
@@ -53,9 +61,10 @@
         }
       }
       .main-content {
-        padding: 36px;
         border-left: 1px solid $color-border;
         border-right: 1px solid $color-border;
+        font-size: 14px;
+        flex: 1;
         .accounts {
           display: flex;
           margin-top: 15px;
@@ -65,6 +74,10 @@
           }
         }
       }
+      .preview-content {
+        max-width: 535px;
+        min-width: 400px;
+      }
     }
     .footer {
       background: #f0f0f0;
@@ -72,6 +85,30 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 27px;
+      overflow: hidden;
+      border-top: 1px solid $color-border;
+      md-radio-group {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        flex: 1;
+        justify-content: space-around;
+        margin: 0 20px;
+        max-width: 700px;
+        [v-separator] { margin: 0; width: 1px; }
+        [ap-radio] {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 0 20px;
+          border-right: 1px solid $color-border;
+          &:first-child { border-left: 1px solid $color-border; }
+          [ap-icon] { display: block; text-align: center; }
+          .md-radio-checked label { color: md-color($primary); }
+        }
+      }
     }
   }
 }

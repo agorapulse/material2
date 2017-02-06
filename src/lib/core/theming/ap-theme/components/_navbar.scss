@@ -36,10 +36,22 @@
         [ap-select] { margin-right: -11px; }
         [ap-icon] { font-size: 20px; }
         &:hover, &:hover [ap-badge] { text-decoration: none; }
+        &[disabled] { opacity: 0.27; }
       }
       md-ink-bar {
         width: 40px !important;
         margin-left: 48px;
+      }
+      &[only-icons] {
+        [md-tab-link] {
+          width: 50px;
+        }
+        md-ink-bar {
+          margin-left: 5px;
+        }
+      }
+      &[centered] {
+        justify-content: center;
       }
     }
   }

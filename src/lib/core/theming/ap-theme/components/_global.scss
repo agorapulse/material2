@@ -123,6 +123,11 @@
       }
     }
 
+    [full-w] {
+      width: 100%;
+      [ap-input] { width: 100%; }
+    }
+
     [hidden] { display: none; }
 
     [square], [rounded] { overflow: hidden; }
@@ -133,6 +138,11 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+    }
+
+    [disabled] {
+      pointer-events: none;
+      cursor: default;
     }
 
     [noselect] {
@@ -244,6 +254,7 @@
       width: 2px;
       background: $color-border;
       margin: 0 25px;
+      height: 100%;
     }
     .fill-remaining-space,
     [fill] {

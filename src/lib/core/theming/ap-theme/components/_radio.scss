@@ -8,7 +8,7 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  md-radio-button[ap-radio] {
+  [ap-radio] {
     &[color='primary'] {
       .md-radio-inner-circle {
         background-color: md-color($primary, 500);
