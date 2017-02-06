@@ -103,8 +103,6 @@
           flex-direction: column;
           justify-content: center;
           padding: 0 20px;
-          border-right: 1px solid $color-border;
-          &:first-child { border-left: 1px solid $color-border; }
           [ap-icon] { display: block; text-align: center; }
           .md-radio-checked label { color: md-color($primary); }
         }
