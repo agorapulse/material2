@@ -43,6 +43,9 @@
       border-radius: 5rem;
     }
 
+    &[right] { margin-right: 0; }
+    &[left] { margin-left: 0; }
+
     &[clear] {
       box-shadow: none;
       border: 1px solid md-color($primary);
@@ -105,6 +108,15 @@
       &.reviewed { background-color: $color-success; }
     }
 
+    &[color='success'] { background: $color-success; color: white; }
+    &[color='dark'] {
+      background: md-color($md-ap-dark, 500);
+      color: md-contrast($md-ap-dark, 500);
+    }
+    &[color='dark-grey'] {
+      background: md-color($md-ap-dark-grey, 500);
+      color: white;
+    }
   }
 
 }
