@@ -33,7 +33,10 @@
         padding: 10px 0;
 
         [ap-button] {
-          &[mini-button] { margin: 0 4px; }
+          &[mini-button] {
+            margin: 0 4px;
+            &.active { color: md-color($primary); }
+          }
           &[submit] {
             font-size: 15px;
             font-family: "Open Sans";

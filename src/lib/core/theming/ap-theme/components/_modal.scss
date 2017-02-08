@@ -58,6 +58,12 @@
           display: flex;
           align-items: center;
           padding: 10px 0;
+          cursor: pointer;
+          [ap-avatar] {
+            margin-left: 2px;
+            margin-right: 10px;
+          }
+          span.name { font-size: 13px; }
         }
       }
       .main-content {
