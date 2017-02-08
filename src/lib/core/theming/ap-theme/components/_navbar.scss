@@ -61,21 +61,6 @@
     color: md-color($md-ap-dark, 500);
     [md-tab-nav-bar] { height: 100%; }
 
-    .trial {
-      display: flex;
-      align-items: center;
-      span {
-        font-family: "Open Sans";
-        letter-spacing: 0.3px;
-        font-size: 13px;
-        font-weight: 600;
-        color: md-color($primary, 500);
-        display: inline;
-        width: 90px;
-        text-align: right;
-      }
-    }
-
     [navbar-block] {
       border-right: 1px solid $color-border;
       border-left: 1px solid $color-border;
