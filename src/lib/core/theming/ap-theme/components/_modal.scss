@@ -36,91 +36,37 @@
     background: white;
     display: flex;
     font-family: "Open Sans";
+    flex-direction: column;
   }
 
-  [ap-modal][role='publish'] {
-    flex-direction: column;
-    height: auto;
-    [ap-input] label {
-      text-transform: none;
-      color: $item-text-color;
-    }
-    .content {
+  [ap-modal] {
+    [ap-input] label { color: $item-text-color; text-transform: none; }
+    [ap-modal-content] {
       display: flex;
       flex: 1;
       overflow-y: auto;
-      .accounts-content, .main-content, .preview-content {
-        padding: 30px 16px;
-      }
-      .accounts-content {
-        width: 250px;
-        .account {
-          display: flex;
-          align-items: center;
-          padding: 10px 0;
-          cursor: pointer;
-          [ap-avatar] {
-            margin-left: 2px;
-            margin-right: 10px;
-          }
-          span.name { font-size: 13px; }
-        }
-      }
       .main-content {
         border-left: 1px solid $color-border;
         border-right: 1px solid $color-border;
-        font-size: 14px;
-        flex: 1;
-        .accounts {
-          display: flex;
-          margin-top: 15px;
-          margin-bottom: 45px;
-          .account {
-            margin-right: 2px;
-          }
-        }
-      }
-      .preview-content {
-        max-width: 535px;
-        min-width: 400px;
       }
     }
-    .footer {
-      background: #f0f0f0;
+    [ap-modal-footer] {
       height: 120px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 27px;
       overflow: hidden;
+      background: #f0f0f0;
       border-top: 1px solid $color-border;
       md-radio-group {
-        display: flex;
-        height: 100%;
-        align-items: center;
-        flex: 1;
-        justify-content: space-around;
-        margin: 0 20px;
-        max-width: 700px;
-        [v-separator] { margin: 0; width: 1px; }
         [ap-radio] {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 0 20px;
-          [ap-icon] {
-            display: block;
-            text-align: center;
-            font-size: 19px;
-            color: $item-title-color;
-          }
-          label {
-            color: $item-text-color;
-          }
+          [ap-icon] { color: $item-title-color; }
+          label { color: $item-text-color; }
           .md-radio-checked label { color: md-color($primary); }
         }
       }
     }
   }
+
 }

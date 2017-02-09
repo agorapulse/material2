@@ -43,16 +43,11 @@
         margin-left: 48px;
       }
       &[only-icons] {
-        [md-tab-link] {
-          width: 50px;
-        }
-        md-ink-bar {
-          margin-left: 5px;
-        }
+        [md-tab-link] { width: 50px; }
+        md-ink-bar { margin-left: 5px; }
       }
-      &[centered] {
-        justify-content: center;
-      }
+      &[centered] { justify-content: center; }
+      &[border-bottom] { border-bottom: 1px solid $color-border; }
     }
   }
 
