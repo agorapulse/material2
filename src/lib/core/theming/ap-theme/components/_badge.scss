@@ -62,11 +62,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    &, & > * {      
+    &, & > * {
       min-width: $size-medium-icon;
       max-width: $size-medium-icon;
       min-height: $size-medium-icon;
       max-height: $size-medium-icon;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     &[size="sm"] {
