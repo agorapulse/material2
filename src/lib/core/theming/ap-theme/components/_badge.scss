@@ -118,6 +118,7 @@
     &.check { background-color: $color-success; }
     &.blue { background-color: $color-blue; }
     &.default { background-color: $badge-default-color; }
+    &.primary { background-color: md-color($primary); }
 
     i[ap-icon], md-icon {
       vertical-align: middle;
