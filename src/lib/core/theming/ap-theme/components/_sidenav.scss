@@ -9,10 +9,11 @@
   $accent: map-get($theme, accent);
 
   [ap-sidenav] {
-    width: $sidenav-width;
     background: md-color($md-ap-dark, 500);
     color: md-contrast($md-ap-dark, 500);
+    width: $sidenav-width;
     box-shadow: none;
+    overflow-y: auto;
     transition: width $sidenav-transition-delay cubic-bezier(0.25, 0.8, 0.25, 1);
     .cdk-focus-trap-content { height: 100%; }
 
