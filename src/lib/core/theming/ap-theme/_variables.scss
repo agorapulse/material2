@@ -10,9 +10,11 @@ $item-text-color: md-color($md-ap-dark-grey, 500);
 $item-background: #fff;
 $item-background-inactive: md-color($md-grey, 50);
 
+$sidenav-mini-width: 75px;
 $sidenav-width: 240px;
 $sidenav-logo-width: 160px;
 $sidenav-item-active: #3E454C;
+$sidenav-transition-delay: 400ms;
 
 $color-placeholder: #cbcbcb;
 $color-border: #e3e3e3;

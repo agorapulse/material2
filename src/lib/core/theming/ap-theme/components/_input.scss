@@ -48,14 +48,13 @@
       display: flex;
       align-items: center;
       margin: 0;
-      md-icon, input, input::placeholder {
+      i, input, input::placeholder {
         color: #6A7179;
       }
-      md-icon {
+      i {
         display: block;
         margin: 0;
-        font-size: 27px;
-        margin-left: -4px;
+        font-size: 20px;
       }
       input {
         flex: 1;

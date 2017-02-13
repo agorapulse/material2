@@ -108,6 +108,10 @@
       &.reviewed { background-color: $color-success; }
     }
 
+    &[color='primary'] {
+      background: md-color($primary, 500);
+      color: md-contrast($primary, 500);
+    }
     &[color='success'] { background: $color-success; color: white; }
     &[color='dark'] {
       background: md-color($md-ap-dark, 500);

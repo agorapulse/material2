@@ -128,6 +128,14 @@
       [ap-input] { width: 100%; }
     }
 
+    [fullscreen] {
+      display: flex;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
     [hidden] { display: none; }
 
     [square], [rounded] { overflow: hidden; }

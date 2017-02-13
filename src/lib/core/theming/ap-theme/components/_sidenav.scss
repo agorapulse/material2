@@ -13,12 +13,18 @@
     background: md-color($md-ap-dark, 500);
     color: md-contrast($md-ap-dark, 500);
     box-shadow: none;
+    transition: width $sidenav-transition-delay cubic-bezier(0.25, 0.8, 0.25, 1);
+    .cdk-focus-trap-content { height: 100%; }
+
+    [only-expanded] { display: block; }
+    [only-collapsed] { display: none; }
 
     ul.content {
+      width: 100%;
       min-height: 100%;
       margin: 0;
       & > * {
-        padding: 0 12px;
+        padding: 0 15px;
       }
     }
 
@@ -26,6 +32,10 @@
       .md-list-item { color: md-contrast($md-ap-dark, 500); }
     }
 
+    & > li {
+      display: flex;
+      align-items: center;
+    }
     ul {
       display: flex;
       flex-direction: column;
@@ -34,14 +44,30 @@
       li.active { background-color: $sidenav-item-active;}
     }
 
+    .navigation, .logo {
+      margin-bottom: 20px;
+    }
+    .navigation {
+      position: relative;
+      .close {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        margin-top: -10px;
+        margin-right: 7px;
+        font-size: 12px;
+        opacity: 0.26;
+        cursor: pointer;
+        &:hover { opacity: 1; }
+      }
+    }
     .logo {
       align-self: center;
-      margin-bottom: 30px;
       img { width: $sidenav-logo-width; }
     }
     .publish {
       align-self: center;
-      margin-bottom: 55px;
+      margin-bottom: 42px;
       button[ap-button] {
         font-family: "Open Sans";
         letter-spacing: 0.3px;
@@ -61,6 +87,8 @@
     }
     [ap-input][search]{
       width: 100%;
+      display: flex;
+      padding-left: 5px;
     }
     ul.accounts {
       padding: 0;
@@ -69,7 +97,7 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        padding: 6px 20px 6px 9px;
+        padding: 6px 20px 6px 15px;
         min-height: 44px;
         .name {
           flex:1;
@@ -84,12 +112,13 @@
     }
     .actions {
       li {
-        display: block;
+        display: flex;
         font-family: "Open Sans";
         letter-spacing: 0.3px;
         font-size: 15px;
-        padding: 6px 12px;
+        padding: 6px 7px;
         cursor: pointer;
+        align-items: center;
         i { margin-right: 15px; vertical-align: middle; }
       }
     }
@@ -107,6 +136,42 @@
       [ap-button] { margin-top: 16px; border-radius: 3px; }
     }
 
+  }
+
+  [ap-sidenav][collapsed] {
+    width: $sidenav-mini-width;
+    [only-expanded] { display: none; }
+    [only-collapsed] { display: block !important; }
+
+    li {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+    .accounts li.account {
+      padding: 0;
+      [ap-badge-icon] {
+        max-height: 13px;
+        min-height: 13px;
+        max-width: initial;
+        min-width: 23px;
+        border-radius: 25px;
+        padding: 0 6px;
+        line-height: 11px;
+        font-size: 10px;
+        span {
+          min-width: initial;
+          max-width: initial;
+          max-height: initial;
+          min-height: initial;
+        }
+      }
+    }
+
+    .actions li i { margin: 0; font-size: 15px; }
   }
 
 }
