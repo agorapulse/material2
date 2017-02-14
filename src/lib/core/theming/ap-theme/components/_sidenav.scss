@@ -42,12 +42,9 @@
       flex-direction: column;
       list-style-type: none; padding: 0;
       padding: 20px 0;
-      li.active { background-color: $sidenav-item-active;}
+      ul.active, li.active { background-color: $sidenav-item-active;}
     }
 
-    .navigation, .logo {
-      margin-bottom: 20px;
-    }
     .navigation {
       position: relative;
       .close {
@@ -64,6 +61,7 @@
     }
     .logo {
       align-self: center;
+      margin-bottom: 20px;
       img { width: $sidenav-logo-width; }
     }
     .publish {
@@ -110,8 +108,17 @@
           font-weight: 600;
         }
       }
+
+      ul.group-accounts {
+        padding: 0;
+        li.group-account {
+          [ap-avatar] img { border: 2px solid md-color($primary); }
+        }
+      }
     }
-    .actions {
+    ul.actions {
+      padding: 15px;
+      padding-bottom: 0;
       li {
         display: flex;
         font-family: "Open Sans";
@@ -149,16 +156,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
+      font-size: 28px;
       cursor: pointer;
     }
-
+    .navigation { margin-bottom: 20px; }
     .publish { margin-bottom: 34px; }
 
     .search { margin-bottom: 15px; }
     .accounts li.account {
       padding: 9px 0;
-      [ap-badge-icon] {
+      [ap-badge-icon].notification {
         max-height: 13px;
         min-height: 13px;
         max-width: initial;
@@ -178,7 +185,7 @@
     }
 
     .actions li {
-      padding: 6px 0;
+      padding: 7px 0;
       i { margin: 0; font-size: 15px; }
     }
   }

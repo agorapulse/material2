@@ -141,6 +141,7 @@
     [square], [rounded] { overflow: hidden; }
     [rounded] { border-radius: 100%; }
     [square], [square] img { border-radius: 4px; }
+    [box], [box] img { border-radius: 0; }
 
     [ellipsis] {
       text-overflow: ellipsis;

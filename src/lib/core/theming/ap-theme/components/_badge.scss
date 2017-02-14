@@ -8,6 +8,7 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  $size-mini-icon: 10px;
   $size-small-icon: 20px;
   $size-medium-icon: 25px;
   $size-large-icon: 40px;
@@ -72,6 +73,19 @@
       justify-content: center;
     }
 
+    &[size="mini"] {
+      &, & > * {
+        min-width: $size-mini-icon;
+        max-width: $size-mini-icon;
+        min-height: $size-mini-icon;
+        max-height: $size-mini-icon;
+      }
+
+      &.top { top: $offset-small; }
+      &.bottom { bottom: $offset-small; }
+      &.right { right: $offset-small; }
+      &.left { left: $offset-small; }
+    }
     &[size="sm"] {
       &, & > * {
         min-width: $size-small-icon;
