@@ -8,8 +8,26 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
+  [ap-calendar-view] {
+
+    nav[ap-main-navbar]{
+      display: flex;
+      align-items: center;
+      padding: 15px 30px;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      [ap-button] {
+        margin: 0 5px;
+      }
+      .calendar-filters {
+        margin-left: auto;
+      }
+    }
+
+  }
+
   [ap-calendar] {
-    
+
   }
 
 }
