@@ -6,6 +6,7 @@
 @import 'components/avatar';
 @import 'components/badge';
 @import 'components/button';
+@import 'components/calendar';
 @import 'components/card';
 @import 'components/checkbox';
 @import 'components/chip';
@@ -20,6 +21,7 @@
 @import 'components/select';
 @import 'components/sidenav';
 @import 'components/slide-toggle';
+@import 'components/textarea';
 @import 'components/tooltip';
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
@@ -53,6 +55,7 @@
     @include ap-avatar-theme($agorapulse-theme);
     @include ap-badge-theme($agorapulse-theme);
     @include ap-button-theme($agorapulse-theme);
+    @include ap-calendar-theme($agorapulse-theme);
     @include ap-card-theme($agorapulse-theme);
     @include ap-checkbox-theme($agorapulse-theme);
     @include ap-chip-theme($agorapulse-theme);
@@ -68,5 +71,6 @@
     @include ap-sidenav-theme($agorapulse-theme);
     @include ap-slide-toggle-theme($agorapulse-theme);
     @include ap-tooltip-theme($agorapulse-theme);
+    @include ap-textarea-theme($agorapulse-theme);
   }
 }

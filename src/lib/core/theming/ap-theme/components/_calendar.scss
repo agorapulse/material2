@@ -3,21 +3,13 @@
 @import '../../all-theme';
 
 // Define a mixin that accepts a theme and outputs the color styles for the component.
-@mixin ap-tooltip-theme($theme) {
+@mixin ap-calendar-theme($theme) {
   // Extract whichever individual palettes you need from the theme.
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  .tooltip:hover, [tooltip]:hover {
-    [ap-tooltip] { display: block; }
-  }
-
-  [ap-tooltip] {
-    display: none;
-    width: 220px;
-    height: 40px;
-    background: black;
-    color: white;
+  [ap-calendar] {
+    
   }
 
 }

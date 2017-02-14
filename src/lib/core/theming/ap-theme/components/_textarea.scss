@@ -1,0 +1,39 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/core/theming/all-theme';
+@import '../../all-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin ap-textarea-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  [ap-input][textarea] {
+    border: 1px solid $color-border;
+    textarea {
+      width: 100%;
+      border: 0;
+      font-family: "Open Sans";
+      font-size: 13px;
+      &:focus { outline: 0; }
+    }
+    .footer-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 10px 0;
+
+      [ap-button] {
+        &[mini-button] {
+          margin: 0 4px;
+          &.active { color: md-color($primary); }
+        }
+        &[submit] {
+          font-size: 15px;
+          font-family: "Open Sans";
+        }
+      }
+    }
+  }
+
+}

@@ -46,6 +46,7 @@
 
           .title {
             display: flex;
+            overflow: hidden;
             .name {
               flex: 1;
               font-size: 14px;
@@ -56,6 +57,7 @@
               align-items: center;
               font-size: 12px;
               color: #9A9A9A;
+              margin-left: auto;
               [ap-social-icon] { opacity: 0.5; }
               > * { margin-left: 10px; }
               i { font-size: 13px; }

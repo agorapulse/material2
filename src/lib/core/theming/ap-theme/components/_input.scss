@@ -17,33 +17,6 @@
       margin-bottom: 0;
     }
 
-    &[textarea] {
-      border: 1px solid $color-border;
-      textarea {
-        width: 100%;
-        border: 0;
-        font-family: "Open Sans";
-        font-size: 13px;
-        &:focus { outline: 0; }
-      }
-      .footer-actions {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 10px 0;
-
-        [ap-button] {
-          &[mini-button] {
-            margin: 0 4px;
-            &.active { color: md-color($primary); }
-          }
-          &[submit] {
-            font-size: 15px;
-            font-family: "Open Sans";
-          }
-        }
-      }
-    }
     &[search] {
       display: flex;
       align-items: center;
