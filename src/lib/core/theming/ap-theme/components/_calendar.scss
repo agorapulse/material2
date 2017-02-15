@@ -14,8 +14,8 @@
       display: flex;
       align-items: center;
       padding: 15px 30px;
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
+      border-top: 1px solid $calendar-border-color;
+      border-bottom: 1px solid $calendar-border-color;
       [ap-button] {
         margin-left: 0;
         margin-right: 5px;
@@ -36,6 +36,11 @@
   }
 
   [ap-calendar] {
+    .fc-content, .fc-divider, .fc-list-heading td, .fc-list-view, .fc-popover,
+    .fc-row, tbody, td, th, thead {
+      border-color: $calendar-border-color;
+    }
+
     .fc-toolbar.fc-header-toolbar {
       display: flex;
       align-items: center;
@@ -64,6 +69,15 @@
         color: $item-text-color;
         width: 150px;
       }
+    }
+
+    .fc-head th {
+      height: 30px;
+      vertical-align: middle;
+      font-family: "Open Sans";
+      font-size: 11px;
+      text-transform: uppercase;
+      color: $color-placeholder;
     }
 
   }
