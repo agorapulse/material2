@@ -123,6 +123,10 @@
       }
     }
 
+    // NOTE
+    // Here are pretty usefull selectors across all the app
+    // We should put all the shared stuff in the ap-components here
+
     [full-w] {
       width: 100%;
       [ap-input] { width: 100%; }
@@ -138,8 +142,9 @@
 
     [hidden] { display: none; }
 
-    [square], [rounded] { overflow: hidden; }
+    [square], [rounded], [round] { overflow: hidden; }
     [rounded] { border-radius: 100%; }
+    [round] { border-radius: 9999px; }
     [square], [square] img { border-radius: 4px; }
     [box], [box] img { border-radius: 0; }
 
