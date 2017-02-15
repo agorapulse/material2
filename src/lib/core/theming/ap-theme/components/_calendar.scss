@@ -17,7 +17,16 @@
       border-top: 1px solid #f0f0f0;
       border-bottom: 1px solid #f0f0f0;
       [ap-button] {
-        margin: 0 5px;
+        margin-left: 0;
+        margin-right: 5px;
+      }
+      [ap-checkbox] {
+        label {
+          font-family: "Open Sans";
+          text-transform: none;
+          font-size: 13px;
+          color: $item-text-color;
+        }
       }
       .calendar-filters {
         margin-left: auto;

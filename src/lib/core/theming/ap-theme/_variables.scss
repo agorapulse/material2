@@ -1,6 +1,9 @@
 // NOTE
 // All the widths and variables for custom components [ap-*]
 // should be here for quick and easy access
+$navbar-tab-color-inactive: md-color($md-ap-light-grey, 500);
+$navbar-tab-color-active: #fff;
+$navbar-tab-height: 52px;
 
 $calendar-toolbar-height: 55px;
 

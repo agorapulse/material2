@@ -126,6 +126,30 @@
       &[md-tab-link]:hover { text-decoration: none; }
       > * { vertical-align: middle; }
     }
+
+    &[tabs] {
+      padding: 0 28px;
+      padding-top: 25px;
+      [tab-button] {
+        margin: 0;
+        z-index: 0;
+        bottom: -2px;
+        box-shadow: none;
+        border: 1px solid $color-border;
+        border-left: none;
+        border-bottom: none;
+        color: $item-text-color;
+        height: $navbar-tab-height;
+        border-bottom-left-radius: initial;
+        border-bottom-right-radius: initial;
+        background: $navbar-tab-color-inactive;
+        &:first-child { border-left: 1px solid $color-border; }
+        &.active {
+          background: $navbar-tab-color-active;
+          color: md-color($primary);
+        }
+      }
+    }
   }
 
   nav[ap-main-header] {
