@@ -15,6 +15,9 @@ $scrollbar-height: 7px;
 $badge-default-color: #5A656F;
 
 $modal-footer-background: #f0f0f0;
+$modal-transition-duration: 150ms;
+$modal-max-height: 98vh;
+$modal-max-width: 90vw;
 
 $item-height: 130px;
 $item-title-color: md-color($md-ap-dark, 500);
@@ -26,7 +29,7 @@ $sidenav-mini-width: 75px;
 $sidenav-width: 240px;
 $sidenav-logo-width: 160px;
 $sidenav-item-active: #3E454C;
-$sidenav-transition-delay: 400ms;
+$sidenav-transition-duration: 400ms;
 
 $color-placeholder: #cbcbcb;
 $color-border: #e3e3e3;
@@ -39,6 +42,11 @@ $color-error: #DB1E1E;
 $color-success: #8DDE57;
 $color-favorite: #FFCC00;
 $color-blue: #009CFF;
+
+$color-scheduled: #41BFCA;
+$color-queued: #8C50CF;
+$color-to-approve: md-color($md-ap-orange, 500);
+$color-to-assigned: md-color($md-ap-light-orange, 500);
 
 $z-depth-1-strong: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 $z-depth-2-strong: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);

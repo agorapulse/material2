@@ -17,26 +17,57 @@
     width: 100%;
     height: 100%;
     z-index: 999;
-    background: rgba(0, 0, 0, 0.24);
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0);
+
     .bottom, .top, .left, .right, .centered { display: flex; }
-    .bottom { align-items: flex-end; }
-    .top { align-items: flex-start; }
-    .left { justify-content: flex-start; }
-    .right { justify-content: flex-end; }
-    .centered { justify-content: center; }
+    .bottom {
+      align-items: flex-end;
+      [ap-modal] { bottom: -100vh; }
+    }
+    .top {
+      align-items: flex-start;
+      [ap-modal] { top: -100vh; }
+    }
+    .left {
+      justify-content: flex-start;
+      [ap-modal] { left: -100vh; margin-left: 0; max-height: 100vh; }
+    }
+    .right {
+      justify-content: flex-end;
+      [ap-modal] { right: -100vh; margin-right: 0; max-height: 100vh; }
+    }
+    .centered {
+      [ap-modal] { align-self: center; max-height: $modal-max-height; }
+    }
+
+    transition: background $modal-transition-duration ease-in-out;
+    &[visible] {
+      background-color: rgba(0, 0, 0, 0.24);
+      visibility: visible;
+      .bottom [ap-modal] { bottom: 0vh; }
+      .top [ap-modal] { top: 0vh; }
+      .left [ap-modal] { left: 0vh; }
+      .right [ap-modal] { right: 0vh; }
+    }
   }
 
   [ap-modal] {
     z-index: 2000;
     width: 100%;
     height: 100%;
-    max-width: 90vw;
-    max-height: 98vh;
+    max-width: $modal-max-width;
+    max-height: $modal-max-height;
     box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
     background: white;
     display: flex;
     font-family: "Open Sans";
     flex-direction: column;
+    position: relative;
+    transition: top,bottom,right,left;
+    transition-duration: $modal-transition-duration;
+    transition-delay: $modal-transition-duration / 2;
+    transition-timing-function: cubic-bezier(0.38, 0.82, 0.58, 1);
   }
 
   [ap-modal] {

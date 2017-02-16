@@ -140,13 +140,22 @@
       overflow: hidden;
     }
 
-    [hidden] { display: none; }
+    [hidden] { visibility: hidden; }
 
     [square], [rounded], [round] { overflow: hidden; }
     [rounded] { border-radius: 100%; }
     [round] { border-radius: 9999px; }
     [square], [square] img { border-radius: 4px; }
     [box], [box] img { border-radius: 0; }
+
+    [bullet] {
+      width: 10px;
+      height: 10px;
+      background-color: #000;
+      display: inline-block;
+      border-radius: 100%;
+      &[color=''] { background-color: $color-success; }
+    }
 
     [ellipsis] {
       text-overflow: ellipsis;
