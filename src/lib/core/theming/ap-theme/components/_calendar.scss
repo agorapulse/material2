@@ -19,17 +19,28 @@
       [ap-button] {
         margin-left: 0;
         margin-right: 5px;
+        font-size: 11px;
+        padding-left: 17px;
+        padding-right: 17px;
+        color: $item-text-color;
+        border-color: $color-border;
+        &.active { color: md-color($primary); border-color: md-color($primary);}
       }
       [ap-checkbox] {
+        margin-left: 20px;
+        &:first-child { margin-left: 0; }
         label {
           font-family: "Open Sans";
           text-transform: none;
           font-size: 13px;
+          letter-spacing: 0;
           color: $item-text-color;
         }
+        [ap-badge] { display: inline-block; font-size: 13px; }
       }
       .calendar-filters {
         margin-left: auto;
+        display: flex;
       }
     }
 

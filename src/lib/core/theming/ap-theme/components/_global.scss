@@ -154,7 +154,11 @@
       background-color: #000;
       display: inline-block;
       border-radius: 100%;
-      &[color=''] { background-color: $color-success; }
+      &[color='published'] { background-color: $color-success; }
+      &[color='scheduled'] { background-color: $color-scheduled; }
+      &[color='queued'] { background-color: $color-queued; }
+      &[color='toReview'] { background-color: $color-approve; }
+      &[color='assigned'] { background-color: $color-assigned; }
     }
 
     [ellipsis] {
