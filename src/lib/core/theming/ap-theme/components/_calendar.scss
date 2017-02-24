@@ -124,6 +124,9 @@
       &.toReview .fc-content:before { background-color: $color-approve; }
       &.assigned .fc-content:before { background-color: $color-assigned; }
     }
+    .fc-day.disabled {
+      background-color: #EEEEEE;
+    }
 
   }
 
