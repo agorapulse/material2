@@ -33,4 +33,19 @@
     }
   }
 
+  [ap-chip-tag].md-chip.md-chip-selected:not(.md-basic-chip) {
+    border-radius: 4px;
+    padding: 5px 10px 5px 10px;
+    &.md-primary {
+      background-color: md-color($primary, 50);
+      border: md-color($primary, 500) 1px solid;
+      color: md-color($primary, 500);
+    }
+    &.md-accent {
+      background-color: md-color($accent, 100);
+      border: md-color($accent, 500) 1px solid;
+      color: md-color($accent, 500);
+    }
+  }
+
 }
