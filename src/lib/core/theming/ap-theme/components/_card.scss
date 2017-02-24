@@ -23,9 +23,13 @@
       height: 100%;
       margin: 0;
       &.user-info {
-        text-align: center;
+        text-align: left;
         md-card-content {
-          margin-top: 22px;
+          float: left;
+          padding: 0 10px;
+          margin-top: auto;
+          width: 70%;
+          word-wrap: break-word;
           md-card-title {
             font-size: 16px;
             color: #4A4A4A;
@@ -33,9 +37,16 @@
           md-card-subtitle {
             font-size: 13px;
             color: $item-text-color;
+            margin-bottom: auto;
+          }
+          md-divider {
+            margin: 10px 0;
           }
         }
-        [ap-avatar] { margin: 0 auto; }
+        [ap-avatar] {
+          float: left;
+          margin: 0 auto;
+        }
         .social-icons {
           padding: 0;
           margin-top: 35px;
