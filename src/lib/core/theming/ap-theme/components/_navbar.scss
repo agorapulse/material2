@@ -133,11 +133,10 @@
       [tab-button] {
         margin: 0;
         z-index: 2;
-        bottom: -2px;
+        margin-bottom: 2px;
         box-shadow: none;
         border: 1px solid $color-border;
-        border-left: none;
-        border-bottom: none;
+        margin-left: -1px;
         color: $item-text-color;
         height: $navbar-tab-height;
         border-bottom-left-radius: initial;
@@ -147,6 +146,7 @@
         &.active {
           background: $navbar-tab-color-active;
           color: md-color($primary);
+          border-bottom: none;
         }
       }
     }

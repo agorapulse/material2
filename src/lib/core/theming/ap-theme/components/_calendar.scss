@@ -14,7 +14,6 @@
       display: flex;
       align-items: center;
       padding: 15px 30px;
-      border-top: 1px solid $calendar-border-color;
       border-bottom: 1px solid $calendar-border-color;
       [ap-button] {
         margin-left: 0;
@@ -97,32 +96,57 @@
     }
 
 // GRID POST
-    .fc-day-grid-event {
-      background: transparent;
-      font-family: "Open Sans";
-      font-size: 11px;
-      color: #636B73;
-      border: none;
-      &:hover { text-decoration: none; }
-
-      .fc-content:before {
-        background: $item-text-color;
-        width: 10px;
-        height: 10px;
-        border-radius: 100%;
-        position: relative;
-        margin-right: 5px;
-        content: ' ';
-        display: inline-block;
+    // ROW
+    .fc-week {
+      min-height: 120px;
+    }
+    // DAY NUMBER
+    .fc-day-top {
+      position: relative;
+      .fc-day-number {
+        position: absolute;
+        right: 0;
+        margin-right: 10px;
+        margin-top: 4px;
+        color: $color-placeholder;
       }
-      .fc-time { color: $item-text-color; }
-      .fc-title { display: block; }
+    }
+    .fc-event-container {
+      padding: 5px;
+      .fc-day-grid-event {
+        background: transparent;
+        font-family: "Open Sans";
+        font-size: 11px;
+        color: #636B73;
+        border: none;
+        &:hover { text-decoration: none; }
 
-      &.published .fc-content:before { background-color: $color-success; }
-      &.scheduled .fc-content:before { background-color: $color-scheduled; }
-      &.queued .fc-content:before { background-color: $color-queued; }
-      &.toReview .fc-content:before { background-color: $color-approve; }
-      &.assigned .fc-content:before { background-color: $color-assigned; }
+        .fc-content:before {
+          background: $item-text-color;
+          width: 6px;
+          height: 6px;
+          border-radius: 100%;
+          position: relative;
+          margin-right: 5px;
+          content: ' ';
+          display: inline-block;
+        }
+        .fc-time {
+          color: $color-placeholder;
+          font-size: 10px;
+        }
+        .fc-title {
+          @extend [ellipsis];
+          display: block;
+          color: md-color($md-ap-light-dark, 500);
+        }
+
+        &.published .fc-content:before { background-color: $color-success; }
+        &.scheduled .fc-content:before { background-color: $color-scheduled; }
+        &.queued .fc-content:before { background-color: $color-queued; }
+        &.toReview .fc-content:before { background-color: $color-approve; }
+        &.assigned .fc-content:before { background-color: $color-assigned; }
+      }
     }
     .fc-day.disabled {
       background-color: #EEEEEE;
