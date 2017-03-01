@@ -134,6 +134,7 @@
     &.blue { background-color: $color-blue; }
     &.default { background-color: $badge-default-color; }
     &.primary { background-color: md-color($primary); }
+    &.inactive { background-color: $color-placeholder; }
 
     i[ap-icon], md-icon {
       vertical-align: middle;

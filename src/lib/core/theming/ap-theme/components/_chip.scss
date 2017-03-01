@@ -31,6 +31,11 @@
       height: 18px;
       i[ap-icon], md-icon { margin-left: 0; font-size: 10px; }
     }
+    [ap-social-icon] {
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+    }
   }
 
   [ap-chip-tag].md-chip.md-chip-selected:not(.md-basic-chip) {
@@ -43,7 +48,7 @@
       color: md-color($primary, 500);
     }
     &.md-accent {
-      background-color: md-color($accent, 100);
+      background-color: md-color($accent, 50);
       border: md-color($accent, 500) 1px solid;
       color: md-color($accent, 500);
     }
